@@ -49,7 +49,7 @@ src/
 |---|---|
 | `/` | Cinematic hero, stat band, dual-track "two doors," fleet showcase, lifecycle teaser, outcomes, trust band, CTA |
 | `/platform` | The RaaS lifecycle: Source → Deploy → Train → Service → Report → Finance; ends with fleet-dashboard mock |
-| `/robots` | Filterable catalog of ~20 models across 8 categories |
+| `/robots` | Filterable catalog of 24 models across 8 categories |
 | `/robots/[category]` | 8 category pages with model spec tables (vacuuming, scrubbing, delivery, disinfection, security, outdoor, food-beverage, specialty) |
 | `/industries` | Anchored sections w/ sticky side-nav: hotels, hospitals, casinos (with FTE table), senior living, schools & offices |
 | `/servicing` | Nationwide network: 3,000+ techs, coverage dot-map, SLA/maintenance/help-desk columns, cert badges |
@@ -97,7 +97,7 @@ src/
 Vertical scroll narrative; each lifecycle phase (Source, Deploy, Train, Service, Report, Finance) is a numbered full-width block with a small diagram. Train phase carries the "Upskilling every janitor to robot operator" story. Ends with **DashboardMock**: stylized CSS dashboard (uptime, coverage, KPIs, ROI reports — capabilities listed on current servicing page).
 
 ### Robots + 8 category pages
-Catalog: filter bar (category/capability), ~20 model cards (name, category, one-liner, 2 headline specs). Category pages: hero, SpecTable per model with real extracted specs, "ideal for" industry chips, related categories. Models per category:
+Catalog: filter bar (by category), 24 model cards (name, category, one-liner, 2 headline specs). Category pages: hero, SpecTable per model with real extracted specs, "ideal for" industry chips, related categories. Models per category:
 - **Vacuuming:** V40, Whiz, V20, V10, Mini Vacuum
 - **Scrubbing:** S50 Pro, Sweeper, Scrubber, S75 (garage)
 - **Delivery:** D10, D20, Room Delivery System, Titan
