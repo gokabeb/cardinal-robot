@@ -66,8 +66,8 @@ export default function IndustriesPage() {
                       </caption>
                       <thead className="border-b border-ink-800 bg-ink-900 font-mono text-xs uppercase tracking-[0.1em] text-ink-400">
                         <tr>
-                          <th className="px-5 py-3 font-normal">Application</th>
-                          <th className="px-5 py-3 font-normal">Labor impact</th>
+                          <th scope="col" className="px-5 py-3 font-normal">Application</th>
+                          <th scope="col" className="px-5 py-3 font-normal">Labor impact</th>
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-ink-800">

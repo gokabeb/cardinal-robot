@@ -26,7 +26,7 @@ export const industries: Industry[] = [
     slug: "senior-living", name: "Senior Living",
     narrative: "Labor shortages hit senior living hardest. Robots cover vacuuming, delivery, and disinfection so caregivers spend their hours on residents — with rentals from $2.99/hr and unlimited servicing included.",
     robotSlugs: ["v20", "d10", "uvc-robot"],
-    metric: { value: "$2.99/hr", label: "rentals from, no upfront costs" },
+    metric: { value: "24/7", label: "help desk, remote diagnostics, and break-fix support" },
   },
   {
     slug: "schools-offices", name: "Schools & Offices",
