@@ -52,20 +52,29 @@ export function FleetGridCanvas() {
       if (!reduce && running) raf = requestAnimationFrame(draw);
     };
 
+    const schedule = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(draw);
+    };
+
     const io = new IntersectionObserver(([entry]) => {
       running = entry.isIntersecting;
-      if (running && !reduce) raf = requestAnimationFrame(draw);
-      else cancelAnimationFrame(raf);
+      cancelAnimationFrame(raf);
+      if (running) schedule();
     });
     io.observe(canvas);
 
-    window.addEventListener("resize", resize);
-    raf = requestAnimationFrame(draw);
+    const onResize = () => {
+      resize();
+      if (running) schedule();
+    };
+    window.addEventListener("resize", onResize);
 
     return () => {
+      running = false;
       cancelAnimationFrame(raf);
       io.disconnect();
-      window.removeEventListener("resize", resize);
+      window.removeEventListener("resize", onResize);
     };
   }, []);
 
