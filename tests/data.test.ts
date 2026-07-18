@@ -8,6 +8,7 @@ import { headerLinks, footerColumns } from "@/data/navigation";
 import { securityFeatures, complianceBadges } from "@/data/security";
 import { servicePillars, technicianCerts } from "@/data/servicing";
 import { financeTerms, financeProcess } from "@/data/financing";
+import { clients } from "@/data/clients";
 
 const ROUTES = [
   "/", "/platform", "/robots", "/industries", "/servicing",
@@ -72,5 +73,16 @@ describe("fact vault integrity", () => {
     expect(servicePillars.length).toBe(3);
     expect(technicianCerts.length).toBe(6);
     expect(financeProcess.length).toBe(3);
+  });
+
+  it("client wall entries are complete, unique, and sourced", () => {
+    expect(clients).toHaveLength(19);
+    for (const c of clients) {
+      expect(c.name, c.name).toBeTruthy();
+      expect(c.domain, c.name).toMatch(/^[a-z0-9-]+(\.[a-z0-9-]+)+$/);
+      expect(c.source, c.name).toContain("founder-provided 2026-07-18");
+    }
+    expect(new Set(clients.map((c) => c.domain)).size).toBe(clients.length);
+    expect(clients.map((c) => c.name)).not.toContain("Cuarvo");
   });
 });
