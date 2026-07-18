@@ -1,9 +1,48 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import { headerLinks } from "@/data/navigation";
+import { headerNav } from "@/data/navigation";
 import { categories } from "@/data/categories";
 import { cn } from "@/lib/cn";
+
+function Chevron() {
+  return (
+    <svg
+      viewBox="0 0 10 6" aria-hidden
+      className="h-1.5 w-2.5 stroke-current transition-transform duration-200 ease-out group-hover:rotate-180"
+      fill="none" strokeWidth="1.5" strokeLinecap="round"
+    >
+      <path d="M1 1l4 4 4-4" />
+    </svg>
+  );
+}
+
+const panelCn = cn(
+  "invisible absolute left-1/2 top-full -translate-x-1/2 pt-3 opacity-0",
+  "origin-top scale-[0.97] transition-all duration-150 ease-[cubic-bezier(0.16,1,0.3,1)]",
+  "group-hover:visible group-hover:scale-100 group-hover:opacity-100",
+  "group-focus-within:visible group-focus-within:scale-100 group-focus-within:opacity-100",
+);
+
+function NavDropdown({ label, children }: { label: string; children: { label: string; href: string }[] }) {
+  return (
+    <div className="group relative">
+      <button type="button" className="inline-flex items-center gap-1.5 text-sm text-body transition-colors duration-150 hover:text-navy">
+        {label}
+        <Chevron />
+      </button>
+      <div className={panelCn}>
+        <div className="glass w-56 rounded-2xl border border-line/70 p-2 shadow-xl shadow-navy/[0.07]">
+          {children.map((l) => (
+            <Link key={l.href} href={l.href} className="block rounded-lg px-3.5 py-2.5 text-sm text-body transition-colors duration-100 hover:bg-cardinal-50 hover:text-cardinal-700">
+              {l.label}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -63,11 +102,15 @@ export function Header() {
               </div>
             </div>
           </div>
-          {headerLinks.map((l) => (
-            <Link key={l.href} href={l.href} className="text-sm text-body transition-colors duration-150 hover:text-navy">
-              {l.label}
-            </Link>
-          ))}
+          {headerNav.map((item) =>
+            item.children ? (
+              <NavDropdown key={item.label} label={item.label} children={item.children} />
+            ) : (
+              <Link key={item.href} href={item.href!} className="text-sm text-body transition-colors duration-150 hover:text-navy">
+                {item.label}
+              </Link>
+            ),
+          )}
           <Link
             href="/contact"
             className="rounded-full bg-cardinal-600 px-5 py-2 font-display text-sm font-semibold text-white transition-colors duration-150 hover:bg-cardinal-700"
@@ -92,11 +135,20 @@ export function Header() {
         <div className="border-t border-line/60 bg-paper px-6 py-6 lg:hidden">
           <div className="flex flex-col gap-4">
             <Link href="/robots" onClick={() => setMobileOpen(false)} className="text-navy">Robots</Link>
-            {headerLinks.map((l) => (
-              <Link key={l.href} href={l.href} onClick={() => setMobileOpen(false)} className="text-body">
-                {l.label}
-              </Link>
-            ))}
+            {headerNav.map((item) =>
+              item.children ? (
+                <div key={item.label}>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted">{item.label}</p>
+                  <div className="mt-2 flex flex-col gap-3 border-l border-line pl-4">
+                    {item.children.map((l) => (
+                      <Link key={l.href} href={l.href} onClick={() => setMobileOpen(false)} className="text-body">{l.label}</Link>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <Link key={item.href} href={item.href!} onClick={() => setMobileOpen(false)} className="text-body">{item.label}</Link>
+              ),
+            )}
             <Link
               href="/contact"
               onClick={() => setMobileOpen(false)}

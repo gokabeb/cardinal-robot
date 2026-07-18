@@ -4,7 +4,7 @@ import { categories } from "@/data/categories";
 import { heroStats, outcomes } from "@/data/stats";
 import { industries, casinoFteTable } from "@/data/industries";
 import { roadmap } from "@/data/roadmap";
-import { headerLinks, footerColumns } from "@/data/navigation";
+import { headerNav, footerColumns } from "@/data/navigation";
 import { securityFeatures, complianceBadges } from "@/data/security";
 import { servicePillars, technicianCerts } from "@/data/servicing";
 import { financeTerms, financeProcess } from "@/data/financing";
@@ -21,6 +21,7 @@ import { dataResidency } from "@/data/security";
 const ROUTES = [
   "/", "/platform", "/robots", "/industries", "/servicing",
   "/security", "/financing", "/about", "/contact",
+  "/us-assembly", "/data-collection", "/research", "/insurance-shipping",
   ...categories.map((c) => `/robots/${c.slug}`),
 ];
 
@@ -58,10 +59,12 @@ describe("fact vault integrity", () => {
   });
 
   it("navigation links point at real routes", () => {
-    const links = [...headerLinks, ...footerColumns.flatMap((c) => c.links)];
+    const links = [
+      ...headerNav.flatMap((i) => (i.children ? i.children : [{ label: i.label, href: i.href! }])),
+      ...footerColumns.flatMap((c) => c.links),
+    ];
     for (const l of links) {
-      const internal = l.href.startsWith("/");
-      if (internal) expect(ROUTES.includes(l.href.split("#")[0]), l.href).toBe(true);
+      if (l.href.startsWith("/")) expect(ROUTES.includes(l.href.split("#")[0]), l.href).toBe(true);
     }
   });
 

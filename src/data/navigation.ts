@@ -1,9 +1,31 @@
-export const headerLinks = [
-  { label: "Platform", href: "/platform" },
-  { label: "Industries", href: "/industries" },
-  { label: "Servicing", href: "/servicing" },
-  { label: "Security", href: "/security" },
+export interface NavLink { label: string; href: string }
+export interface NavItem { label: string; href?: string; children?: NavLink[] }
+
+// Approved IA: Robots keeps its category mega-menu (special-cased in Header).
+export const headerNav: NavItem[] = [
   { label: "Financing", href: "/financing" },
+  {
+    label: "Services",
+    children: [
+      { label: "Servicing", href: "/servicing" },
+      { label: "Insurance & Shipping", href: "/insurance-shipping" },
+    ],
+  },
+  {
+    label: "Trust",
+    children: [
+      { label: "Cyber Security", href: "/security" },
+      { label: "US Assembly", href: "/us-assembly" },
+    ],
+  },
+  {
+    label: "Technology",
+    children: [
+      { label: "Data Collection", href: "/data-collection" },
+      { label: "Research & Development", href: "/research" },
+      { label: "Platform", href: "/platform" },
+    ],
+  },
   { label: "About", href: "/about" },
 ];
 
@@ -12,26 +34,34 @@ export const footerColumns = [
     title: "Fleet",
     links: [
       { label: "All robots", href: "/robots" },
+      { label: "Industries", href: "/industries" },
       { label: "Vacuuming", href: "/robots/vacuuming" },
-      { label: "Scrubbing & Sweeping", href: "/robots/scrubbing" },
       { label: "Delivery", href: "/robots/delivery" },
       { label: "UV-C Disinfection", href: "/robots/disinfection" },
     ],
   },
   {
-    title: "Platform",
+    title: "Services",
     links: [
-      { label: "How it works", href: "/platform" },
-      { label: "Industries", href: "/industries" },
       { label: "Servicing", href: "/servicing" },
-      { label: "Security", href: "/security" },
+      { label: "Insurance & Shipping", href: "/insurance-shipping" },
+      { label: "Financing", href: "/financing" },
+      { label: "Platform", href: "/platform" },
+    ],
+  },
+  {
+    title: "Trust",
+    links: [
+      { label: "Cyber Security", href: "/security" },
+      { label: "US Assembly", href: "/us-assembly" },
+      { label: "Data Collection", href: "/data-collection" },
+      { label: "Research & Development", href: "/research" },
     ],
   },
   {
     title: "Company",
     links: [
       { label: "About", href: "/about" },
-      { label: "Financing", href: "/financing" },
       { label: "Contact", href: "/contact" },
     ],
   },
