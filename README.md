@@ -20,6 +20,14 @@ The contact form posts to Web3Forms. Set the key in `.env.local`:
 
 Without the key, submissions show a visible error with a mailto fallback.
 
+## Client logos
+
+The trusted-by wall fetches brand marks from logo.dev. Set a publishable key in `.env.local`:
+
+    NEXT_PUBLIC_LOGO_DEV_TOKEN=pk_...
+
+Without the key (or when a logo 404s), each cell falls back to a styled text wordmark.
+
 ## Content rules
 
 All factual claims (stats, specs, prices, credentials) live in `src/data/` and must trace to the
