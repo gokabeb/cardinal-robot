@@ -9,6 +9,14 @@ import { securityFeatures, complianceBadges } from "@/data/security";
 import { servicePillars, technicianCerts } from "@/data/servicing";
 import { financeTerms, financeProcess } from "@/data/financing";
 import { clients } from "@/data/clients";
+import { assemblyPillars } from "@/data/assembly";
+import { dataOpsStats } from "@/data/dataops";
+import { researchStats, researchNote } from "@/data/research";
+import { logisticsSections } from "@/data/logistics";
+import { aboutFacts } from "@/data/about";
+import { financingHighlights } from "@/data/financing";
+import { servicingHighlights } from "@/data/servicing";
+import { dataResidency } from "@/data/security";
 
 const ROUTES = [
   "/", "/platform", "/robots", "/industries", "/servicing",
@@ -84,5 +92,26 @@ describe("fact vault integrity", () => {
     }
     expect(new Set(clients.map((c) => c.domain)).size).toBe(clients.length);
     expect(clients.map((c) => c.name)).not.toContain("Cuarvo");
+  });
+
+  it("expansion facts are present and founder-sourced", () => {
+    const sourced = [
+      ...assemblyPillars, ...dataOpsStats, ...researchStats,
+      ...logisticsSections, ...financingHighlights, ...servicingHighlights,
+      researchNote, aboutFacts, dataResidency,
+    ];
+    for (const f of sourced) expect(f.source).toContain("founder-provided 2026-07-18");
+    expect(assemblyPillars).toHaveLength(4);
+    expect(dataOpsStats).toHaveLength(3);
+    expect(researchStats).toHaveLength(3);
+    expect(logisticsSections.map((s) => s.title)).toEqual([
+      "Dedicated Insurance", "US Shipping of Robots", "Warehousing & Parts",
+    ]);
+    expect(financingHighlights.map((h) => h.value)).toEqual(["$800M", "<5%", "0%"]);
+  });
+
+  it("the canonical technician count is 3,000+ wherever it appears", () => {
+    expect(servicingHighlights.find((h) => h.label.includes("technicians"))?.value).toBe("3,000+");
+    expect(aboutFacts.veterans).toContain("3,000+");
   });
 });

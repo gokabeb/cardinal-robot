@@ -27,3 +27,9 @@ export const servicePillars = [
 ];
 
 export const technicianCerts = ["A+", "Net+", "MCSE", "Mobility+", "CompTIA", "Security+"];
+
+export const servicingHighlights = [
+  { value: "24/7", label: "Support line", source: "founder-provided 2026-07-18" },
+  { value: "3,000+", label: "Certified technicians nationwide", source: "founder-provided 2026-07-18" },
+  { value: "Veterans", label: "Upskilled into robot technicians", source: "founder-provided 2026-07-18" },
+];

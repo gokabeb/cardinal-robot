@@ -23,3 +23,9 @@ export const financeProcess = [
 ];
 
 export const financeEmail = "finance@cardinalrobot.com";
+
+export const financingHighlights = [
+  { value: "$800M", label: "Dedicated capital facility", source: "founder-provided 2026-07-18" },
+  { value: "<5%", label: "Annualized rate", source: "founder-provided 2026-07-18" },
+  { value: "0%", label: "Dilution", source: "founder-provided 2026-07-18" },
+];

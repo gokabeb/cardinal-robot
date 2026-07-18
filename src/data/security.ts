@@ -13,3 +13,9 @@ export const securityFeatures = [
 ];
 
 export const complianceBadges = ["SOC 2", "ISO 27001", "HIPAA", "GDPR"];
+
+export const dataResidency = {
+  headline: "No Wi-Fi. U.S. servers. 100% audited.",
+  body: "Cardinal robots operate without Wi-Fi — all fleet data stays on U.S. data servers, and every system is fully audited.",
+  source: "founder-provided 2026-07-18 (softened wording, approved)",
+};
