@@ -11,7 +11,7 @@ export const metadata: Metadata = { title: "Financing" };
 export default function FinancingPage() {
   return (
     <main>
-      <section className="blueprint-grid border-b border-ink-800 py-24">
+      <section className="blueprint-grid border-b border-line py-24">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal>
             <SectionHeading
@@ -28,18 +28,18 @@ export default function FinancingPage() {
           <SectionHeading eyebrow="Terms" title="The spec sheet." />
         </Reveal>
         <Reveal delay={0.1} className="mt-10">
-          <dl className="divide-y divide-ink-800 border-y border-ink-800">
+          <dl className="divide-y divide-line border-y border-line">
             {financeTerms.map((t) => (
               <div key={t.label} className="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[280px_1fr] sm:gap-6">
-                <dt className="text-sm text-ink-400">{t.label}</dt>
-                <dd className="font-mono text-sm text-ink-50">{t.value}</dd>
+                <dt className="text-sm text-muted">{t.label}</dt>
+                <dd className="font-mono text-sm text-navy">{t.value}</dd>
               </div>
             ))}
           </dl>
         </Reveal>
       </section>
 
-      <section className="border-y border-ink-800 bg-ink-900/40 py-24">
+      <section className="border-y border-line bg-panel/40 py-24">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal>
             <SectionHeading eyebrow="Process" title="Three steps to capital." />
@@ -48,8 +48,8 @@ export default function FinancingPage() {
             {financeProcess.map((p) => (
               <StaggerItem key={p.step}>
                 <Card className="h-full">
-                  <p className="font-mono text-xs text-cardinal-500">{p.step}</p>
-                  <h3 className="mt-3 font-display text-xl font-medium text-ink-50">{p.title}</h3>
+                  <p className="font-mono text-xs text-cardinal-600">{p.step}</p>
+                  <h3 className="mt-3 font-display text-xl font-medium text-navy">{p.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed">{p.body}</p>
                 </Card>
               </StaggerItem>
@@ -69,8 +69,8 @@ export default function FinancingPage() {
               </li>
             ))}
           </ul>
-          <p className="mt-10 font-mono text-sm text-ink-400">
-            Direct line: <a href={`mailto:${financeEmail}`} className="text-cardinal-500 hover:text-cardinal-400">{financeEmail}</a>
+          <p className="mt-10 font-mono text-sm text-muted">
+            Direct line: <a href={`mailto:${financeEmail}`} className="text-cardinal-600 hover:text-cardinal-700">{financeEmail}</a>
           </p>
         </Reveal>
       </section>

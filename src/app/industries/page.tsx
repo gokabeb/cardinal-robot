@@ -15,7 +15,7 @@ export default function IndustriesPage() {
 
   return (
     <main>
-      <section className="blueprint-grid border-b border-ink-800 py-24">
+      <section className="blueprint-grid border-b border-line py-24">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal>
             <SectionHeading
@@ -29,10 +29,10 @@ export default function IndustriesPage() {
 
       <div className="mx-auto grid max-w-6xl gap-12 px-6 py-16 lg:grid-cols-[220px_1fr]">
         <nav className="top-24 hidden self-start lg:sticky lg:block" aria-label="Industries">
-          <ul className="space-y-1 border-l border-ink-800">
+          <ul className="space-y-1 border-l border-line">
             {industries.map((ind) => (
               <li key={ind.slug}>
-                <a href={`#${ind.slug}`} className="block border-l-2 border-transparent px-4 py-2 text-sm text-ink-400 transition-colors duration-150 hover:border-cardinal-500 hover:text-ink-50">
+                <a href={`#${ind.slug}`} className="block border-l-2 border-transparent px-4 py-2 text-sm text-muted transition-colors duration-150 hover:border-cardinal-500 hover:text-navy">
                   {ind.name}
                 </a>
               </li>
@@ -44,12 +44,12 @@ export default function IndustriesPage() {
           {industries.map((ind, i) => (
             <section key={ind.slug} id={ind.slug} className="scroll-mt-24">
               <Reveal>
-                <p className="font-mono text-xs text-ink-400">{String(i + 1).padStart(2, "0")}</p>
-                <h2 className="mt-2 font-display text-3xl font-medium text-ink-50">{ind.name}</h2>
+                <p className="font-mono text-xs text-muted">{String(i + 1).padStart(2, "0")}</p>
+                <h2 className="mt-2 font-display text-3xl font-medium text-navy">{ind.name}</h2>
                 <p className="mt-4 max-w-2xl text-lg leading-relaxed">{ind.narrative}</p>
-                <div className="mt-6 rounded-lg border border-ink-800 bg-ink-900 p-6">
-                  <p className="font-display text-3xl font-medium text-cardinal-500">{ind.metric.value}</p>
-                  <p className="mt-1 font-mono text-xs uppercase tracking-[0.15em] text-ink-400">{ind.metric.label}</p>
+                <div className="mt-6 rounded-lg border border-line bg-panel p-6">
+                  <p className="font-display text-3xl font-medium text-cardinal-600">{ind.metric.value}</p>
+                  <p className="mt-1 font-mono text-xs uppercase tracking-[0.15em] text-muted">{ind.metric.label}</p>
                 </div>
                 <div className="mt-6 flex flex-wrap gap-2">
                   {ind.robotSlugs.map((slug) => (
@@ -59,22 +59,22 @@ export default function IndustriesPage() {
                   ))}
                 </div>
                 {ind.slug === "casinos" && (
-                  <div className="mt-8 overflow-hidden rounded-lg border border-ink-800">
+                  <div className="mt-8 overflow-hidden rounded-lg border border-line">
                     <table className="w-full text-left text-sm">
-                      <caption className="border-b border-ink-800 bg-ink-900 px-5 py-3 text-left font-mono text-xs uppercase tracking-[0.2em] text-ink-400">
+                      <caption className="border-b border-line bg-panel px-5 py-3 text-left font-mono text-xs uppercase tracking-[0.2em] text-muted">
                         Measured impact per application
                       </caption>
-                      <thead className="border-b border-ink-800 bg-ink-900 font-mono text-xs uppercase tracking-[0.1em] text-ink-400">
+                      <thead className="border-b border-line bg-panel font-mono text-xs uppercase tracking-[0.1em] text-muted">
                         <tr>
                           <th scope="col" className="px-5 py-3 font-normal">Application</th>
                           <th scope="col" className="px-5 py-3 font-normal">Labor impact</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-ink-800">
+                      <tbody className="divide-y divide-line">
                         {casinoFteTable.map((row) => (
                           <tr key={row.application}>
-                            <td className="px-5 py-3 text-ink-300">{row.application}</td>
-                            <td className="px-5 py-3 font-mono text-ink-50">{row.impact}</td>
+                            <td className="px-5 py-3 text-body">{row.application}</td>
+                            <td className="px-5 py-3 font-mono text-navy">{row.impact}</td>
                           </tr>
                         ))}
                       </tbody>

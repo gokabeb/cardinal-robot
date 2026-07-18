@@ -32,11 +32,11 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
 
   return (
     <main>
-      <section className="blueprint-grid border-b border-ink-800 py-24">
+      <section className="blueprint-grid border-b border-line py-24">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal>
-            <p className="font-mono text-xs text-ink-400">
-              <Link href="/robots" className="hover:text-ink-50">The fleet</Link> / {cat.name}
+            <p className="font-mono text-xs text-muted">
+              <Link href="/robots" className="hover:text-navy">The fleet</Link> / {cat.name}
             </p>
             <SectionHeading className="mt-6" eyebrow={cat.name} title={cat.name} lede={cat.blurb} />
           </Reveal>
@@ -44,11 +44,11 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
       </section>
 
       {models.map((r, i) => (
-        <section key={r.slug} id={r.slug} className={i % 2 === 1 ? "border-y border-ink-800 bg-ink-900/40" : ""}>
+        <section key={r.slug} id={r.slug} className={i % 2 === 1 ? "border-y border-line bg-panel/40" : ""}>
           <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 lg:grid-cols-2">
             <Reveal>
-              <p className="font-mono text-xs text-ink-400">{String(i + 1).padStart(2, "0")} / {cat.name.toUpperCase()}</p>
-              <h2 className="mt-3 font-display text-4xl font-medium text-ink-50">{r.name}</h2>
+              <p className="font-mono text-xs text-muted">{String(i + 1).padStart(2, "0")} / {cat.name.toUpperCase()}</p>
+              <h2 className="mt-3 font-display text-4xl font-medium text-navy">{r.name}</h2>
               <p className="mt-4 text-lg leading-relaxed">{r.tagline}</p>
               <div className="mt-6 flex flex-wrap gap-2">
                 {r.idealFor.map((tag) => <Badge key={tag}>{tag}</Badge>)}
@@ -60,10 +60,10 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
       ))}
 
       <section className="mx-auto max-w-6xl px-6 py-20">
-        <p className="font-mono text-xs uppercase tracking-[0.25em] text-ink-400">Related categories</p>
+        <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted">Related categories</p>
         <div className="mt-6 flex flex-wrap gap-3">
           {related.map((c) => (
-            <Link key={c.slug} href={`/robots/${c.slug}`} className="rounded border border-ink-800 px-5 py-3 font-display text-sm text-ink-50 transition-colors duration-150 hover:border-cardinal-500">
+            <Link key={c.slug} href={`/robots/${c.slug}`} className="rounded border border-line px-5 py-3 font-display text-sm text-navy transition-colors duration-150 hover:border-cardinal-500">
               {c.name} →
             </Link>
           ))}

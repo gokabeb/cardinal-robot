@@ -13,7 +13,7 @@ export const metadata: Metadata = { title: "Servicing" };
 export default function ServicingPage() {
   return (
     <main>
-      <section className="blueprint-grid border-b border-ink-800 py-24">
+      <section className="blueprint-grid border-b border-line py-24">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal>
             <SectionHeading
@@ -27,17 +27,17 @@ export default function ServicingPage() {
 
       <section className="mx-auto max-w-5xl px-6 py-20">
         <Reveal>
-          <p className="text-center font-mono text-xs uppercase tracking-[0.25em] text-ink-400">
+          <p className="text-center font-mono text-xs uppercase tracking-[0.25em] text-muted">
             Nationwide coverage
           </p>
           <div className="mt-10"><USCoverageMap /></div>
-          <p className="mt-6 text-center font-mono text-xs text-ink-400">
+          <p className="mt-6 text-center font-mono text-xs text-muted">
             3,000+ certified technicians. Onsite and periodic maintenance.
           </p>
         </Reveal>
       </section>
 
-      <section className="border-y border-ink-800 bg-ink-900/40 py-24">
+      <section className="border-y border-line bg-panel/40 py-24">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal>
             <SectionHeading eyebrow="What's covered" title="Three layers of support." />
@@ -46,7 +46,7 @@ export default function ServicingPage() {
             {servicePillars.map((p) => (
               <StaggerItem key={p.title}>
                 <Card className="h-full">
-                  <h3 className="font-display text-xl font-medium text-ink-50">{p.title}</h3>
+                  <h3 className="font-display text-xl font-medium text-navy">{p.title}</h3>
                   <ul className="mt-5 space-y-3">
                     {p.points.map((pt) => (
                       <li key={pt} className="flex gap-3 text-sm leading-relaxed">
@@ -64,11 +64,11 @@ export default function ServicingPage() {
 
       <section className="mx-auto max-w-6xl px-6 py-20 text-center">
         <Reveal>
-          <p className="font-mono text-xs uppercase tracking-[0.25em] text-ink-400">Technician certifications</p>
+          <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted">Technician certifications</p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             {technicianCerts.map((c) => <Badge key={c}>{c}</Badge>)}
           </div>
-          <p className="mt-8 font-mono text-xs text-ink-400">ISO 27001 information security, globally certified.</p>
+          <p className="mt-8 font-mono text-xs text-muted">ISO 27001 information security, globally certified.</p>
         </Reveal>
       </section>
 

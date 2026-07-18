@@ -11,7 +11,7 @@ export const metadata: Metadata = { title: "About" };
 export default function AboutPage() {
   return (
     <main>
-      <section className="blueprint-grid border-b border-ink-800 py-24">
+      <section className="blueprint-grid border-b border-line py-24">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal>
             <SectionHeading
@@ -26,7 +26,7 @@ export default function AboutPage() {
       <section className="mx-auto max-w-6xl px-6 py-20">
         <div className="grid gap-16 lg:grid-cols-2">
           <Reveal>
-            <h2 className="font-display text-2xl font-medium text-ink-50">The problem we work on</h2>
+            <h2 className="font-display text-2xl font-medium text-navy">The problem we work on</h2>
             <p className="mt-4 leading-relaxed">
               Clients are struggling to hire and retain their staff. Labor shortages keep growing, and the work still has to get done.
               Cardinal exists to augment your existing workforce with best-in-class robots — solving the problem financially,
@@ -34,7 +34,7 @@ export default function AboutPage() {
             </p>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="font-display text-2xl font-medium text-ink-50">Who we are</h2>
+            <h2 className="font-display text-2xl font-medium text-navy">Who we are</h2>
             <p className="mt-4 leading-relaxed">
               A team of PhDs, MBAs, and robotic experts from Stanford and Berkeley, with experience both building robots and
               deploying them. We work closely with every client to tailor-make solutions that work for them.
@@ -43,7 +43,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="border-y border-ink-800 bg-ink-900/40">
+      <section className="border-y border-line bg-panel/40">
         <div className="mx-auto grid max-w-6xl grid-cols-2 gap-10 px-6 py-16 lg:grid-cols-4">
           {heroStats.map((s) => <StatCounter key={s.label} stat={s} />)}
         </div>

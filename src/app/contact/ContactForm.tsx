@@ -4,7 +4,7 @@ import { financeEmail } from "@/data/financing";
 
 const INTERESTS = ["Rent robots", "Servicing", "Financing", "Other"];
 const inputCls =
-  "w-full rounded border border-ink-800 bg-ink-900 px-4 py-3 text-sm text-ink-50 placeholder:text-ink-400 focus:border-cardinal-500 focus:outline-none transition-colors duration-150";
+  "w-full rounded border border-line bg-panel px-4 py-3 text-sm text-navy placeholder:text-muted focus:border-cardinal-500 focus:outline-none transition-colors duration-150";
 
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
@@ -24,9 +24,9 @@ export function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-lg border border-ink-800 bg-ink-900 p-10 text-center">
+      <div className="rounded-lg border border-line bg-panel p-10 text-center">
         <p className="font-mono text-xs uppercase tracking-[0.25em] text-status">Message received</p>
-        <p className="mt-4 text-ink-50">Thanks. We&apos;ll get back to you shortly.</p>
+        <p className="mt-4 text-navy">Thanks. We&apos;ll get back to you shortly.</p>
       </div>
     );
   }
@@ -49,12 +49,12 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="w-full rounded bg-cardinal-500 px-6 py-3.5 font-display text-sm font-medium text-ink-50 transition-colors duration-150 hover:bg-cardinal-400 disabled:opacity-60"
+        className="w-full rounded bg-cardinal-500 px-6 py-3.5 font-display text-sm font-medium text-navy transition-colors duration-150 hover:bg-cardinal-600 disabled:opacity-60"
       >
         {status === "sending" ? "Sending…" : "Send message"}
       </button>
       {status === "error" && (
-        <p role="alert" className="text-sm text-cardinal-400">
+        <p role="alert" className="text-sm text-cardinal-600">
           Something went wrong sending your message. Email us directly at{" "}
           <a href={`mailto:${financeEmail}`} className="underline">{financeEmail}</a>.
         </p>

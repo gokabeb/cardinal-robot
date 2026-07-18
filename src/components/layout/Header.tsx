@@ -9,36 +9,69 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-ink-800/60 bg-ink-950/80 backdrop-blur">
-      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <Link href="/" className="font-display text-lg font-semibold tracking-tight text-ink-50">
-          Cardinal<span className="text-cardinal-500">.</span>
+    <header className="glass fixed inset-x-0 top-0 z-50 border-b border-line/60">
+      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
+        <Link href="/" className="flex items-center" aria-label="Cardinal Robotics home">
+          <img src="/brand/logo-navy.png" alt="Cardinal Robotics" className="h-8 w-auto" />
         </Link>
 
         <div className="hidden items-center gap-7 lg:flex">
           <div className="group relative">
-            <Link href="/robots" className="text-sm text-ink-300 transition-colors duration-150 hover:text-ink-50">
+            <Link
+              href="/robots"
+              className="inline-flex items-center gap-1.5 text-sm text-body transition-colors duration-150 hover:text-navy"
+            >
               Robots
+              <svg
+                viewBox="0 0 10 6" aria-hidden
+                className="h-1.5 w-2.5 stroke-current transition-transform duration-200 ease-out group-hover:rotate-180"
+                fill="none" strokeWidth="1.5" strokeLinecap="round"
+              >
+                <path d="M1 1l4 4 4-4" />
+              </svg>
             </Link>
-            <div className="invisible absolute left-1/2 top-full -translate-x-1/2 pt-4 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-              <div className="grid w-[420px] grid-cols-2 gap-1 rounded-lg border border-ink-800 bg-ink-900 p-3">
-                {categories.map((c) => (
-                  <Link key={c.slug} href={`/robots/${c.slug}`} className="rounded px-3 py-2 text-sm text-ink-300 transition-colors duration-150 hover:bg-ink-800 hover:text-ink-50">
-                    {c.name}
-                  </Link>
-                ))}
-                <Link href="/robots" className="col-span-2 rounded px-3 py-2 font-mono text-xs uppercase tracking-[0.15em] text-cardinal-500 hover:bg-ink-800">
-                  View all 24 robots →
+            <div
+              className={cn(
+                "invisible absolute left-1/2 top-full -translate-x-1/2 pt-3 opacity-0",
+                "origin-top scale-[0.97] transition-all duration-150 ease-[cubic-bezier(0.16,1,0.3,1)]",
+                "group-hover:visible group-hover:scale-100 group-hover:opacity-100",
+                "group-focus-within:visible group-focus-within:scale-100 group-focus-within:opacity-100",
+              )}
+            >
+              <div className="glass w-[460px] rounded-2xl border border-line/70 p-2 shadow-xl shadow-navy/[0.07]">
+                <div className="grid grid-cols-2 gap-0.5">
+                  {categories.map((c, i) => (
+                    <Link
+                      key={c.slug}
+                      href={`/robots/${c.slug}`}
+                      className="group/item flex items-baseline gap-2.5 rounded-lg px-3.5 py-2.5 transition-colors duration-100 hover:bg-cardinal-50"
+                    >
+                      <span className="font-mono text-[10px] tabular text-muted">{String(i + 1).padStart(2, "0")}</span>
+                      <span className="text-sm text-body transition-colors duration-100 group-hover/item:text-cardinal-700">
+                        {c.name}
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+                <Link
+                  href="/robots"
+                  className="mt-1 flex items-center justify-between rounded-lg border-t border-line/60 px-3.5 py-2.5 font-mono text-xs uppercase tracking-[0.15em] text-cardinal-600 transition-colors duration-100 hover:bg-cardinal-50"
+                >
+                  View all 24 robots
+                  <span aria-hidden>→</span>
                 </Link>
               </div>
             </div>
           </div>
           {headerLinks.map((l) => (
-            <Link key={l.href} href={l.href} className="text-sm text-ink-300 transition-colors duration-150 hover:text-ink-50">
+            <Link key={l.href} href={l.href} className="text-sm text-body transition-colors duration-150 hover:text-navy">
               {l.label}
             </Link>
           ))}
-          <Link href="/contact" className="rounded bg-cardinal-500 px-4 py-2 font-display text-sm font-medium text-ink-50 transition-colors duration-150 hover:bg-cardinal-400">
+          <Link
+            href="/contact"
+            className="rounded-full bg-cardinal-600 px-5 py-2 font-display text-sm font-semibold text-white transition-colors duration-150 hover:bg-cardinal-700"
+          >
             Get in Touch
           </Link>
         </div>
@@ -50,21 +83,25 @@ export function Header() {
           onClick={() => setMobileOpen((o) => !o)}
           className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 lg:hidden"
         >
-          <span className={cn("h-px w-5 bg-ink-50 transition-transform duration-150", mobileOpen && "translate-y-[3.5px] rotate-45")} />
-          <span className={cn("h-px w-5 bg-ink-50 transition-transform duration-150", mobileOpen && "-translate-y-[3.5px] -rotate-45")} />
+          <span className={cn("h-px w-5 bg-navy transition-transform duration-150", mobileOpen && "translate-y-[3.5px] rotate-45")} />
+          <span className={cn("h-px w-5 bg-navy transition-transform duration-150", mobileOpen && "-translate-y-[3.5px] -rotate-45")} />
         </button>
       </nav>
 
       {mobileOpen && (
-        <div className="border-t border-ink-800 bg-ink-950 px-6 py-6 lg:hidden">
+        <div className="border-t border-line/60 bg-paper px-6 py-6 lg:hidden">
           <div className="flex flex-col gap-4">
-            <Link href="/robots" onClick={() => setMobileOpen(false)} className="text-ink-50">Robots</Link>
+            <Link href="/robots" onClick={() => setMobileOpen(false)} className="text-navy">Robots</Link>
             {headerLinks.map((l) => (
-              <Link key={l.href} href={l.href} onClick={() => setMobileOpen(false)} className="text-ink-300">
+              <Link key={l.href} href={l.href} onClick={() => setMobileOpen(false)} className="text-body">
                 {l.label}
               </Link>
             ))}
-            <Link href="/contact" onClick={() => setMobileOpen(false)} className="mt-2 rounded bg-cardinal-500 px-4 py-3 text-center font-display text-sm font-medium text-ink-50">
+            <Link
+              href="/contact"
+              onClick={() => setMobileOpen(false)}
+              className="mt-2 rounded-full bg-cardinal-600 px-4 py-3 text-center font-display text-sm font-semibold text-white"
+            >
               Get in Touch
             </Link>
           </div>

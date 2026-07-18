@@ -9,10 +9,10 @@ export function Button({ href, variant = "solid", children, className }: {
     <Link
       href={href}
       className={cn(
-        "inline-flex items-center gap-2 rounded px-6 py-3 font-display text-sm font-medium transition-colors duration-150",
+        "inline-flex items-center gap-2 rounded-full px-7 py-3 font-display text-sm font-semibold transition-colors duration-150",
         variant === "solid"
-          ? "bg-cardinal-500 text-ink-50 hover:bg-cardinal-400"
-          : "border border-ink-800 text-ink-50 hover:border-cardinal-500",
+          ? "bg-cardinal-600 text-white hover:bg-cardinal-700"
+          : "border border-line text-navy hover:border-cardinal-500 hover:bg-cardinal-50",
         className,
       )}
     >

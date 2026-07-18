@@ -38,3 +38,4 @@ export const footerColumns = [
 ];
 
 export const youtubeUrl = "https://www.youtube.com/@cardinalrobotics4147";
+export const linkedinUrl = "https://www.linkedin.com/in/karanguptasf/";

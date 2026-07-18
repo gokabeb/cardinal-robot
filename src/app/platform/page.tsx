@@ -21,7 +21,7 @@ const PHASES = [
 export default function PlatformPage() {
   return (
     <main>
-      <section className="blueprint-grid border-b border-ink-800 py-24">
+      <section className="blueprint-grid border-b border-line py-24">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal>
             <SectionHeading
@@ -35,13 +35,13 @@ export default function PlatformPage() {
       </section>
 
       {PHASES.map((phase, i) => (
-        <section key={phase.title} className={i % 2 === 1 ? "border-y border-ink-800 bg-ink-900/40" : ""}>
+        <section key={phase.title} className={i % 2 === 1 ? "border-y border-line bg-panel/40" : ""}>
           <div className="mx-auto grid max-w-6xl gap-8 px-6 py-20 md:grid-cols-[220px_1fr]">
             <Reveal>
               <Eyebrow index={String(i + 1).padStart(2, "0")}>{phase.title}</Eyebrow>
             </Reveal>
             <Reveal delay={0.1}>
-              <h2 className="font-display text-3xl font-medium text-ink-50">{phase.title}</h2>
+              <h2 className="font-display text-3xl font-medium text-navy">{phase.title}</h2>
               <p className="mt-4 max-w-2xl text-lg leading-relaxed">{phase.body}</p>
             </Reveal>
           </div>
