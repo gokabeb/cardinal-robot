@@ -17,6 +17,7 @@ import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import { CTAPanel } from "@/components/ui/CTAPanel";
+import { LogoWall } from "@/components/ui/LogoWall";
 
 const IMG = {
   hero: "https://images.unsplash.com/photo-1601132359864-c974e79890ac?auto=format&fit=crop&w=2400&q=80",
@@ -70,11 +71,11 @@ export default function Home() {
                 />
               </Parallax>
               <div className="absolute inset-x-0 bottom-0 flex flex-wrap items-end justify-between gap-3 p-5 sm:p-6">
-                <div className="glass flex items-baseline gap-2.5 rounded-full border border-line/60 px-5 py-2.5">
+                <div className="flex items-baseline gap-2.5 rounded-full border border-line bg-paper px-5 py-2.5 shadow-sm">
                   <span className="font-mono tabular text-sm font-medium text-navy">35,000+</span>
                   <span className="text-xs text-body">robots deployed</span>
                 </div>
-                <div className="glass hidden items-baseline gap-2.5 rounded-full border border-line/60 px-5 py-2.5 sm:flex">
+                <div className="hidden items-baseline gap-2.5 rounded-full border border-line bg-paper px-5 py-2.5 shadow-sm sm:flex">
                   <span className="font-mono tabular text-sm font-medium text-navy">3,000+</span>
                   <span className="text-xs text-body">technicians nationwide</span>
                 </div>
@@ -84,8 +85,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2 — Category ticker */}
-      <section className="mt-20 border-y border-line/70 bg-panel/50 py-5 sm:mt-28">
+      {/* 2 — Trusted by */}
+      <section className="mx-auto mt-20 max-w-7xl px-6 sm:mt-28">
+        <Reveal>
+          <p className="text-center font-mono text-xs uppercase tracking-[0.25em] text-muted">
+            Trusted by the world&apos;s leading operators
+          </p>
+          <LogoWall className="mt-10" />
+        </Reveal>
+      </section>
+
+      {/* 3 — Category ticker */}
+      <section className="mt-16 border-y border-line/70 bg-panel/50 py-5 sm:mt-20">
         <Marquee pauseOnHover>
           {categories.map((c) => (
             <span key={c.slug} className="flex items-center">
@@ -243,39 +254,35 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5 — Full-bleed statement */}
-      <section className="relative border-y border-line/70">
-        <Parallax className="relative h-[60vh] min-h-[440px]" range={10}>
-          <img
-            src={IMG.warehouse}
-            alt=""
-            aria-hidden
-            loading="lazy"
-            className="img-tone h-[112%] w-full object-cover"
-          />
-        </Parallax>
-        <div className="absolute inset-0 bg-gradient-to-r from-paper via-paper/85 to-paper/20" />
-        <div className="absolute inset-0 flex items-center">
-          <div className="mx-auto w-full max-w-7xl px-6">
-            <Reveal>
-              <Eyebrow>Why Cardinal</Eyebrow>
-              <p className="mt-6 max-w-2xl font-display text-3xl font-semibold leading-tight tracking-[-0.02em] text-navy sm:text-5xl">
-                Robots don&apos;t fail at the demo. They fail at deployment.
-              </p>
-              <p className="mt-5 max-w-xl leading-relaxed">
-                That&apos;s the part we own: installation, integration, training, and 3,000+ certified technicians on call nationwide.
-              </p>
-              <div className="mt-8">
-                <Button href="/servicing" variant="outline" className="bg-paper/70 backdrop-blur">
-                  How servicing works
-                </Button>
-              </div>
-            </Reveal>
-          </div>
+      {/* 6 — Why Cardinal: white, split, snappy */}
+      <section className="border-y border-line/70">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-24 sm:py-32 lg:grid-cols-2">
+          <Reveal>
+            <Eyebrow>Why Cardinal</Eyebrow>
+            <p className="mt-6 font-display text-3xl font-semibold leading-tight tracking-[-0.02em] text-navy sm:text-5xl">
+              Robots don&apos;t fail at the demo. They fail at deployment.
+            </p>
+            <p className="mt-5 max-w-xl leading-relaxed">
+              That&apos;s the part we own: installation, integration, training, and 3,000+ certified technicians on call nationwide.
+            </p>
+            <div className="mt-8">
+              <Button href="/servicing" variant="outline">How servicing works</Button>
+            </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="overflow-hidden rounded-2xl border border-line shadow-xl shadow-navy/[0.06]">
+              <img
+                src={IMG.warehouse}
+                alt="Commercial robot operating on a facility floor"
+                loading="lazy"
+                className="img-tone aspect-[4/3] w-full object-cover"
+              />
+            </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* 6 — Lifecycle */}
+      {/* 7 — Lifecycle */}
       <section className="mx-auto max-w-7xl px-6 py-24 sm:py-32">
         <Reveal>
           <SectionHeading
@@ -289,7 +296,7 @@ export default function Home() {
         </Reveal>
       </section>
 
-      {/* 6b — Fleet console in a device frame */}
+      {/* 7b — Fleet console in a device frame */}
       <section className="blueprint-grid border-t border-line/70 bg-panel/40 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6">
           <Reveal>
@@ -321,7 +328,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 7 — Fleet strip: auto-looping, pauses on hover */}
+      {/* 8 — Fleet strip: auto-looping, pauses on hover */}
       <section className="py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6">
           <Reveal>
@@ -350,7 +357,7 @@ export default function Home() {
         </Reveal>
       </section>
 
-      {/* 8 — Outcomes */}
+      {/* 9 — Outcomes */}
       <section className="mx-auto max-w-7xl px-6 py-24">
         <Reveal>
           <SectionHeading index="06" eyebrow="Outcomes" title="Measured on the floor, not in the pitch." />
@@ -367,7 +374,7 @@ export default function Home() {
         </Stagger>
       </section>
 
-      {/* 9 — Trust band */}
+      {/* 10 — Trust band */}
       <section className="mx-auto max-w-7xl px-6 pb-8">
         <Reveal className="flex flex-col items-center gap-5 border-t border-line/70 pt-12 text-center">
           <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted">
@@ -379,7 +386,7 @@ export default function Home() {
         </Reveal>
       </section>
 
-      {/* 10 — Final CTA */}
+      {/* 11 — Final CTA */}
       <CTAPanel
         title="Put robots to work."
         body="Tell us about your facility, your fleet, or your robotics company."
