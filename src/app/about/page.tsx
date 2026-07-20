@@ -25,7 +25,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-20">
+      <section className="mx-auto max-w-6xl px-6 py-24">
         <div className="grid gap-16 lg:grid-cols-2">
           <Reveal>
             <h2 className="font-display text-2xl font-medium text-navy">Headquarters</h2>
@@ -44,7 +44,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-20">
+      <section className="mx-auto max-w-6xl px-6 py-24">
         <Reveal>
           <h2 className="font-display text-2xl font-medium text-navy">Our team</h2>
           <p className="mt-4 max-w-3xl leading-relaxed">{aboutFacts.veterans}</p>
@@ -62,7 +62,7 @@ export default function AboutPage() {
         <div className="mt-16"><RoadmapTimeline /></div>
       </section>
 
-      <section className="border-t border-line/70 py-20">
+      <section className="border-t border-line/70 py-24">
         <div className="mx-auto max-w-7xl px-6">
           <Reveal>
             <p className="text-center font-mono text-xs uppercase tracking-[0.2em] text-muted">

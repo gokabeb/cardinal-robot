@@ -45,7 +45,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
 
       {models.map((r, i) => (
         <section key={r.slug} id={r.slug} className={i % 2 === 1 ? "border-y border-line bg-panel/40" : ""}>
-          <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 lg:grid-cols-2">
+          <div className="mx-auto grid max-w-6xl gap-10 px-6 py-24 lg:grid-cols-2">
             <Reveal>
               <p className="font-mono text-xs text-muted">{String(i + 1).padStart(2, "0")} / {cat.name.toUpperCase()}</p>
               <h2 className="mt-3 font-display text-4xl font-medium text-navy">{r.name}</h2>
@@ -59,7 +59,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
         </section>
       ))}
 
-      <section className="mx-auto max-w-6xl px-6 py-20">
+      <section className="mx-auto max-w-6xl px-6 py-24">
         <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">Related categories</p>
         <div className="mt-6 flex flex-wrap gap-3">
           {related.map((c) => (

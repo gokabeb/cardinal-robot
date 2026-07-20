@@ -35,7 +35,7 @@ export default function ServicingPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-6 py-20">
+      <section className="mx-auto max-w-5xl px-6 py-24">
         <Reveal>
           <p className="text-center font-mono text-xs uppercase tracking-[0.2em] text-muted">
             Nationwide coverage
@@ -72,7 +72,7 @@ export default function ServicingPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-20 text-center">
+      <section className="mx-auto max-w-6xl px-6 py-24 text-center">
         <Reveal>
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">Technician certifications</p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">

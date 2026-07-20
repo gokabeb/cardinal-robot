@@ -33,7 +33,7 @@ export default function SecurityPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-6 py-20">
+      <section className="mx-auto max-w-5xl px-6 py-24">
         <Reveal>
           <p className="text-center font-mono text-xs uppercase tracking-[0.2em] text-muted">Data path</p>
           <div className="mt-10"><SecurityFlowDiagram /></div>
@@ -58,7 +58,7 @@ export default function SecurityPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-20 text-center">
+      <section className="mx-auto max-w-6xl px-6 py-24 text-center">
         <Reveal>
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">Compliance</p>
           <div className="mt-8 grid gap-4 sm:grid-cols-4">

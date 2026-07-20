@@ -33,7 +33,7 @@ export default function FinancingPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-20">
+      <section className="mx-auto max-w-6xl px-6 py-24">
         <Reveal>
           <SectionHeading eyebrow="Terms" title="The spec sheet." />
         </Reveal>
@@ -68,7 +68,7 @@ export default function FinancingPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-20">
+      <section className="mx-auto max-w-6xl px-6 py-24">
         <Reveal>
           <SectionHeading eyebrow="Eligibility" title="Who this is for." />
           <ul className="mt-8 max-w-xl space-y-4">

@@ -36,7 +36,7 @@ export default function PlatformPage() {
 
       {PHASES.map((phase, i) => (
         <section key={phase.title} className={i % 2 === 1 ? "border-y border-line bg-panel/40" : ""}>
-          <div className="mx-auto grid max-w-6xl gap-8 px-6 py-20 md:grid-cols-[220px_1fr]">
+          <div className="mx-auto grid max-w-6xl gap-8 px-6 py-24 md:grid-cols-[220px_1fr]">
             <Reveal>
               <Eyebrow index={String(i + 1).padStart(2, "0")}>{phase.title}</Eyebrow>
             </Reveal>
