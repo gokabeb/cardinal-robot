@@ -19,7 +19,7 @@ export function DashboardMock() {
         <div className="grid grid-cols-3 divide-x divide-line border-b border-line text-center">
           {[["Units online", "24"], ["Coverage today", "148k sq ft"], ["Open tickets", "0"]].map(([k, v]) => (
             <div key={k} className="px-4 py-5">
-              <p className="font-display text-2xl text-navy">{v}</p>
+              <p className="font-display tabular text-2xl text-navy">{v}</p>
               <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.15em] text-muted">{k}</p>
             </div>
           ))}

@@ -88,7 +88,7 @@ export default function Home() {
       {/* 2 — Trusted by */}
       <section className="mx-auto mt-20 max-w-7xl px-6 sm:mt-28">
         <Reveal>
-          <p className="text-center font-mono text-xs uppercase tracking-[0.25em] text-muted">
+          <p className="text-center font-mono text-xs uppercase tracking-[0.2em] text-muted">
             Trusted by the world&apos;s leading operators
           </p>
           <LogoWall className="mt-10" />
@@ -100,7 +100,7 @@ export default function Home() {
         <Marquee pauseOnHover>
           {categories.map((c) => (
             <span key={c.slug} className="flex items-center">
-              <span className="px-6 font-mono text-xs uppercase tracking-[0.25em] text-muted">{c.name}</span>
+              <span className="px-6 font-mono text-xs uppercase tracking-[0.2em] text-muted">{c.name}</span>
               <img src="/brand/mark-navy.png" alt="" aria-hidden className="h-3.5 w-auto opacity-20" />
             </span>
           ))}
@@ -207,7 +207,7 @@ export default function Home() {
                   </div>
                   <div className="flex flex-1 flex-col justify-between p-8">
                     <div>
-                      <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted">For operators</p>
+                      <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">For operators</p>
                       <h3 className="mt-3 font-display text-2xl font-semibold tracking-tight text-navy">
                         Deploy robots in your facility
                       </h3>
@@ -235,7 +235,7 @@ export default function Home() {
                   </div>
                   <div className="flex flex-1 flex-col justify-between p-8">
                     <div>
-                      <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted">For robotics companies</p>
+                      <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">For robotics companies</p>
                       <h3 className="mt-3 font-display text-2xl font-semibold tracking-tight text-navy">
                         Scale your robotics company
                       </h3>
@@ -312,7 +312,7 @@ export default function Home() {
                 <span className="h-2.5 w-2.5 rounded-full bg-line" />
                 <span className="h-2.5 w-2.5 rounded-full bg-line" />
                 <span className="h-2.5 w-2.5 rounded-full bg-line" />
-                <span className="glass mx-auto rounded-full border border-line/60 px-4 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
+                <span className="mx-auto rounded-full border border-line/60 bg-paper px-4 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
                   Cardinal Fleet Console
                 </span>
                 <span className="w-[54px]" aria-hidden />
@@ -377,7 +377,7 @@ export default function Home() {
       {/* 10 — Trust band */}
       <section className="mx-auto max-w-7xl px-6 pb-8">
         <Reveal className="flex flex-col items-center gap-5 border-t border-line/70 pt-12 text-center">
-          <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted">
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
             DoD-compliant data security
           </p>
           <div className="flex flex-wrap justify-center gap-2">

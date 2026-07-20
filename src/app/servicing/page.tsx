@@ -37,7 +37,7 @@ export default function ServicingPage() {
 
       <section className="mx-auto max-w-5xl px-6 py-20">
         <Reveal>
-          <p className="text-center font-mono text-xs uppercase tracking-[0.25em] text-muted">
+          <p className="text-center font-mono text-xs uppercase tracking-[0.2em] text-muted">
             Nationwide coverage
           </p>
           <div className="mt-10"><USCoverageMap /></div>
@@ -74,7 +74,7 @@ export default function ServicingPage() {
 
       <section className="mx-auto max-w-6xl px-6 py-20 text-center">
         <Reveal>
-          <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted">Technician certifications</p>
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">Technician certifications</p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             {technicianCerts.map((c) => <Badge key={c}>{c}</Badge>)}
           </div>

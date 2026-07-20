@@ -35,7 +35,7 @@ export default function ResearchPage() {
           ))}
         </Stagger>
         <Reveal className="mt-16 border-t border-line/70 pt-10 text-center">
-          <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted">In-house, end to end</p>
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">In-house, end to end</p>
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed">
             Robotics design, engineering, and integrations happen under one roof — from prototype to
             production deployment, with three Stanford spinouts to show for it.

@@ -64,7 +64,7 @@ export default function IndustriesPage() {
                       <caption className="border-b border-line bg-panel px-5 py-3 text-left font-mono text-xs uppercase tracking-[0.2em] text-muted">
                         Measured impact per application
                       </caption>
-                      <thead className="border-b border-line bg-panel font-mono text-xs uppercase tracking-[0.1em] text-muted">
+                      <thead className="border-b border-line bg-panel font-mono text-xs uppercase tracking-[0.15em] text-muted">
                         <tr>
                           <th scope="col" className="px-5 py-3 font-normal">Application</th>
                           <th scope="col" className="px-5 py-3 font-normal">Labor impact</th>

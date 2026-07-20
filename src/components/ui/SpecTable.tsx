@@ -6,7 +6,7 @@ export function SpecTable({ specs }: { specs: RobotSpec[] }) {
       {specs.map((s) => (
         <div key={s.label} className="grid grid-cols-1 gap-1 py-3 sm:grid-cols-[200px_1fr] sm:gap-6">
           <dt className="text-sm text-muted">{s.label}</dt>
-          <dd className="font-mono text-sm text-navy">{s.value}</dd>
+          <dd className="font-mono tabular text-sm text-navy">{s.value}</dd>
         </div>
       ))}
     </dl>

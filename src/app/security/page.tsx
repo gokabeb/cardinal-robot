@@ -35,7 +35,7 @@ export default function SecurityPage() {
 
       <section className="mx-auto max-w-5xl px-6 py-20">
         <Reveal>
-          <p className="text-center font-mono text-xs uppercase tracking-[0.25em] text-muted">Data path</p>
+          <p className="text-center font-mono text-xs uppercase tracking-[0.2em] text-muted">Data path</p>
           <div className="mt-10"><SecurityFlowDiagram /></div>
         </Reveal>
       </section>
@@ -60,7 +60,7 @@ export default function SecurityPage() {
 
       <section className="mx-auto max-w-6xl px-6 py-20 text-center">
         <Reveal>
-          <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted">Compliance</p>
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">Compliance</p>
           <div className="mt-8 grid gap-4 sm:grid-cols-4">
             {complianceBadges.map((b) => (
               <div key={b} className="rounded-lg border border-line bg-panel py-8">

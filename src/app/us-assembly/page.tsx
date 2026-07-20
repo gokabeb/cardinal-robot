@@ -35,7 +35,7 @@ export default function UsAssemblyPage() {
           ))}
         </Stagger>
         <Reveal className="mt-16 border-t border-line/70 pt-10 text-center">
-          <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted">Engineering pedigree</p>
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">Engineering pedigree</p>
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed">
             Our manufacturing and service engineering team draws on experience from Rivian, Intel, Tesla, and JCI —
             bringing automotive-grade rigor to commercial robotics.

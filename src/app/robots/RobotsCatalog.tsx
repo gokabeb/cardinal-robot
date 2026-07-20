@@ -21,7 +21,7 @@ export function RobotsCatalog() {
             type="button"
             onClick={() => setFilter(c.slug as CategorySlug | "all")}
             className={cn(
-              "rounded border px-4 py-2 font-mono text-xs uppercase tracking-[0.1em] transition-colors duration-150",
+              "rounded border px-4 py-2 font-mono text-xs uppercase tracking-[0.15em] transition-colors duration-150",
               filter === c.slug
                 ? "border-cardinal-500 bg-cardinal-500/10 text-cardinal-600"
                 : "border-line text-body hover:border-muted",

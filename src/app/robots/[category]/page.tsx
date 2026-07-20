@@ -60,7 +60,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
       ))}
 
       <section className="mx-auto max-w-6xl px-6 py-20">
-        <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted">Related categories</p>
+        <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">Related categories</p>
         <div className="mt-6 flex flex-wrap gap-3">
           {related.map((c) => (
             <Link key={c.slug} href={`/robots/${c.slug}`} className="rounded border border-line px-5 py-3 font-display text-sm text-navy transition-colors duration-150 hover:border-cardinal-500">
