@@ -5,7 +5,7 @@ export const logisticsSections = [
     title: "Dedicated Insurance",
     body: "Every deployment is covered by dedicated insurance arranged for the robot, the facility, and the work it performs — handled by Cardinal, not left to the operator.",
     image: "/images/insurance.jpg",
-    imageAlt: "Service robot operating in a hotel lobby",
+    imageAlt: "Service robot working in a restaurant dining room",
     source: SRC,
   },
   {

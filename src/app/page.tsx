@@ -66,7 +66,7 @@ export default function Home() {
               <Parallax className="h-[420px] sm:h-[560px]" range={8}>
                 <img
                   src={IMG.hero}
-                  alt="White humanoid robot in a blue-lit facility"
+                  alt="Autonomous mobile robots moving parts racks in a logistics facility"
                   className="img-tone h-[112%] w-full object-cover"
                 />
               </Parallax>
