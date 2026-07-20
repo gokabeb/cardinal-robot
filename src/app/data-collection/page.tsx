@@ -27,7 +27,7 @@ export default function DataCollectionPage() {
         <div className="overflow-hidden rounded-2xl border border-line shadow-xl shadow-navy/[0.06]">
           <img
             src="/images/dataops.jpg"
-            alt="Bright, modern open-plan operations floor with rows of monitor-equipped workstations"
+            alt="Close-up of a bright network patch panel with numbered ports and blue ethernet cables"
             loading="lazy"
             className="img-tone aspect-[21/9] w-full object-cover"
           />

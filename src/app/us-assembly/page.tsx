@@ -27,7 +27,7 @@ export default function UsAssemblyPage() {
         <div className="overflow-hidden rounded-2xl border border-line shadow-xl shadow-navy/[0.06]">
           <img
             src="/images/assembly.jpg"
-            alt="Robotic arms welding a car body frame on a US assembly line"
+            alt="Blue robotic arm positioned at an automated manufacturing station on a bright factory production line"
             loading="lazy"
             className="img-tone aspect-[21/9] w-full object-cover"
           />
