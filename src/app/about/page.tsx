@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { aboutFacts } from "@/data/about";
 import { heroStats } from "@/data/stats";
 import { RoadmapTimeline } from "@/components/diagrams/RoadmapTimeline";
 import { Reveal } from "@/components/motion/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { StatCounter } from "@/components/ui/StatCounter";
+import { LogoWall } from "@/components/ui/LogoWall";
 import { CTAPanel } from "@/components/ui/CTAPanel";
 
 export const metadata: Metadata = { title: "About" };
@@ -16,8 +18,8 @@ export default function AboutPage() {
           <Reveal>
             <SectionHeading
               eyebrow="About Cardinal"
-              title="Unleashing human potential."
-              lede="Robots are here to make our lives easier. We are here to help you get there."
+              title={aboutFacts.headline}
+              lede={aboutFacts.origin}
             />
           </Reveal>
         </div>
@@ -26,19 +28,12 @@ export default function AboutPage() {
       <section className="mx-auto max-w-6xl px-6 py-20">
         <div className="grid gap-16 lg:grid-cols-2">
           <Reveal>
-            <h2 className="font-display text-2xl font-medium text-navy">The problem we work on</h2>
-            <p className="mt-4 leading-relaxed">
-              Clients are struggling to hire and retain their staff. Labor shortages keep growing, and the work still has to get done.
-              Cardinal exists to augment your existing workforce with best-in-class robots — solving the problem financially,
-              operationally, and technologically.
-            </p>
+            <h2 className="font-display text-2xl font-medium text-navy">Headquarters</h2>
+            <p className="mt-4 leading-relaxed">{aboutFacts.hq}</p>
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="font-display text-2xl font-medium text-navy">Who we are</h2>
-            <p className="mt-4 leading-relaxed">
-              A team of PhDs, MBAs, and robotic experts from Stanford and Berkeley, with experience both building robots and
-              deploying them. We work closely with every client to tailor-make solutions that work for them.
-            </p>
+            <p className="mt-4 leading-relaxed">{aboutFacts.founders}</p>
           </Reveal>
         </div>
       </section>
@@ -47,6 +42,13 @@ export default function AboutPage() {
         <div className="mx-auto grid max-w-6xl grid-cols-2 gap-10 px-6 py-16 lg:grid-cols-4">
           {heroStats.map((s) => <StatCounter key={s.label} stat={s} />)}
         </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-20">
+        <Reveal>
+          <h2 className="font-display text-2xl font-medium text-navy">Our team</h2>
+          <p className="mt-4 max-w-3xl leading-relaxed">{aboutFacts.veterans}</p>
+        </Reveal>
       </section>
 
       <section className="mx-auto max-w-6xl px-6 py-24">
@@ -58,6 +60,17 @@ export default function AboutPage() {
           />
         </Reveal>
         <div className="mt-16"><RoadmapTimeline /></div>
+      </section>
+
+      <section className="border-t border-line/70 py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <Reveal>
+            <p className="text-center font-mono text-xs uppercase tracking-[0.25em] text-muted">
+              We proudly serve some of the world&apos;s most prominent organizations
+            </p>
+            <LogoWall compact className="mt-10" />
+          </Reveal>
+        </div>
       </section>
 
       <CTAPanel

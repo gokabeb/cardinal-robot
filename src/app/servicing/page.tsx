@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { servicePillars, technicianCerts } from "@/data/servicing";
+import { servicePillars, technicianCerts, servicingHighlights } from "@/data/servicing";
 import { USCoverageMap } from "@/components/diagrams/USCoverageMap";
 import { Reveal } from "@/components/motion/Reveal";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
@@ -19,9 +19,19 @@ export default function ServicingPage() {
             <SectionHeading
               eyebrow="Servicing"
               title="Enhance your robot workforce uptime."
-              lede="Break-fix and preventative maintenance across the US — 3,000+ service delivery professionals through Cardinal and partner networks, with SLAs matched to your operation."
+              lede="Break-fix and preventative maintenance across the US — a 24/7 support line and 3,000+ service delivery professionals through Cardinal and partner networks."
             />
           </Reveal>
+          <Stagger className="mt-14 grid gap-4 md:grid-cols-3">
+            {servicingHighlights.map((h) => (
+              <StaggerItem key={h.label}>
+                <Card className="h-full text-center">
+                  <p className="font-mono tabular text-5xl font-medium tracking-tight text-cardinal-700">{h.value}</p>
+                  <p className="mt-4 font-mono text-xs uppercase tracking-[0.2em] text-muted">{h.label}</p>
+                </Card>
+              </StaggerItem>
+            ))}
+          </Stagger>
         </div>
       </section>
 
@@ -69,6 +79,9 @@ export default function ServicingPage() {
             {technicianCerts.map((c) => <Badge key={c}>{c}</Badge>)}
           </div>
           <p className="mt-8 font-mono text-xs text-muted">ISO 27001 information security, globally certified.</p>
+          <p className="mt-4 text-sm leading-relaxed">
+            Cardinal upskills U.S. veterans into certified robot technicians — service careers, not gig work.
+          </p>
         </Reveal>
       </section>
 

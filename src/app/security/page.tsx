@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { securityFeatures, complianceBadges } from "@/data/security";
+import { securityFeatures, complianceBadges, dataResidency } from "@/data/security";
 import { SecurityFlowDiagram } from "@/components/diagrams/SecurityFlowDiagram";
 import { Reveal } from "@/components/motion/Reveal";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
@@ -7,7 +7,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Card } from "@/components/ui/Card";
 import { CTAPanel } from "@/components/ui/CTAPanel";
 
-export const metadata: Metadata = { title: "Security" };
+export const metadata: Metadata = { title: "Cyber Security" };
 
 export default function SecurityPage() {
   return (
@@ -16,10 +16,19 @@ export default function SecurityPage() {
         <div className="mx-auto max-w-6xl px-6">
           <Reveal>
             <SectionHeading
-              eyebrow="Security"
+              eyebrow="Cyber Security"
               title="Connected robots, locked down."
               lede="The Cardinal SDK encrypts device status, charge levels, and usage data — with dashboarding, remote diagnostics with permission, firmware updates, asset immobilization, and device logging."
             />
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="border-b border-line bg-cardinal-50 py-16">
+        <div className="mx-auto max-w-6xl px-6 text-center">
+          <Reveal>
+            <p className="font-display text-2xl font-semibold tracking-tight text-navy sm:text-3xl">{dataResidency.headline}</p>
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed">{dataResidency.body}</p>
           </Reveal>
         </div>
       </section>

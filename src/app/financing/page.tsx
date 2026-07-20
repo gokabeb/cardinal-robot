@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { financeTerms, financeEligibility, financeProcess, financeEmail } from "@/data/financing";
+import { financeTerms, financeEligibility, financeProcess, financeEmail, financingHighlights } from "@/data/financing";
 import { Reveal } from "@/components/motion/Reveal";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -20,6 +20,16 @@ export default function FinancingPage() {
               lede="Deployment capital specifically designed for RaaS and HaaS business models — for US-based, growth-stage robotics and IoT companies."
             />
           </Reveal>
+          <Stagger className="mt-14 grid gap-4 md:grid-cols-3">
+            {financingHighlights.map((h) => (
+              <StaggerItem key={h.label}>
+                <Card className="h-full text-center">
+                  <p className="font-mono tabular text-5xl font-medium tracking-tight text-cardinal-700">{h.value}</p>
+                  <p className="mt-4 font-mono text-xs uppercase tracking-[0.2em] text-muted">{h.label}</p>
+                </Card>
+              </StaggerItem>
+            ))}
+          </Stagger>
         </div>
       </section>
 
