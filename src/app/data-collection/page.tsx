@@ -23,6 +23,17 @@ export default function DataCollectionPage() {
         </div>
       </section>
 
+      <Reveal delay={0.1} className="mx-auto mt-16 max-w-6xl px-6">
+        <div className="overflow-hidden rounded-2xl border border-line shadow-xl shadow-navy/[0.06]">
+          <img
+            src="/images/dataops.jpg"
+            alt="Bright, modern open-plan operations floor with rows of monitor-equipped workstations"
+            loading="lazy"
+            className="img-tone aspect-[21/9] w-full object-cover"
+          />
+        </div>
+      </Reveal>
+
       <section className="mx-auto max-w-6xl px-6 py-24">
         <Stagger className="grid gap-4 md:grid-cols-3">
           {dataOpsStats.map((s) => (

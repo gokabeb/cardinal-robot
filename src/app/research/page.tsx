@@ -23,6 +23,17 @@ export default function ResearchPage() {
         </div>
       </section>
 
+      <Reveal delay={0.1} className="mx-auto mt-16 max-w-6xl px-6">
+        <div className="overflow-hidden rounded-2xl border border-line shadow-xl shadow-navy/[0.06]">
+          <img
+            src="/images/research.jpg"
+            alt="White robotic arm reaching toward a wall of storage cubbies in a robotics lab"
+            loading="lazy"
+            className="img-tone aspect-[21/9] w-full object-cover"
+          />
+        </div>
+      </Reveal>
+
       <section className="mx-auto max-w-6xl px-6 py-24">
         <Stagger className="grid gap-4 md:grid-cols-3">
           {researchStats.map((s) => (
