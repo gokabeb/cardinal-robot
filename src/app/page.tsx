@@ -20,9 +20,9 @@ import { CTAPanel } from "@/components/ui/CTAPanel";
 import { LogoWall } from "@/components/ui/LogoWall";
 
 const IMG = {
-  hero: "https://images.unsplash.com/photo-1601132359864-c974e79890ac?auto=format&fit=crop&w=2400&q=80",
-  warehouse: "https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1600&q=80",
-  engineer: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80",
+  hero: "/images/hero.jpg",
+  warehouse: "/images/warehouse.jpg",
+  engineer: "/images/engineer.jpg",
 };
 
 function BentoCell({ href, className, children }: {

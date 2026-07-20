@@ -1,4 +1,6 @@
 import { describe, it, expect } from "vitest";
+import { readdirSync, readFileSync, statSync } from "node:fs";
+import { join } from "node:path";
 import { robots } from "@/data/robots";
 import { categories } from "@/data/categories";
 import { heroStats, outcomes } from "@/data/stats";
@@ -116,5 +118,18 @@ describe("fact vault integrity", () => {
   it("the canonical technician count is 3,000+ wherever it appears", () => {
     expect(servicingHighlights.find((h) => h.label.includes("technicians"))?.value).toBe("3,000+");
     expect(aboutFacts.veterans).toContain("3,000+");
+  });
+
+  it("no hotlinked stock imagery in src", () => {
+    function sourceFiles(dir: string): string[] {
+      return readdirSync(dir).flatMap((name) => {
+        const p = join(dir, name);
+        if (statSync(p).isDirectory()) return sourceFiles(p);
+        return /\.(tsx?|css)$/.test(name) ? [p] : [];
+      });
+    }
+    for (const f of sourceFiles("src")) {
+      expect(readFileSync(f, "utf8"), f).not.toContain("images.unsplash.com");
+    }
   });
 });
