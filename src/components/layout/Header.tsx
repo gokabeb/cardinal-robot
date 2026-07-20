@@ -27,7 +27,7 @@ const panelCn = cn(
 function NavDropdown({ label, children }: { label: string; children: { label: string; href: string }[] }) {
   return (
     <div className="group relative">
-      <button type="button" className="inline-flex items-center gap-1.5 text-sm text-body transition-colors duration-150 hover:text-navy">
+      <button type="button" className="inline-flex items-center gap-1.5 py-3 text-sm text-body transition-colors duration-150 hover:text-navy">
         {label}
         <Chevron />
       </button>
@@ -58,7 +58,7 @@ export function Header() {
           <div className="group relative">
             <Link
               href="/robots"
-              className="inline-flex items-center gap-1.5 text-sm text-body transition-colors duration-150 hover:text-navy"
+              className="inline-flex items-center gap-1.5 py-3 text-sm text-body transition-colors duration-150 hover:text-navy"
             >
               Robots
               <svg
@@ -106,7 +106,7 @@ export function Header() {
             item.children ? (
               <NavDropdown key={item.label} label={item.label} children={item.children} />
             ) : (
-              <Link key={item.href} href={item.href!} className="text-sm text-body transition-colors duration-150 hover:text-navy">
+              <Link key={item.href} href={item.href!} className="py-3 text-sm text-body transition-colors duration-150 hover:text-navy">
                 {item.label}
               </Link>
             ),
@@ -133,20 +133,20 @@ export function Header() {
 
       {mobileOpen && (
         <div className="border-t border-line/60 bg-paper px-6 py-6 lg:hidden">
-          <div className="flex flex-col gap-4">
-            <Link href="/robots" onClick={() => setMobileOpen(false)} className="text-navy">Robots</Link>
+          <div className="flex flex-col gap-1">
+            <Link href="/robots" onClick={() => setMobileOpen(false)} className="py-2.5 text-navy">Robots</Link>
             {headerNav.map((item) =>
               item.children ? (
-                <div key={item.label}>
+                <div key={item.label} className="py-1">
                   <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted">{item.label}</p>
-                  <div className="mt-2 flex flex-col gap-3 border-l border-line pl-4">
+                  <div className="mt-2 flex flex-col border-l border-line pl-4">
                     {item.children.map((l) => (
-                      <Link key={l.href} href={l.href} onClick={() => setMobileOpen(false)} className="text-body">{l.label}</Link>
+                      <Link key={l.href} href={l.href} onClick={() => setMobileOpen(false)} className="py-2 text-body">{l.label}</Link>
                     ))}
                   </div>
                 </div>
               ) : (
-                <Link key={item.href} href={item.href!} onClick={() => setMobileOpen(false)} className="text-body">{item.label}</Link>
+                <Link key={item.href} href={item.href!} onClick={() => setMobileOpen(false)} className="py-2.5 text-body">{item.label}</Link>
               ),
             )}
             <Link
