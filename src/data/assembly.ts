@@ -6,3 +6,8 @@ export const assemblyPillars = [
   { title: "Industry veterans", body: "Built by engineers from Rivian, Intel, Tesla, and JCI.", source: SRC },
   { title: "DFM + DFS for OEMs", body: "Comprehensive design-for-manufacturing and design-for-service capabilities, offered to all OEMs.", source: SRC },
 ];
+
+export const assemblyNote = {
+  text: "Our manufacturing and service engineering team draws on experience from Rivian, Intel, Tesla, and JCI — bringing automotive-grade rigor to commercial robotics.",
+  source: "founder-provided 2026-07-18",
+};

@@ -22,7 +22,7 @@ export const clients: Client[] = [
   { name: "CBRE", domain: "cbre.com", source: SRC },
   { name: "Cushman & Wakefield", domain: "cushmanwakefield.com", source: SRC },
   { name: "Compass Group", domain: "compass-group.com", source: SRC },
-  { name: "Marsden Services", domain: "marsden.com", source: SRC },
+  { name: "Marsden Services", domain: "marsdenservices.com", source: SRC },
   { name: "Pudu Robotics", domain: "pudurobotics.com", source: SRC },
   { name: "Gausium", domain: "gausium.com", source: SRC },
   { name: "GA Capital", domain: "gacapital.com", source: SRC },

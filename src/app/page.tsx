@@ -107,7 +107,7 @@ export default function Home() {
         </Marquee>
       </section>
 
-      {/* 3 — Bento: the numbers are the artwork */}
+      {/* 4 — Bento: the numbers are the artwork */}
       <section className="mx-auto max-w-7xl px-6 py-24 sm:py-32">
         <Reveal>
           <SectionHeading
@@ -187,7 +187,7 @@ export default function Home() {
         </Stagger>
       </section>
 
-      {/* 4 — Two doors */}
+      {/* 5 — Two doors */}
       <section className="border-t border-line/70 bg-panel/40">
         <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32">
           <Reveal>
@@ -296,7 +296,7 @@ export default function Home() {
         </Reveal>
       </section>
 
-      {/* 7b — Fleet console in a device frame */}
+      {/* 8 — Fleet console in a device frame */}
       <section className="blueprint-grid border-t border-line/70 bg-panel/40 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6">
           <Reveal>
@@ -328,7 +328,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 8 — Fleet strip: auto-looping, pauses on hover */}
+      {/* 9 — Fleet strip: auto-looping, pauses on hover */}
       <section className="py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6">
           <Reveal>
@@ -357,7 +357,7 @@ export default function Home() {
         </Reveal>
       </section>
 
-      {/* 9 — Outcomes */}
+      {/* 10 — Outcomes */}
       <section className="mx-auto max-w-7xl px-6 py-24">
         <Reveal>
           <SectionHeading index="06" eyebrow="Outcomes" title="Measured on the floor, not in the pitch." />
@@ -374,7 +374,7 @@ export default function Home() {
         </Stagger>
       </section>
 
-      {/* 10 — Trust band */}
+      {/* 11 — Trust band */}
       <section className="mx-auto max-w-7xl px-6 pb-8">
         <Reveal className="flex flex-col items-center gap-5 border-t border-line/70 pt-12 text-center">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
@@ -386,7 +386,7 @@ export default function Home() {
         </Reveal>
       </section>
 
-      {/* 11 — Final CTA */}
+      {/* 12 — Final CTA */}
       <CTAPanel
         title="Put robots to work."
         body="Tell us about your facility, your fleet, or your robotics company."

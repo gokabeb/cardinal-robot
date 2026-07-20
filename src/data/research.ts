@@ -10,3 +10,8 @@ export const researchNote = {
   text: "Stanford PhDs building the future of robotics design — in-house engineering and integrations, end to end.",
   source: SRC,
 };
+
+export const researchClosing = {
+  text: "Robotics design, engineering, and integrations happen under one roof — from prototype to production deployment, with three Stanford spinouts to show for it.",
+  source: SRC,
+};

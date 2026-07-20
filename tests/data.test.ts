@@ -16,6 +16,8 @@ import { dataOpsStats } from "@/data/dataops";
 import { researchStats, researchNote } from "@/data/research";
 import { logisticsSections } from "@/data/logistics";
 import { aboutFacts } from "@/data/about";
+import { assemblyNote } from "@/data/assembly";
+import { researchClosing } from "@/data/research";
 import { financingHighlights } from "@/data/financing";
 import { servicingHighlights } from "@/data/servicing";
 import { dataResidency } from "@/data/security";
@@ -103,7 +105,7 @@ describe("fact vault integrity", () => {
     const sourced = [
       ...assemblyPillars, ...dataOpsStats, ...researchStats,
       ...logisticsSections, ...financingHighlights, ...servicingHighlights,
-      researchNote, aboutFacts, dataResidency,
+      researchNote, aboutFacts, dataResidency, assemblyNote, researchClosing,
     ];
     for (const f of sourced) expect(f.source).toContain("founder-provided 2026-07-18");
     expect(assemblyPillars).toHaveLength(4);
@@ -121,15 +123,23 @@ describe("fact vault integrity", () => {
   });
 
   it("no hotlinked stock imagery in src", () => {
-    function sourceFiles(dir: string): string[] {
-      return readdirSync(dir).flatMap((name) => {
-        const p = join(dir, name);
-        if (statSync(p).isDirectory()) return sourceFiles(p);
-        return /\.(tsx?|css)$/.test(name) ? [p] : [];
-      });
-    }
     for (const f of sourceFiles("src")) {
       expect(readFileSync(f, "utf8"), f).not.toContain("images.unsplash.com");
     }
   });
+
+  it("never reintroduces the superseded 1,000/2,000 technician counts", () => {
+    const driftPattern = /\b[12],000\+?\s+(certified\s+)?technicians/i;
+    for (const f of sourceFiles("src")) {
+      expect(readFileSync(f, "utf8"), f).not.toMatch(driftPattern);
+    }
+  });
 });
+
+function sourceFiles(dir: string): string[] {
+  return readdirSync(dir).flatMap((name) => {
+    const p = join(dir, name);
+    if (statSync(p).isDirectory()) return sourceFiles(p);
+    return /\.(tsx?|css)$/.test(name) ? [p] : [];
+  });
+}

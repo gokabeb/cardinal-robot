@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { researchStats, researchNote } from "@/data/research";
+import { researchStats, researchNote, researchClosing } from "@/data/research";
 import { Reveal } from "@/components/motion/Reveal";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -37,8 +37,7 @@ export default function ResearchPage() {
         <Reveal className="mt-16 border-t border-line/70 pt-10 text-center">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">In-house, end to end</p>
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed">
-            Robotics design, engineering, and integrations happen under one roof — from prototype to
-            production deployment, with three Stanford spinouts to show for it.
+            {researchClosing.text}
           </p>
         </Reveal>
       </section>
