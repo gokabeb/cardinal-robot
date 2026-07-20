@@ -18,7 +18,7 @@ export function USCoverageMap() {
               key={`${c}-${r}`}
               cx={c * cell + cell / 2} cy={r * cell + cell / 2}
               r={isHub ? 5 : 2.5}
-              fill={isHub ? "#3d52e8" : "#ccd4ef"}
+              fill={isHub ? "#3d52e8" : "#dfe5fb"}
             />
           );
         }),
