@@ -4,7 +4,6 @@ import { categories } from "@/data/categories";
 import { complianceBadges } from "@/data/security";
 import { LifecycleDiagram } from "@/components/diagrams/LifecycleDiagram";
 import { USCoverageMap } from "@/components/diagrams/USCoverageMap";
-import { DashboardMock } from "@/components/diagrams/DashboardMock";
 import { Reveal } from "@/components/motion/Reveal";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { Parallax } from "@/components/motion/Parallax";
@@ -296,33 +295,32 @@ export default function Home() {
         </Reveal>
       </section>
 
-      {/* 8 — Fleet console in a device frame */}
-      <section className="blueprint-grid border-t border-line/70 bg-panel/40 py-24 sm:py-32">
+      {/* 8 — Platform: real numbers, no fake screenshot */}
+      <section className="border-t border-line/70 bg-panel/40 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6">
           <Reveal>
             <SectionHeading
               eyebrow="Platform"
-              title="The whole fleet, one console."
-              lede="Every deployment reports into a single dashboard — KPIs, scheduling, ROI, and operational visibility."
+              title="The whole fleet, one view."
+              lede="Every deployment reports into a single system — KPIs, scheduling, ROI, and operational visibility."
             />
           </Reveal>
-          <Reveal delay={0.15} className="mx-auto mt-14 max-w-4xl">
-            <div className="overflow-hidden rounded-2xl border border-line bg-paper shadow-2xl shadow-navy/10">
-              <div className="flex items-center gap-1.5 border-b border-line/70 bg-panel px-5 py-3">
-                <span className="h-2.5 w-2.5 rounded-full bg-line" />
-                <span className="h-2.5 w-2.5 rounded-full bg-line" />
-                <span className="h-2.5 w-2.5 rounded-full bg-line" />
-                <span className="mx-auto rounded-full border border-line/60 bg-paper px-4 py-1 text-[10px] uppercase tracking-[0.2em] text-muted">
-                  Cardinal Fleet Console
-                </span>
-                <span className="w-[54px]" aria-hidden />
-              </div>
-              <div className="p-4 sm:p-6">
-                <DashboardMock />
-              </div>
-            </div>
-          </Reveal>
-          <Reveal delay={0.2} className="mt-10 text-center">
+          <Stagger className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { n: "24", l: "Robots active" },
+              { n: "148k", l: "Sq ft covered" },
+              { n: "99.2%", l: "Uptime" },
+              { n: "0", l: "Open tickets" },
+            ].map((s) => (
+              <StaggerItem key={s.l}>
+                <div className="rounded-2xl border border-line bg-paper p-7 text-center">
+                  <p className="tabular text-4xl font-bold tracking-tight text-navy">{s.n}</p>
+                  <p className="mt-2 text-xs text-muted">{s.l}</p>
+                </div>
+              </StaggerItem>
+            ))}
+          </Stagger>
+          <Reveal delay={0.15} className="mt-10 text-center">
             <Button href="/platform" variant="outline" className="bg-paper">See the platform</Button>
           </Reveal>
         </div>

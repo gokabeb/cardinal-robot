@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { LifecycleDiagram } from "@/components/diagrams/LifecycleDiagram";
-import { DashboardMock } from "@/components/diagrams/DashboardMock";
 import { Reveal } from "@/components/motion/Reveal";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -52,12 +51,24 @@ export default function PlatformPage() {
         <Reveal>
           <SectionHeading
             eyebrow="Visibility"
-            title="Every robot, one console."
+            title="Every robot, one view."
             lede="Operational KPIs, scheduling, ROI reports, and remote diagnostics — across every site and every model."
             className="mx-auto text-center"
           />
         </Reveal>
-        <Reveal delay={0.15} className="mt-12"><DashboardMock /></Reveal>
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            { n: "24", l: "Robots active" },
+            { n: "148k", l: "Sq ft covered" },
+            { n: "99.2%", l: "Uptime" },
+            { n: "0", l: "Open tickets" },
+          ].map((s) => (
+            <div key={s.l} className="rounded-2xl border border-line bg-paper p-7 text-center">
+              <p className="tabular text-4xl font-bold tracking-tight text-navy">{s.n}</p>
+              <p className="mt-2 text-xs text-muted">{s.l}</p>
+            </div>
+          ))}
+        </div>
       </section>
 
       <CTAPanel
