@@ -6,7 +6,6 @@ import { LifecycleDiagram } from "@/components/diagrams/LifecycleDiagram";
 import { USCoverageMap } from "@/components/diagrams/USCoverageMap";
 import { Reveal } from "@/components/motion/Reveal";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
-import { Parallax } from "@/components/motion/Parallax";
 import { Marquee } from "@/components/motion/Marquee";
 import { WordReveal } from "@/components/motion/WordReveal";
 import { CountUp } from "@/components/motion/CountUp";
@@ -40,47 +39,50 @@ function BentoCell({ href, className, children }: {
 export default function Home() {
   return (
     <main>
-      {/* 1 — Hero: one sentence, then the picture does the talking */}
+      {/* 1 — Hero: full-bleed photo, text-anchored scrim */}
       <section className="relative overflow-hidden">
-        <div className="blueprint-grid pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_bottom,black,transparent_70%)]" />
-        <div className="relative mx-auto max-w-7xl px-6 pt-24 sm:pt-32">
-          <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+        <div className="relative flex min-h-[640px] items-end sm:min-h-[720px]">
+          <img
+            src={IMG.hero}
+            alt="Autonomous mobile robots moving parts racks in a bright logistics facility"
+            className="img-tone absolute inset-0 h-full w-full object-cover"
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage:
+                "radial-gradient(620px 460px at 8% 100%, rgba(12,16,51,0.92) 0%, rgba(12,16,51,0.92) 38%, rgba(12,16,51,0.55) 62%, rgba(12,16,51,0) 85%), linear-gradient(115deg, rgba(12,16,51,0.35) 0%, rgba(12,16,51,0.12) 30%, rgba(12,16,51,0) 55%)",
+            }}
+          />
+          <Reveal className="relative w-full px-6 pb-16 pt-24 sm:px-10 sm:pb-20">
+            <p className="flex items-center gap-2.5 text-xs uppercase tracking-[0.2em] text-white/80">
+              <span aria-hidden className="h-1.5 w-1.5 bg-white" />
+              Cardinal Robotics
+            </p>
             <WordReveal
               text="The robotic workforce, fully operational."
-              className="font-display text-5xl font-semibold leading-[1.05] tracking-[-0.03em] text-navy sm:text-6xl lg:text-7xl"
+              className="mt-5 block max-w-2xl font-display text-4xl font-bold leading-[1.08] tracking-[-0.03em] text-white sm:text-6xl"
             />
-            <Reveal delay={0.45} className="flex flex-col items-center">
-              <p className="mt-6 max-w-xl text-lg leading-relaxed">
-                Cardinal sources, deploys, trains, services, and finances commercial robots — so your team doesn&apos;t have to.
-              </p>
-              <div className="mt-10 flex flex-wrap justify-center gap-3">
-                <Button href="/robots">Explore the fleet</Button>
-                <Button href="/contact" variant="outline">Talk to us</Button>
-              </div>
-            </Reveal>
-          </div>
-
-          <Reveal delay={0.15} className="relative mt-16 sm:mt-20">
-            <div className="relative overflow-hidden rounded-2xl border border-line shadow-2xl shadow-navy/10">
-              <Parallax className="h-[420px] sm:h-[560px]" range={8}>
-                <img
-                  src={IMG.hero}
-                  alt="Autonomous mobile robots moving parts racks in a logistics facility"
-                  className="img-tone h-[112%] w-full object-cover"
-                />
-              </Parallax>
-              <div className="absolute inset-x-0 bottom-0 flex flex-wrap items-end justify-between gap-3 p-5 sm:p-6">
-                <div className="flex items-baseline gap-2.5 rounded-full border border-line bg-paper px-5 py-2.5 shadow-sm">
-                  <span className="tabular text-sm font-medium text-navy">35,000+</span>
-                  <span className="text-xs text-body">robots deployed</span>
-                </div>
-                <div className="hidden items-baseline gap-2.5 rounded-full border border-line bg-paper px-5 py-2.5 shadow-sm sm:flex">
-                  <span className="tabular text-sm font-medium text-navy">3,000+</span>
-                  <span className="text-xs text-body">technicians nationwide</span>
-                </div>
-              </div>
+            <p className="mt-6 max-w-lg text-lg leading-relaxed text-white/90">
+              Cardinal sources, deploys, trains, services, and finances commercial robots — so your team doesn&apos;t have to.
+            </p>
+            <div className="mt-9 flex flex-wrap items-center gap-6">
+              <Button href="/robots">Explore the fleet →</Button>
+              <Link href="/contact" className="text-sm font-semibold text-white underline underline-offset-4">
+                Talk to us
+              </Link>
             </div>
           </Reveal>
+          <div className="absolute bottom-6 right-6 hidden flex-col items-end gap-2 sm:flex sm:bottom-10 sm:right-10">
+            <div className="flex items-baseline gap-2.5 rounded-full bg-white/95 px-5 py-2.5">
+              <span className="tabular text-sm font-bold text-navy">35,000+</span>
+              <span className="text-xs text-body">robots deployed</span>
+            </div>
+            <div className="flex items-baseline gap-2.5 rounded-full bg-white/95 px-5 py-2.5">
+              <span className="tabular text-sm font-bold text-navy">3,000+</span>
+              <span className="text-xs text-body">technicians nationwide</span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -117,7 +119,7 @@ export default function Home() {
         </Reveal>
         <Stagger className="mt-14 grid gap-4 md:grid-cols-6">
           <StaggerItem className="md:col-span-4">
-            <BentoCell href="/financing" className="blueprint-grid h-full min-h-[240px] bg-cardinal-50">
+            <BentoCell href="/financing" className="h-full min-h-[240px] bg-cardinal-50">
               <p className="text-xs uppercase tracking-[0.2em] text-muted">Dedicated financing facility</p>
               <div>
                 <p className="tabular text-7xl font-medium tracking-tight text-cardinal-700 sm:text-8xl">
