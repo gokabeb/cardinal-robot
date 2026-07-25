@@ -4,6 +4,7 @@ import { USCoverageMap } from "@/components/diagrams/USCoverageMap";
 import { Reveal } from "@/components/motion/Reveal";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { PhotoHero } from "@/components/ui/PhotoHero";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import { CTAPanel } from "@/components/ui/CTAPanel";
@@ -13,16 +14,17 @@ export const metadata: Metadata = { title: "Servicing" };
 export default function ServicingPage() {
   return (
     <main>
-      <section className="blueprint-grid border-b border-line py-24">
+      <PhotoHero
+        image="/images/engineer.jpg"
+        imageAlt="Engineer working on robotics hardware in a lab"
+        eyebrow="Servicing"
+        title="Enhance your robot workforce uptime."
+        lede="Break-fix and preventative maintenance across the US — a 24/7 support line and 3,000+ service delivery professionals through Cardinal and partner networks."
+      />
+
+      <section className="border-b border-line py-16">
         <div className="mx-auto max-w-6xl px-6">
-          <Reveal>
-            <SectionHeading
-              eyebrow="Servicing"
-              title="Enhance your robot workforce uptime."
-              lede="Break-fix and preventative maintenance across the US — a 24/7 support line and 3,000+ service delivery professionals through Cardinal and partner networks."
-            />
-          </Reveal>
-          <Stagger className="mt-14 grid gap-4 md:grid-cols-3">
+          <Stagger className="grid gap-4 md:grid-cols-3">
             {servicingHighlights.map((h) => (
               <StaggerItem key={h.label}>
                 <Card className="h-full text-center">

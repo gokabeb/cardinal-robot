@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { researchStats, researchNote, researchClosing } from "@/data/research";
 import { Reveal } from "@/components/motion/Reveal";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
-import { SectionHeading } from "@/components/ui/SectionHeading";
+import { PhotoHero } from "@/components/ui/PhotoHero";
 import { Card } from "@/components/ui/Card";
 import { CTAPanel } from "@/components/ui/CTAPanel";
 
@@ -11,28 +11,13 @@ export const metadata: Metadata = { title: "Research & Development" };
 export default function ResearchPage() {
   return (
     <main>
-      <section className="blueprint-grid border-b border-line py-24">
-        <div className="mx-auto max-w-6xl px-6">
-          <Reveal>
-            <SectionHeading
-              eyebrow="Research & Development"
-              title="Research that ships."
-              lede={researchNote.text}
-            />
-          </Reveal>
-        </div>
-      </section>
-
-      <Reveal delay={0.1} className="mx-auto mt-16 max-w-6xl px-6">
-        <div className="overflow-hidden rounded-2xl border border-line shadow-xl shadow-navy/[0.06]">
-          <img
-            src="/images/research.jpg"
-            alt="White robotic arm reaching toward a wall of storage cubbies in a robotics lab"
-            loading="lazy"
-            className="img-tone aspect-[21/9] w-full object-cover"
-          />
-        </div>
-      </Reveal>
+      <PhotoHero
+        image="/images/research.jpg"
+        imageAlt="White robotic arm reaching toward a wall of storage cubbies in a robotics lab"
+        eyebrow="Research & Development"
+        title="Research that ships."
+        lede={researchNote.text}
+      />
 
       <section className="mx-auto max-w-6xl px-6 py-24">
         <Stagger className="grid gap-4 md:grid-cols-3">

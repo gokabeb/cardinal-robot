@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { assemblyPillars, assemblyNote } from "@/data/assembly";
 import { Reveal } from "@/components/motion/Reveal";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
-import { SectionHeading } from "@/components/ui/SectionHeading";
+import { PhotoHero } from "@/components/ui/PhotoHero";
 import { Card } from "@/components/ui/Card";
 import { CTAPanel } from "@/components/ui/CTAPanel";
 
@@ -11,28 +11,13 @@ export const metadata: Metadata = { title: "US Assembly" };
 export default function UsAssemblyPage() {
   return (
     <main>
-      <section className="blueprint-grid border-b border-line py-24">
-        <div className="mx-auto max-w-6xl px-6">
-          <Reveal>
-            <SectionHeading
-              eyebrow="US Assembly"
-              title="Assembled in the USA."
-              lede="Onshore assembly and U.S. manufacturing, with secure systems and supply-chain assurance behind every robot we deploy."
-            />
-          </Reveal>
-        </div>
-      </section>
-
-      <Reveal delay={0.1} className="mx-auto mt-16 max-w-6xl px-6">
-        <div className="overflow-hidden rounded-2xl border border-line shadow-xl shadow-navy/[0.06]">
-          <img
-            src="/images/assembly.jpg"
-            alt="Blue robotic arm positioned at an automated manufacturing station on a bright factory production line"
-            loading="lazy"
-            className="img-tone aspect-[21/9] w-full object-cover"
-          />
-        </div>
-      </Reveal>
+      <PhotoHero
+        image="/images/assembly.jpg"
+        imageAlt="Blue robotic arm positioned at an automated manufacturing station on a bright factory production line"
+        eyebrow="US Assembly"
+        title="Assembled in the USA."
+        lede="Onshore assembly and U.S. manufacturing, with secure systems and supply-chain assurance behind every robot we deploy."
+      />
 
       <section className="mx-auto max-w-6xl px-6 py-24">
         <Stagger className="grid gap-4 md:grid-cols-2">

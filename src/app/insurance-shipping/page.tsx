@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { logisticsSections } from "@/data/logistics";
 import { Reveal } from "@/components/motion/Reveal";
-import { SectionHeading } from "@/components/ui/SectionHeading";
+import { PhotoHero } from "@/components/ui/PhotoHero";
 import { CTAPanel } from "@/components/ui/CTAPanel";
 import { cn } from "@/lib/cn";
 
@@ -10,17 +10,13 @@ export const metadata: Metadata = { title: "Insurance & Shipping" };
 export default function InsuranceShippingPage() {
   return (
     <main>
-      <section className="blueprint-grid border-b border-line py-24">
-        <div className="mx-auto max-w-6xl px-6">
-          <Reveal>
-            <SectionHeading
-              eyebrow="Insurance & Shipping"
-              title="Covered from dock to deployment."
-              lede="Insurance, freight, warehousing, and integrations — the unglamorous half of robotics, handled."
-            />
-          </Reveal>
-        </div>
-      </section>
+      <PhotoHero
+        image="/images/warehouse.jpg"
+        imageAlt="Tall warehouse aisle with stocked racking"
+        eyebrow="Insurance & Shipping"
+        title="Covered from dock to deployment."
+        lede="Insurance, freight, warehousing, and integrations — the unglamorous half of robotics, handled."
+      />
 
       <section className="mx-auto max-w-6xl space-y-24 px-6 py-24">
         {logisticsSections.map((s, i) => (
