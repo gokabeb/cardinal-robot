@@ -111,7 +111,7 @@ export default function Home() {
       <section className="mx-auto max-w-7xl px-6 py-24 sm:py-32">
         <Reveal>
           <SectionHeading
-            index="01" eyebrow="At scale"
+            eyebrow="At scale"
             title="Adoption, measured."
             lede="Cardinal operates the largest commercial robot deployment platform in the country."
           />
@@ -191,7 +191,7 @@ export default function Home() {
       <section className="border-t border-line/70 bg-panel/40">
         <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32">
           <Reveal>
-            <SectionHeading index="02" eyebrow="Two ways in" title="One platform. Two ways to use it." />
+            <SectionHeading eyebrow="Two ways in" title="One platform. Two ways to use it." />
           </Reveal>
           <Stagger className="mt-14 grid gap-4 md:grid-cols-2">
             <StaggerItem>
@@ -286,7 +286,7 @@ export default function Home() {
       <section className="mx-auto max-w-7xl px-6 py-24 sm:py-32">
         <Reveal>
           <SectionHeading
-            index="03" eyebrow="How it works"
+            eyebrow="How it works"
             title="The full deployment cycle, handled."
             lede="From sourcing to financing, Cardinal covers installation, integration, service, and support — optimized for ROI."
           />
@@ -301,7 +301,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6">
           <Reveal>
             <SectionHeading
-              index="04" eyebrow="Platform"
+              eyebrow="Platform"
               title="The whole fleet, one console."
               lede="Every deployment reports into a single dashboard — KPIs, scheduling, ROI, and operational visibility."
             />
@@ -333,7 +333,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6">
           <Reveal>
             <SectionHeading
-              index="05" eyebrow="The fleet"
+              eyebrow="The fleet"
               title="24 robots. 8 categories. One partner."
               lede="Application-task-specific robots, matched to the job and covered end to end."
             />
@@ -360,7 +360,7 @@ export default function Home() {
       {/* 10 — Outcomes */}
       <section className="mx-auto max-w-7xl px-6 py-24">
         <Reveal>
-          <SectionHeading index="06" eyebrow="Outcomes" title="Measured on the floor, not in the pitch." />
+          <SectionHeading eyebrow="Outcomes" title="Measured on the floor, not in the pitch." />
         </Reveal>
         <Stagger className="mt-14 grid gap-4 md:grid-cols-3">
           {outcomes.map((o) => (
