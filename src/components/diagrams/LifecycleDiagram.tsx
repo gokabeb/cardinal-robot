@@ -33,10 +33,10 @@ export function LifecycleDiagram({ phases = DEFAULT_PHASES }: { phases?: string[
               viewport={{ once: true }}
               transition={{ delay: reduce ? 0 : 0.2 + i * 0.25 }}
             />
-            <text x={x} y="62" textAnchor="middle" fill="#414868" fontSize="13" fontFamily="var(--font-mono)">
+            <text x={x} y="62" textAnchor="middle" fill="#414868" fontSize="13" fontFamily="var(--font-inter)">
               {p}
             </text>
-            <text x={x} y="78" textAnchor="middle" fill="#6a7194" fontSize="9" fontFamily="var(--font-mono)">
+            <text x={x} y="78" textAnchor="middle" fill="#6a7194" fontSize="9" fontFamily="var(--font-inter)">
               {String(i + 1).padStart(2, "0")}
             </text>
           </g>

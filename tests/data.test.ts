@@ -134,6 +134,15 @@ describe("fact vault integrity", () => {
       expect(readFileSync(f, "utf8"), f).not.toMatch(driftPattern);
     }
   });
+
+  it("uses Inter as the only typeface — no Space Grotesk, no font-mono", () => {
+    for (const f of sourceFiles("src")) {
+      const content = readFileSync(f, "utf8");
+      expect(content, f).not.toContain("font-mono");
+      expect(content, f).not.toContain("Space_Grotesk");
+      expect(content, f).not.toContain("space-grotesk");
+    }
+  });
 });
 
 function sourceFiles(dir: string): string[] {

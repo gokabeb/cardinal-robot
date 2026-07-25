@@ -19,7 +19,7 @@ export function Footer() {
           </div>
           {footerColumns.map((col) => (
             <div key={col.title}>
-              <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-muted">{col.title}</p>
+              <p className="mb-4 text-xs uppercase tracking-[0.2em] text-muted">{col.title}</p>
               <ul className="space-y-3">
                 {col.links.map((l) => (
                   <li key={l.href}>
@@ -33,12 +33,12 @@ export function Footer() {
           ))}
         </div>
         <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-line pt-8 sm:flex-row sm:items-center">
-          <p className="font-mono text-xs text-muted">© {new Date().getFullYear()} Cardinal Robotics. All rights reserved.</p>
+          <p className="text-xs text-muted">© {new Date().getFullYear()} Cardinal Robotics. All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="font-mono text-xs text-muted transition-colors duration-150 hover:text-navy">
+            <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="text-xs text-muted transition-colors duration-150 hover:text-navy">
               LinkedIn ↗
             </a>
-            <a href={youtubeUrl} target="_blank" rel="noopener noreferrer" className="font-mono text-xs text-muted transition-colors duration-150 hover:text-navy">
+            <a href={youtubeUrl} target="_blank" rel="noopener noreferrer" className="text-xs text-muted transition-colors duration-150 hover:text-navy">
               YouTube ↗
             </a>
           </div>

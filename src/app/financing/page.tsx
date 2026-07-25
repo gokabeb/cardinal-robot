@@ -24,8 +24,8 @@ export default function FinancingPage() {
             {financingHighlights.map((h) => (
               <StaggerItem key={h.label}>
                 <Card className="h-full text-center">
-                  <p className="font-mono tabular text-5xl font-medium tracking-tight text-cardinal-700">{h.value}</p>
-                  <p className="mt-4 font-mono text-xs uppercase tracking-[0.2em] text-muted">{h.label}</p>
+                  <p className="tabular text-5xl font-medium tracking-tight text-cardinal-700">{h.value}</p>
+                  <p className="mt-4 text-xs uppercase tracking-[0.2em] text-muted">{h.label}</p>
                 </Card>
               </StaggerItem>
             ))}
@@ -42,7 +42,7 @@ export default function FinancingPage() {
             {financeTerms.map((t) => (
               <div key={t.label} className="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[280px_1fr] sm:gap-6">
                 <dt className="text-sm text-muted">{t.label}</dt>
-                <dd className="font-mono text-sm text-navy">{t.value}</dd>
+                <dd className="text-sm text-navy">{t.value}</dd>
               </div>
             ))}
           </dl>
@@ -58,7 +58,7 @@ export default function FinancingPage() {
             {financeProcess.map((p) => (
               <StaggerItem key={p.step}>
                 <Card className="h-full">
-                  <p className="font-mono text-xs text-cardinal-600">{p.step}</p>
+                  <p className="text-xs text-cardinal-600">{p.step}</p>
                   <h3 className="mt-3 font-display text-xl font-medium text-navy">{p.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed">{p.body}</p>
                 </Card>
@@ -79,7 +79,7 @@ export default function FinancingPage() {
               </li>
             ))}
           </ul>
-          <p className="mt-10 font-mono text-sm text-muted">
+          <p className="mt-10 text-sm text-muted">
             Direct line: <a href={`mailto:${financeEmail}`} className="text-cardinal-600 hover:text-cardinal-700">{financeEmail}</a>
           </p>
         </Reveal>

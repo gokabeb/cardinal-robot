@@ -72,11 +72,11 @@ export default function Home() {
               </Parallax>
               <div className="absolute inset-x-0 bottom-0 flex flex-wrap items-end justify-between gap-3 p-5 sm:p-6">
                 <div className="flex items-baseline gap-2.5 rounded-full border border-line bg-paper px-5 py-2.5 shadow-sm">
-                  <span className="font-mono tabular text-sm font-medium text-navy">35,000+</span>
+                  <span className="tabular text-sm font-medium text-navy">35,000+</span>
                   <span className="text-xs text-body">robots deployed</span>
                 </div>
                 <div className="hidden items-baseline gap-2.5 rounded-full border border-line bg-paper px-5 py-2.5 shadow-sm sm:flex">
-                  <span className="font-mono tabular text-sm font-medium text-navy">3,000+</span>
+                  <span className="tabular text-sm font-medium text-navy">3,000+</span>
                   <span className="text-xs text-body">technicians nationwide</span>
                 </div>
               </div>
@@ -88,7 +88,7 @@ export default function Home() {
       {/* 2 — Trusted by */}
       <section className="mx-auto mt-20 max-w-7xl px-6 sm:mt-28">
         <Reveal>
-          <p className="text-center font-mono text-xs uppercase tracking-[0.2em] text-muted">
+          <p className="text-center text-xs uppercase tracking-[0.2em] text-muted">
             Trusted by the world&apos;s leading operators
           </p>
           <LogoWall className="mt-10" />
@@ -100,7 +100,7 @@ export default function Home() {
         <Marquee pauseOnHover>
           {categories.map((c) => (
             <span key={c.slug} className="flex items-center">
-              <span className="px-6 font-mono text-xs uppercase tracking-[0.2em] text-muted">{c.name}</span>
+              <span className="px-6 text-xs uppercase tracking-[0.2em] text-muted">{c.name}</span>
               <img src="/brand/mark-navy.png" alt="" aria-hidden className="h-3.5 w-auto opacity-20" />
             </span>
           ))}
@@ -119,9 +119,9 @@ export default function Home() {
         <Stagger className="mt-14 grid gap-4 md:grid-cols-6">
           <StaggerItem className="md:col-span-4">
             <BentoCell href="/financing" className="blueprint-grid h-full min-h-[240px] bg-cardinal-50">
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">Dedicated financing facility</p>
+              <p className="text-xs uppercase tracking-[0.2em] text-muted">Dedicated financing facility</p>
               <div>
-                <p className="font-mono tabular text-7xl font-medium tracking-tight text-cardinal-700 sm:text-8xl">
+                <p className="tabular text-7xl font-medium tracking-tight text-cardinal-700 sm:text-8xl">
                   $<CountUp to={800} />M
                 </p>
                 <p className="mt-3 max-w-sm text-sm leading-relaxed">
@@ -132,8 +132,8 @@ export default function Home() {
           </StaggerItem>
           <StaggerItem className="md:col-span-2">
             <BentoCell href="/robots" className="h-full min-h-[240px]">
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">Robots deployed</p>
-              <p className="font-mono tabular text-6xl font-medium tracking-tight text-navy">
+              <p className="text-xs uppercase tracking-[0.2em] text-muted">Robots deployed</p>
+              <p className="tabular text-6xl font-medium tracking-tight text-navy">
                 <CountUp to={35000} suffix="+" />
               </p>
             </BentoCell>
@@ -141,8 +141,8 @@ export default function Home() {
           <StaggerItem className="md:col-span-3">
             <BentoCell href="/servicing" className="h-full">
               <div className="flex items-baseline justify-between gap-4">
-                <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">Certified technicians</p>
-                <p className="font-mono tabular text-3xl font-medium tracking-tight text-navy">
+                <p className="text-xs uppercase tracking-[0.2em] text-muted">Certified technicians</p>
+                <p className="tabular text-3xl font-medium tracking-tight text-navy">
                   <CountUp to={3000} suffix="+" />
                 </p>
               </div>
@@ -156,16 +156,16 @@ export default function Home() {
             <div className="grid h-full gap-4">
               <BentoCell href="/robots/disinfection">
                 <div className="flex items-baseline justify-between gap-4">
-                  <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">Hospitals using Cardinal UV-C</p>
-                  <p className="font-mono tabular text-3xl font-medium tracking-tight text-navy">
+                  <p className="text-xs uppercase tracking-[0.2em] text-muted">Hospitals using Cardinal UV-C</p>
+                  <p className="tabular text-3xl font-medium tracking-tight text-navy">
                     <CountUp to={500} suffix="+" />
                   </p>
                 </div>
               </BentoCell>
               <BentoCell href="/robots">
                 <div className="flex items-baseline justify-between gap-4">
-                  <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">Rentals from</p>
-                  <p className="font-mono tabular text-3xl font-medium tracking-tight text-navy">$2.99/hr</p>
+                  <p className="text-xs uppercase tracking-[0.2em] text-muted">Rentals from</p>
+                  <p className="tabular text-3xl font-medium tracking-tight text-navy">$2.99/hr</p>
                 </div>
                 <p className="mt-3 text-sm">No upfront costs. Unlimited servicing included.</p>
               </BentoCell>
@@ -174,12 +174,12 @@ export default function Home() {
           <StaggerItem className="md:col-span-6">
             <BentoCell href="/robots" className="flex-row items-center justify-between gap-6">
               <div className="flex items-baseline gap-4">
-                <p className="font-mono tabular text-3xl font-medium tracking-tight text-navy">24</p>
+                <p className="tabular text-3xl font-medium tracking-tight text-navy">24</p>
                 <p className="text-sm">robots across</p>
-                <p className="font-mono tabular text-3xl font-medium tracking-tight text-navy">8</p>
+                <p className="tabular text-3xl font-medium tracking-tight text-navy">8</p>
                 <p className="text-sm">categories</p>
               </div>
-              <p className="hidden font-mono text-xs uppercase tracking-[0.2em] text-cardinal-600 transition-transform duration-150 group-hover:translate-x-1 sm:block">
+              <p className="hidden text-xs uppercase tracking-[0.2em] text-cardinal-600 transition-transform duration-150 group-hover:translate-x-1 sm:block">
                 View the fleet →
               </p>
             </BentoCell>
@@ -207,7 +207,7 @@ export default function Home() {
                   </div>
                   <div className="flex flex-1 flex-col justify-between p-8">
                     <div>
-                      <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">For operators</p>
+                      <p className="text-xs uppercase tracking-[0.2em] text-muted">For operators</p>
                       <h3 className="mt-3 font-display text-2xl font-semibold tracking-tight text-navy">
                         Deploy robots in your facility
                       </h3>
@@ -215,7 +215,7 @@ export default function Home() {
                         Rent application-specific robots from $2.99/hr with no upfront costs and unlimited servicing included.
                       </p>
                     </div>
-                    <p className="mt-6 font-mono text-sm text-cardinal-600 transition-transform duration-150 group-hover:translate-x-1">
+                    <p className="mt-6 text-sm text-cardinal-600 transition-transform duration-150 group-hover:translate-x-1">
                       Explore the fleet →
                     </p>
                   </div>
@@ -235,7 +235,7 @@ export default function Home() {
                   </div>
                   <div className="flex flex-1 flex-col justify-between p-8">
                     <div>
-                      <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">For robotics companies</p>
+                      <p className="text-xs uppercase tracking-[0.2em] text-muted">For robotics companies</p>
                       <h3 className="mt-3 font-display text-2xl font-semibold tracking-tight text-navy">
                         Scale your robotics company
                       </h3>
@@ -243,7 +243,7 @@ export default function Home() {
                         Non-dilutive deployment capital from $500K to $50M, backed by 3,000+ technicians nationwide.
                       </p>
                     </div>
-                    <p className="mt-6 font-mono text-sm text-cardinal-600 transition-transform duration-150 group-hover:translate-x-1">
+                    <p className="mt-6 text-sm text-cardinal-600 transition-transform duration-150 group-hover:translate-x-1">
                       See financing →
                     </p>
                   </div>
@@ -312,7 +312,7 @@ export default function Home() {
                 <span className="h-2.5 w-2.5 rounded-full bg-line" />
                 <span className="h-2.5 w-2.5 rounded-full bg-line" />
                 <span className="h-2.5 w-2.5 rounded-full bg-line" />
-                <span className="mx-auto rounded-full border border-line/60 bg-paper px-4 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
+                <span className="mx-auto rounded-full border border-line/60 bg-paper px-4 py-1 text-[10px] uppercase tracking-[0.2em] text-muted">
                   Cardinal Fleet Console
                 </span>
                 <span className="w-[54px]" aria-hidden />
@@ -344,10 +344,10 @@ export default function Home() {
             {categories.map((c, i) => (
               <Link key={c.slug} href={`/robots/${c.slug}`} className="group mx-2 block w-72">
                 <Card className="h-56">
-                  <p className="font-mono tabular text-xs text-muted">{String(i + 1).padStart(2, "0")}</p>
+                  <p className="tabular text-xs text-muted">{String(i + 1).padStart(2, "0")}</p>
                   <h3 className="mt-3 font-display text-xl font-semibold tracking-tight text-navy">{c.name}</h3>
                   <p className="mt-3 line-clamp-3 text-sm leading-relaxed">{c.blurb}</p>
-                  <p className="mt-4 font-mono text-xs text-cardinal-600 transition-transform duration-150 group-hover:translate-x-1">
+                  <p className="mt-4 text-xs text-cardinal-600 transition-transform duration-150 group-hover:translate-x-1">
                     View robots →
                   </p>
                 </Card>
@@ -366,7 +366,7 @@ export default function Home() {
           {outcomes.map((o) => (
             <StaggerItem key={o.stat}>
               <Card className="h-full">
-                <p className="font-mono text-2xl font-medium tracking-tight text-cardinal-700">{o.stat}</p>
+                <p className="text-2xl font-medium tracking-tight text-cardinal-700">{o.stat}</p>
                 <p className="mt-4 text-sm leading-relaxed">{o.context}</p>
               </Card>
             </StaggerItem>
@@ -377,7 +377,7 @@ export default function Home() {
       {/* 11 — Trust band */}
       <section className="mx-auto max-w-7xl px-6 pb-8">
         <Reveal className="flex flex-col items-center gap-5 border-t border-line/70 pt-12 text-center">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
+          <p className="text-xs uppercase tracking-[0.2em] text-muted">
             DoD-compliant data security
           </p>
           <div className="flex flex-wrap justify-center gap-2">

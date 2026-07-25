@@ -35,7 +35,7 @@ function LogoCell({ client }: { client: Client }) {
       {url && !failed && (
         <span
           aria-hidden
-          className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 whitespace-nowrap rounded-full border border-line bg-paper px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.15em] text-navy opacity-0 shadow-sm transition-all duration-200 ease-out group-hover:-translate-y-3 group-hover:opacity-100"
+          className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 whitespace-nowrap rounded-full border border-line bg-paper px-2.5 py-1 text-[10px] uppercase tracking-[0.15em] text-navy opacity-0 shadow-sm transition-all duration-200 ease-out group-hover:-translate-y-3 group-hover:opacity-100"
         >
           {client.name}
         </span>

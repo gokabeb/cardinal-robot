@@ -24,10 +24,10 @@ export function SecurityFlowDiagram() {
         <g key={n.label}>
           <rect x={n.x - 40} y="35" width="80" height="50" rx="6" fill="#f6f8fd" stroke="#e3e8f5" />
           <circle cx={n.x - 28} cy="47" r="2.5" fill="#0e9f6e" />
-          <text x={n.x} y="66" textAnchor="middle" fill="#0c1033" fontSize="10" fontFamily="var(--font-mono)">
+          <text x={n.x} y="66" textAnchor="middle" fill="#0c1033" fontSize="10" fontFamily="var(--font-inter)">
             {n.label}
           </text>
-          <text x={n.x} y="105" textAnchor="middle" fill="#6a7194" fontSize="9" fontFamily="var(--font-mono)">
+          <text x={n.x} y="105" textAnchor="middle" fill="#6a7194" fontSize="9" fontFamily="var(--font-inter)">
             {n.sub}
           </text>
         </g>

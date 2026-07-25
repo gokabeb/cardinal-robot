@@ -65,7 +65,7 @@ export default function AboutPage() {
       <section className="border-t border-line/70 py-24">
         <div className="mx-auto max-w-7xl px-6">
           <Reveal>
-            <p className="text-center font-mono text-xs uppercase tracking-[0.2em] text-muted">
+            <p className="text-center text-xs uppercase tracking-[0.2em] text-muted">
               We proudly serve some of the world&apos;s most prominent organizations
             </p>
             <LogoWall compact className="mt-10" />

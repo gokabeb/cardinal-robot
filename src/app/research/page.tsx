@@ -39,14 +39,14 @@ export default function ResearchPage() {
           {researchStats.map((s) => (
             <StaggerItem key={s.label}>
               <Card className="h-full text-center">
-                <p className="font-mono tabular text-5xl font-medium tracking-tight text-cardinal-700">{s.value}</p>
-                <p className="mt-4 font-mono text-xs uppercase tracking-[0.2em] text-muted">{s.label}</p>
+                <p className="tabular text-5xl font-medium tracking-tight text-cardinal-700">{s.value}</p>
+                <p className="mt-4 text-xs uppercase tracking-[0.2em] text-muted">{s.label}</p>
               </Card>
             </StaggerItem>
           ))}
         </Stagger>
         <Reveal className="mt-16 border-t border-line/70 pt-10 text-center">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">In-house, end to end</p>
+          <p className="text-xs uppercase tracking-[0.2em] text-muted">In-house, end to end</p>
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed">
             {researchClosing.text}
           </p>

@@ -44,12 +44,12 @@ export default function IndustriesPage() {
           {industries.map((ind, i) => (
             <section key={ind.slug} id={ind.slug} className="scroll-mt-24">
               <Reveal>
-                <p className="font-mono text-xs text-muted">{String(i + 1).padStart(2, "0")}</p>
+                <p className="text-xs text-muted">{String(i + 1).padStart(2, "0")}</p>
                 <h2 className="mt-2 font-display text-3xl font-medium text-navy">{ind.name}</h2>
                 <p className="mt-4 max-w-2xl text-lg leading-relaxed">{ind.narrative}</p>
                 <div className="mt-6 rounded-lg border border-line bg-panel p-6">
                   <p className="font-display text-3xl font-medium text-cardinal-600">{ind.metric.value}</p>
-                  <p className="mt-1 font-mono text-xs uppercase tracking-[0.15em] text-muted">{ind.metric.label}</p>
+                  <p className="mt-1 text-xs uppercase tracking-[0.15em] text-muted">{ind.metric.label}</p>
                 </div>
                 <div className="mt-6 flex flex-wrap gap-2">
                   {ind.robotSlugs.map((slug) => (
@@ -61,10 +61,10 @@ export default function IndustriesPage() {
                 {ind.slug === "casinos" && (
                   <div className="mt-8 overflow-hidden rounded-lg border border-line">
                     <table className="w-full text-left text-sm">
-                      <caption className="border-b border-line bg-panel px-5 py-3 text-left font-mono text-xs uppercase tracking-[0.2em] text-muted">
+                      <caption className="border-b border-line bg-panel px-5 py-3 text-left text-xs uppercase tracking-[0.2em] text-muted">
                         Measured impact per application
                       </caption>
-                      <thead className="border-b border-line bg-panel font-mono text-xs uppercase tracking-[0.15em] text-muted">
+                      <thead className="border-b border-line bg-panel text-xs uppercase tracking-[0.15em] text-muted">
                         <tr>
                           <th scope="col" className="px-5 py-3 font-normal">Application</th>
                           <th scope="col" className="px-5 py-3 font-normal">Labor impact</th>
@@ -74,7 +74,7 @@ export default function IndustriesPage() {
                         {casinoFteTable.map((row) => (
                           <tr key={row.application}>
                             <td className="px-5 py-3 text-body">{row.application}</td>
-                            <td className="px-5 py-3 font-mono text-navy">{row.impact}</td>
+                            <td className="px-5 py-3 text-navy">{row.impact}</td>
                           </tr>
                         ))}
                       </tbody>

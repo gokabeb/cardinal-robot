@@ -26,8 +26,8 @@ export default function ServicingPage() {
             {servicingHighlights.map((h) => (
               <StaggerItem key={h.label}>
                 <Card className="h-full text-center">
-                  <p className="font-mono tabular text-5xl font-medium tracking-tight text-cardinal-700">{h.value}</p>
-                  <p className="mt-4 font-mono text-xs uppercase tracking-[0.2em] text-muted">{h.label}</p>
+                  <p className="tabular text-5xl font-medium tracking-tight text-cardinal-700">{h.value}</p>
+                  <p className="mt-4 text-xs uppercase tracking-[0.2em] text-muted">{h.label}</p>
                 </Card>
               </StaggerItem>
             ))}
@@ -37,11 +37,11 @@ export default function ServicingPage() {
 
       <section className="mx-auto max-w-5xl px-6 py-24">
         <Reveal>
-          <p className="text-center font-mono text-xs uppercase tracking-[0.2em] text-muted">
+          <p className="text-center text-xs uppercase tracking-[0.2em] text-muted">
             Nationwide coverage
           </p>
           <div className="mt-10"><USCoverageMap /></div>
-          <p className="mt-6 text-center font-mono text-xs text-muted">
+          <p className="mt-6 text-center text-xs text-muted">
             3,000+ certified technicians. Onsite and periodic maintenance.
           </p>
         </Reveal>
@@ -74,11 +74,11 @@ export default function ServicingPage() {
 
       <section className="mx-auto max-w-6xl px-6 py-24 text-center">
         <Reveal>
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">Technician certifications</p>
+          <p className="text-xs uppercase tracking-[0.2em] text-muted">Technician certifications</p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             {technicianCerts.map((c) => <Badge key={c}>{c}</Badge>)}
           </div>
-          <p className="mt-8 font-mono text-xs text-muted">ISO 27001 information security, globally certified.</p>
+          <p className="mt-8 text-xs text-muted">ISO 27001 information security, globally certified.</p>
           <p className="mt-4 text-sm leading-relaxed">
             Cardinal upskills U.S. veterans into certified robot technicians — service careers, not gig work.
           </p>

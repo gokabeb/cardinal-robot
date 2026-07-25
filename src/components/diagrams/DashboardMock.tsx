@@ -10,17 +10,17 @@ export function DashboardMock() {
     <figure>
       <div className="overflow-hidden rounded-lg border border-line bg-panel">
         <div className="flex items-center justify-between border-b border-line px-5 py-3">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">Cardinal Fleet Console</p>
+          <p className="text-xs uppercase tracking-[0.2em] text-muted">Cardinal Fleet Console</p>
           <div className="flex items-center gap-2">
             <span className="h-2 w-2 rounded-full bg-status" />
-            <span className="font-mono text-xs text-status">LIVE</span>
+            <span className="text-xs text-status">LIVE</span>
           </div>
         </div>
         <div className="grid grid-cols-3 divide-x divide-line border-b border-line text-center">
           {[["Units online", "24"], ["Coverage today", "148k sq ft"], ["Open tickets", "0"]].map(([k, v]) => (
             <div key={k} className="px-4 py-5">
               <p className="font-display tabular text-2xl text-navy">{v}</p>
-              <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.15em] text-muted">{k}</p>
+              <p className="mt-1 text-[10px] uppercase tracking-[0.15em] text-muted">{k}</p>
             </div>
           ))}
         </div>
@@ -28,8 +28,8 @@ export function DashboardMock() {
           {FLEET_ROWS.map((r) => (
             <li key={r.name} className="flex items-center gap-4 px-5 py-3.5">
               <span className="h-1.5 w-1.5 rounded-full bg-status" />
-              <span className="flex-1 font-mono text-xs text-navy">{r.name}</span>
-              <span className="font-mono text-xs text-muted">{r.status}</span>
+              <span className="flex-1 text-xs text-navy">{r.name}</span>
+              <span className="text-xs text-muted">{r.status}</span>
               <span className="hidden h-1 w-24 overflow-hidden rounded bg-line sm:block">
                 <span className="block h-full bg-cardinal-500" style={{ width: `${r.pct}%` }} />
               </span>
@@ -37,7 +37,7 @@ export function DashboardMock() {
           ))}
         </ul>
       </div>
-      <figcaption className="mt-3 text-center font-mono text-xs text-muted">
+      <figcaption className="mt-3 text-center text-xs text-muted">
         Illustrative interface. Dashboards report KPIs, scheduling, ROI, and operational visibility.
       </figcaption>
     </figure>

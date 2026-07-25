@@ -85,7 +85,7 @@ export function Header() {
                       href={`/robots/${c.slug}`}
                       className="group/item flex items-baseline gap-2.5 rounded-lg px-3.5 py-2.5 transition-colors duration-100 hover:bg-cardinal-50"
                     >
-                      <span className="font-mono text-[10px] tabular text-muted">{String(i + 1).padStart(2, "0")}</span>
+                      <span className="text-[10px] tabular text-muted">{String(i + 1).padStart(2, "0")}</span>
                       <span className="text-sm text-body transition-colors duration-100 group-hover/item:text-cardinal-700">
                         {c.name}
                       </span>
@@ -94,7 +94,7 @@ export function Header() {
                 </div>
                 <Link
                   href="/robots"
-                  className="mt-1 flex items-center justify-between rounded-lg border-t border-line/60 px-3.5 py-2.5 font-mono text-xs uppercase tracking-[0.15em] text-cardinal-600 transition-colors duration-100 hover:bg-cardinal-50"
+                  className="mt-1 flex items-center justify-between rounded-lg border-t border-line/60 px-3.5 py-2.5 text-xs uppercase tracking-[0.15em] text-cardinal-600 transition-colors duration-100 hover:bg-cardinal-50"
                 >
                   View all 24 robots
                   <span aria-hidden>→</span>
@@ -138,7 +138,7 @@ export function Header() {
             {headerNav.map((item) =>
               item.children ? (
                 <div key={item.label} className="py-1">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted">{item.label}</p>
+                  <p className="text-[10px] uppercase tracking-[0.2em] text-muted">{item.label}</p>
                   <div className="mt-2 flex flex-col border-l border-line pl-4">
                     {item.children.map((l) => (
                       <Link key={l.href} href={l.href} onClick={() => setMobileOpen(false)} className="py-2 text-body">{l.label}</Link>

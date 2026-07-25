@@ -21,7 +21,7 @@ export function RobotsCatalog() {
             type="button"
             onClick={() => setFilter(c.slug as CategorySlug | "all")}
             className={cn(
-              "rounded border px-4 py-2 font-mono text-xs uppercase tracking-[0.15em] transition-colors duration-150",
+              "rounded border px-4 py-2 text-xs uppercase tracking-[0.15em] transition-colors duration-150",
               filter === c.slug
                 ? "border-cardinal-500 bg-cardinal-500/10 text-cardinal-600"
                 : "border-line text-body hover:border-muted",
@@ -31,17 +31,17 @@ export function RobotsCatalog() {
           </button>
         ))}
       </div>
-      <p className="mt-6 font-mono text-xs text-muted">{shown.length} of {robots.length} units</p>
+      <p className="mt-6 text-xs text-muted">{shown.length} of {robots.length} units</p>
       <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {shown.map((r) => (
           <Link key={r.slug} href={`/robots/${r.category}#${r.slug}`} className="group block">
             <Card className="flex h-full flex-col">
-              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted">{catName(r.category)}</p>
+              <p className="text-[10px] uppercase tracking-[0.2em] text-muted">{catName(r.category)}</p>
               <h3 className="mt-2 font-display text-xl font-medium text-navy">{r.name}</h3>
               <p className="mt-2 flex-1 text-sm leading-relaxed">{r.tagline}</p>
               <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1 border-t border-line pt-4">
                 {r.headlineSpecs.map((s) => (
-                  <span key={s} className="font-mono text-xs text-cardinal-600">{s}</span>
+                  <span key={s} className="text-xs text-cardinal-600">{s}</span>
                 ))}
               </div>
             </Card>

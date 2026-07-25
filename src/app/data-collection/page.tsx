@@ -28,8 +28,8 @@ export default function DataCollectionPage() {
           {dataOpsStats.map((s) => (
             <StaggerItem key={s.label}>
               <Card className="h-full text-center">
-                <p className="font-mono tabular text-5xl font-medium tracking-tight text-cardinal-700">{s.value}</p>
-                <p className="mt-4 font-mono text-xs uppercase tracking-[0.2em] text-muted">{s.label}</p>
+                <p className="tabular text-5xl font-medium tracking-tight text-cardinal-700">{s.value}</p>
+                <p className="mt-4 text-xs uppercase tracking-[0.2em] text-muted">{s.label}</p>
               </Card>
             </StaggerItem>
           ))}

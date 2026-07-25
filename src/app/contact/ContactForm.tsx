@@ -25,7 +25,7 @@ export function ContactForm() {
   if (status === "success") {
     return (
       <div className="rounded-lg border border-line bg-panel p-10 text-center">
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-status">Message received</p>
+        <p className="text-xs uppercase tracking-[0.2em] text-status">Message received</p>
         <p className="mt-4 text-navy">Thanks. We&apos;ll get back to you shortly.</p>
       </div>
     );
