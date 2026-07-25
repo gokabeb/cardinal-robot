@@ -32,7 +32,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
 
   return (
     <main>
-      <section className="blueprint-grid border-b border-line py-24">
+      <section className="border-b border-line py-24">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal>
             <p className="text-xs text-muted">

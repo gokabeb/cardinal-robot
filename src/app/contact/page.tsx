@@ -9,7 +9,7 @@ export const metadata: Metadata = { title: "Contact" };
 
 export default function ContactPage() {
   return (
-    <main className="blueprint-grid">
+    <main>
       <div className="mx-auto grid max-w-6xl gap-16 px-6 py-24 lg:grid-cols-2">
         <Reveal>
           <SectionHeading
