@@ -11,7 +11,7 @@ export const metadata: Metadata = { title: "Financing" };
 export default function FinancingPage() {
   return (
     <main>
-      <section className="blueprint-grid border-b border-line py-24">
+      <section className="border-b border-line py-24">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal>
             <SectionHeading
