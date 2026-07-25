@@ -41,14 +41,6 @@ body {
   outline-offset: 2px;
 }
 
-/* Fine blue drafting grid for panel backgrounds */
-.blueprint-grid {
-  background-image:
-    linear-gradient(to right, rgb(33 54 204 / 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(33 54 204 / 0.05) 1px, transparent 1px);
-  background-size: 48px 48px;
-}
-
 /* Translucent surface for the nav bar, dropdown, and floating chips */
 .glass {
   background: rgb(255 255 255 / 0.72);

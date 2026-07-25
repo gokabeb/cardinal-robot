@@ -143,6 +143,12 @@ describe("fact vault integrity", () => {
       expect(content, f).not.toContain("space-grotesk");
     }
   });
+
+  it("has no blueprint-grid decorative texture left in the codebase", () => {
+    for (const f of sourceFiles("src")) {
+      expect(readFileSync(f, "utf8"), f).not.toContain("blueprint-grid");
+    }
+  });
 });
 
 function sourceFiles(dir: string): string[] {
