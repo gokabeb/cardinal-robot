@@ -1,0 +1,55 @@
+{
+  "widths": [
+    640,
+    1024,
+    1600,
+    2400
+  ],
+  "images": {
+    "assembly": {
+      "width": 1600,
+      "height": 1003,
+      "src": "/images/assembly.jpg"
+    },
+    "engineer": {
+      "width": 1200,
+      "height": 800,
+      "src": "/images/engineer.jpg"
+    },
+    "hero-corridor": {
+      "width": 1920,
+      "height": 1080,
+      "src": "/images/hero-corridor.jpg"
+    },
+    "hero": {
+      "width": 2400,
+      "height": 1350,
+      "src": "/images/hero.jpg"
+    },
+    "insurance": {
+      "width": 1600,
+      "height": 1200,
+      "src": "/images/insurance.jpg"
+    },
+    "parts": {
+      "width": 1400,
+      "height": 1867,
+      "src": "/images/parts.jpg"
+    },
+    "research": {
+      "width": 1600,
+      "height": 1060,
+      "src": "/images/research.jpg"
+    },
+    "shipping": {
+      "width": 1600,
+      "height": 1067,
+      "src": "/images/shipping.jpg"
+    },
+    "warehouse": {
+      "width": 1000,
+      "height": 1333,
+      "src": "/images/warehouse.jpg"
+    }
+  }
+}

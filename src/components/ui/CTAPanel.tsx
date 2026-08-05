@@ -7,8 +7,8 @@ export function CTAPanel({ title, body, cta, secondary }: {
   secondary?: { label: string; href: string };
 }) {
   return (
-    <section className="mx-auto max-w-6xl px-6 py-28">
-      <div className="relative overflow-hidden rounded-2xl bg-navy px-8 py-20 text-center sm:px-16">
+    <section className="section mx-auto max-w-6xl px-6">
+      <div className="relative overflow-hidden rounded-[20px] bg-navy px-8 py-20 text-center sm:px-16">
         <img
           src="/brand/mark-white-large.png"
           alt=""
@@ -16,8 +16,8 @@ export function CTAPanel({ title, body, cta, secondary }: {
           className="pointer-events-none absolute -right-16 -top-10 w-[420px] opacity-[0.06]"
         />
         <div className="relative">
-          <h2 className="font-display text-4xl font-semibold tracking-tight text-white sm:text-6xl">{title}</h2>
-          {body && <p className="mx-auto mt-5 max-w-xl text-lg text-white/70">{body}</p>}
+          <h2 className="text-display font-display font-semibold text-white">{title}</h2>
+          {body && <p className="text-lede mx-auto mt-5 max-w-xl text-white/70">{body}</p>}
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <Button href={cta.href} className="bg-white text-navy hover:bg-cardinal-50">{cta.label}</Button>
             {secondary && (

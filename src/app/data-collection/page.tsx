@@ -11,11 +11,11 @@ export const metadata: Metadata = { title: "Data Collection" };
 export default function DataCollectionPage() {
   return (
     <main>
-      <section className="border-b border-line py-24">
+      <section className="surface-dark section">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal>
             <SectionHeading
-              eyebrow="Data Collection"
+              tone="dark"
               title="Data operations that never sleep."
               lede="A global data operation behind every deployed robot — labeling, quality, and analytics running around the clock."
             />
@@ -23,7 +23,7 @@ export default function DataCollectionPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-24">
+      <section className="mx-auto max-w-6xl px-6 section">
         <Stagger className="grid gap-4 md:grid-cols-3">
           {dataOpsStats.map((s) => (
             <StaggerItem key={s.label}>

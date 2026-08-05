@@ -3,6 +3,7 @@ import { financeTerms, financeEligibility, financeProcess, financeEmail, financi
 import { Reveal } from "@/components/motion/Reveal";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { IconCheck } from "@/components/icons";
 import { Card } from "@/components/ui/Card";
 import { CTAPanel } from "@/components/ui/CTAPanel";
 
@@ -11,11 +12,11 @@ export const metadata: Metadata = { title: "Financing" };
 export default function FinancingPage() {
   return (
     <main>
-      <section className="border-b border-line py-24">
+      <section className="surface-dark section">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal>
             <SectionHeading
-              eyebrow="Cardinal Finance"
+              tone="dark"
               title="$800M. Non-dilutive. Built by roboticists."
               lede="Deployment capital specifically designed for RaaS and HaaS business models — for US-based, growth-stage robotics and IoT companies."
             />
@@ -33,9 +34,9 @@ export default function FinancingPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-24">
+      <section className="mx-auto max-w-6xl px-6 section">
         <Reveal>
-          <SectionHeading eyebrow="Terms" title="The spec sheet." />
+          <SectionHeading title="The spec sheet." />
         </Reveal>
         <Reveal delay={0.1} className="mt-10">
           <dl className="divide-y divide-line border-y border-line">
@@ -49,17 +50,17 @@ export default function FinancingPage() {
         </Reveal>
       </section>
 
-      <section className="border-y border-line bg-panel/40 py-24">
+      <section className="surface-panel section border-y border-line">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal>
-            <SectionHeading eyebrow="Process" title="Three steps to capital." />
+            <SectionHeading title="Three steps to capital." />
           </Reveal>
           <Stagger className="mt-12 grid gap-6 md:grid-cols-3">
             {financeProcess.map((p) => (
               <StaggerItem key={p.step}>
                 <Card className="h-full">
                   <p className="text-xs text-cardinal-600">{p.step}</p>
-                  <h3 className="mt-3 font-display text-xl font-medium text-navy">{p.title}</h3>
+                  <h3 className="mt-3 font-display text-xl font-semibold text-navy">{p.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed">{p.body}</p>
                 </Card>
               </StaggerItem>
@@ -68,13 +69,13 @@ export default function FinancingPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-24">
+      <section className="mx-auto max-w-6xl px-6 section">
         <Reveal>
-          <SectionHeading eyebrow="Eligibility" title="Who this is for." />
+          <SectionHeading title="Who this is for." />
           <ul className="mt-8 max-w-xl space-y-4">
             {financeEligibility.map((e) => (
               <li key={e} className="flex gap-4 text-lg">
-                <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-cardinal-500" />
+                <IconCheck className="mt-1.5 h-5 w-5 shrink-0 text-cardinal-600" />
                 {e}
               </li>
             ))}

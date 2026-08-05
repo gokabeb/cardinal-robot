@@ -4,6 +4,7 @@ import { USCoverageMap } from "@/components/diagrams/USCoverageMap";
 import { Reveal } from "@/components/motion/Reveal";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { IconCheck } from "@/components/icons";
 import { PhotoHero } from "@/components/ui/PhotoHero";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
@@ -15,9 +16,8 @@ export default function ServicingPage() {
   return (
     <main>
       <PhotoHero
-        image="/images/engineer.jpg"
+        image="engineer"
         imageAlt="Engineer working on robotics hardware in a lab"
-        eyebrow="Servicing"
         title="Enhance your robot workforce uptime."
         lede="Break-fix and preventative maintenance across the US — a 24/7 support line and 3,000+ service delivery professionals through Cardinal and partner networks."
       />
@@ -37,7 +37,7 @@ export default function ServicingPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-6 py-24">
+      <section className="mx-auto max-w-5xl px-6 section">
         <Reveal>
           <p className="text-center text-xs uppercase tracking-[0.2em] text-muted">
             Nationwide coverage
@@ -49,20 +49,20 @@ export default function ServicingPage() {
         </Reveal>
       </section>
 
-      <section className="border-y border-line bg-panel/40 py-24">
+      <section className="surface-panel section border-y border-line">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal>
-            <SectionHeading eyebrow="What's covered" title="Three layers of support." />
+            <SectionHeading title="Three layers of support." />
           </Reveal>
           <Stagger className="mt-12 grid gap-6 md:grid-cols-3">
             {servicePillars.map((p) => (
               <StaggerItem key={p.title}>
                 <Card className="h-full">
-                  <h3 className="font-display text-xl font-medium text-navy">{p.title}</h3>
+                  <h3 className="font-display text-xl font-semibold text-navy">{p.title}</h3>
                   <ul className="mt-5 space-y-3">
                     {p.points.map((pt) => (
                       <li key={pt} className="flex gap-3 text-sm leading-relaxed">
-                        <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-cardinal-500" />
+                        <IconCheck className="mt-0.5 h-4 w-4 shrink-0 text-cardinal-600" />
                         {pt}
                       </li>
                     ))}
@@ -74,7 +74,7 @@ export default function ServicingPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-24 text-center">
+      <section className="section mx-auto max-w-6xl px-6 text-center">
         <Reveal>
           <p className="text-xs uppercase tracking-[0.2em] text-muted">Technician certifications</p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">

@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { readdirSync, readFileSync, statSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { robots } from "@/data/robots";
 import { categories } from "@/data/categories";
@@ -147,6 +147,113 @@ describe("fact vault integrity", () => {
   it("has no blueprint-grid decorative texture left in the codebase", () => {
     for (const f of sourceFiles("src")) {
       expect(readFileSync(f, "utf8"), f).not.toContain("blueprint-grid");
+    }
+  });
+
+  // --- Design system guards (DESIGN.md §9) ---------------------------------
+
+  it("uses the section rhythm scale, never a bare py-24/py-32", () => {
+    // A single vertical padding value everywhere is what made the page scroll
+    // like a metronome. Sections must opt into .section-tight/.section/.section-loose.
+    for (const f of sourceFiles("src/app")) {
+      if (f.endsWith("globals.css")) continue;
+      expect(readFileSync(f, "utf8"), f).not.toMatch(/\bpy-(24|32)\b/);
+    }
+  });
+
+  it("spends at most one .section-loose per page", () => {
+    for (const f of sourceFiles("src/app")) {
+      if (!f.endsWith("page.tsx")) continue;
+      const count = (readFileSync(f, "utf8").match(/section-loose/g) ?? []).length;
+      expect(count, `${f} has ${count} section-loose`).toBeLessThanOrEqual(1);
+    }
+  });
+
+  it("sets every font-display heading at weight 600", () => {
+    // Headings previously shipped at 700/600/500 simultaneously, so the hero
+    // and the section headings looked like they came from different sites.
+    const heading = /<h[123][^>]*font-display[^>]*font-(bold|medium|normal|light|extrabold)\b/;
+    for (const f of sourceFiles("src")) {
+      expect(readFileSync(f, "utf8"), f).not.toMatch(heading);
+    }
+  });
+
+  it("routes photography through <Photo>, not a raw <img>", () => {
+    // Raw <img> is still fine for brand marks and the logo-wall CDN cells;
+    // anything out of public/images must go through the responsive pipeline.
+    for (const f of sourceFiles("src")) {
+      expect(readFileSync(f, "utf8"), f).not.toMatch(/<img[^>]*src=["'][^"']*\/images\//);
+    }
+  });
+
+  it("never reintroduces fractional panel opacity", () => {
+    // #f6f8fd at 40% over white composites to #fbfcfe — 1.03:1 against paper,
+    // below the threshold where an edge registers at all. Panel is used at full
+    // strength or not at all (DESIGN.md §3.1). globals.css is exempt because it
+    // documents the defect it replaced.
+    for (const f of sourceFiles("src")) {
+      if (f.endsWith("globals.css")) continue;
+      expect(readFileSync(f, "utf8"), f).not.toMatch(/bg-panel\/\d/);
+    }
+  });
+
+  it("spends at most one .surface-dark per page", () => {
+    // The CTA panel is already navy. A second full-bleed dark section is the
+    // page's one argument-carrying moment; a third makes it wallpaper.
+    for (const f of sourceFiles("src/app")) {
+      if (!f.endsWith("page.tsx")) continue;
+      const count = (readFileSync(f, "utf8").match(/surface-dark/g) ?? []).length;
+      expect(count, `${f} has ${count} surface-dark`).toBeLessThanOrEqual(1);
+    }
+  });
+
+  it("opens every page on a dark anchor", () => {
+    // Either a PhotoHero or a .surface-dark hero. /contact is the documented
+    // exception (DESIGN.md §3.1): a dark ground behind form inputs costs more
+    // legibility than the rhythm is worth.
+    const EXEMPT = ["contact"];
+    for (const f of sourceFiles("src/app")) {
+      if (!f.endsWith("page.tsx")) continue;
+      if (EXEMPT.some((e) => f.includes(e))) continue;
+      const content = readFileSync(f, "utf8");
+      expect(/surface-dark|PhotoHero/.test(content), `${f} has no dark anchor`).toBe(true);
+    }
+  });
+
+  it("keeps video silent, looping, and inline (DESIGN.md §6)", () => {
+    for (const f of sourceFiles("src")) {
+      const content = readFileSync(f, "utf8");
+      if (!content.includes("<video")) continue;
+      for (const attr of ["muted", "loop", "playsInline"]) {
+        expect(content, `${f} <video> is missing ${attr}`).toContain(attr);
+      }
+      // Background video is decorative. Controls would make it focusable
+      // furniture in the middle of the hero.
+      expect(content, `${f} <video> must not expose controls`).not.toMatch(/\bcontrols\b/);
+    }
+  });
+
+  it("keeps every shipped video under the 3MB budget", () => {
+    if (!existsSync("public/video")) return;
+    for (const name of readdirSync("public/video")) {
+      const bytes = statSync(join("public/video", name)).size;
+      const mb = (bytes / 1048576).toFixed(2);
+      expect(bytes, `public/video/${name} is ${mb}MB, over the 3MB cap`).toBeLessThan(3 * 1048576);
+    }
+  });
+
+  it("ships both an MP4 and a WebM for every video", () => {
+    if (!existsSync("public/video")) return;
+    const stems = new Set(readdirSync("public/video").map((n) => n.replace(/\.[^.]+$/, "")));
+    for (const stem of stems) {
+      expect(existsSync(`public/video/${stem}.mp4`), `${stem} is missing its .mp4`).toBe(true);
+      expect(existsSync(`public/video/${stem}.webm`), `${stem} is missing its .webm`).toBe(true);
+    }
+  });
+
+  it("keeps the radius scale to lg / xl / full / 20px", () => {
+    for (const f of sourceFiles("src")) {
+      expect(readFileSync(f, "utf8"), f).not.toMatch(/\brounded-(2xl|3xl|md|sm)\b/);
     }
   });
 });

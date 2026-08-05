@@ -37,7 +37,7 @@ export function RobotsCatalog() {
           <Link key={r.slug} href={`/robots/${r.category}#${r.slug}`} className="group block">
             <Card className="flex h-full flex-col">
               <p className="text-[10px] uppercase tracking-[0.2em] text-muted">{catName(r.category)}</p>
-              <h3 className="mt-2 font-display text-xl font-medium text-navy">{r.name}</h3>
+              <h3 className="mt-2 font-display text-xl font-semibold text-navy">{r.name}</h3>
               <p className="mt-2 flex-1 text-sm leading-relaxed">{r.tagline}</p>
               <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1 border-t border-line pt-4">
                 {r.headlineSpecs.map((s) => (

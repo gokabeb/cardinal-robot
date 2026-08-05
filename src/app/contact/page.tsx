@@ -10,10 +10,9 @@ export const metadata: Metadata = { title: "Contact" };
 export default function ContactPage() {
   return (
     <main>
-      <div className="mx-auto grid max-w-6xl gap-16 px-6 py-24 lg:grid-cols-2">
+      <div className="section mx-auto grid max-w-6xl gap-16 px-6 lg:grid-cols-2">
         <Reveal>
           <SectionHeading
-            eyebrow="Contact"
             title="Start the deployment."
             lede="Facility operators, robotics companies, and everyone in between — tell us what you're working with."
           />

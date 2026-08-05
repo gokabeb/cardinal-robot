@@ -19,10 +19,104 @@
   --color-status: #0e9f6e;
 }
 
+/* Radius scale (DESIGN.md §4) maps onto Tailwind's built-in scale rather than
+   redefining the --radius-* namespace, which would silently resize every
+   existing rounded-lg in the nav:
+     sm  8px → rounded-lg    chips, badges, dropdown rows
+     md 12px → rounded-xl    cards, images, most surfaces
+     lg 20px → rounded-[20px] CTA panel and full-width feature panels only */
+
 @theme inline {
   --font-display: var(--font-inter);
   --font-body: var(--font-inter);
 }
+
+/* ---------------------------------------------------------------------------
+   Type scale (DESIGN.md §2.2). Inter is the only family, so every bit of
+   hierarchy has to come from size, weight, tracking, and color. Headings are
+   always 600; the scale below carries the rest.
+   --------------------------------------------------------------------------- */
+
+.text-display {
+  font-size: clamp(2.75rem, 6vw, 4.5rem);
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+}
+
+.text-title {
+  font-size: clamp(1.875rem, 3.4vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.028em;
+}
+
+.text-subtitle {
+  font-size: 1.375rem;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.text-lede {
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.text-copy {
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+/* 15px is the floor for anything read as a sentence. 12px is labels only. */
+.text-fine {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.text-label {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* ---------------------------------------------------------------------------
+   Section rhythm (DESIGN.md §4). Three sizes, not one — a single vertical
+   padding value everywhere is what makes a page scroll like a metronome.
+   At most one .section-loose per page.
+   --------------------------------------------------------------------------- */
+
+.section-tight { padding-block: 4rem; }
+.section       { padding-block: 5rem; }
+.section-loose { padding-block: 7rem; }
+
+@media (min-width: 640px) {
+  .section-tight { padding-block: 5rem; }
+  .section       { padding-block: 7rem; }
+  .section-loose { padding-block: 10rem; }
+}
+
+/* ---------------------------------------------------------------------------
+   Surface ladder (DESIGN.md §3.1). The section rhythm above solves *vertical*
+   rhythm; this solves tonal rhythm, which had the same metronome problem and
+   a worse symptom.
+
+   Sections were alternating with `bg-panel/40`. That composites #f6f8fd at 40%
+   over white to #fbfcfe — a 1.03:1 contrast against paper, well below the
+   threshold where an edge registers at all. Eleven of the home page's twelve
+   sections were optically the same white field.
+
+   Three rungs, each a real step. Background only: text colour stays explicit
+   at the call site, because these classes are defined after the Tailwind
+   import and would otherwise outrank the `text-*` utility meant to override
+   them.
+   --------------------------------------------------------------------------- */
+
+.surface-paper { background: var(--color-paper); }
+.surface-panel { background: var(--color-panel); }
+.surface-dark  { background: var(--color-navy); }
+
+/* Hairlines inside a dark section. `border-line` is drawn for paper and reads
+   as a bright scratch on navy. */
+.surface-dark .rule { border-color: rgb(255 255 255 / 0.14); }
 
 body {
   background: var(--color-paper);
@@ -66,10 +160,27 @@ body {
   animation-play-state: paused;
 }
 
-/* Photography treatment: cool, slightly desaturated so photos sit in the palette */
+/* Photography treatment: cool, slightly desaturated so photos sit in the
+   palette. Held at 0.85 rather than 0.72 — below that, hardware reads grey and
+   the photography stops carrying any life. */
 .img-tone {
-  filter: saturate(0.72) contrast(1.03);
+  filter: saturate(0.85) contrast(1.03);
 }
+
+/* Hero entrance is CSS-only (DESIGN.md §5). JS-gated entrance would leave the
+   largest contentful paint as a bare photograph until Framer hydrates. */
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.hero-rise {
+  animation: hero-rise 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-rise-1 { animation-delay: 0.06s; }
+.hero-rise-2 { animation-delay: 0.14s; }
+.hero-rise-3 { animation-delay: 0.22s; }
 
 /* Tabular numerals for metric artwork */
 .tabular {
@@ -79,6 +190,7 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .motion-pulse { display: none; }
   .animate-marquee { animation: none; }
+  .hero-rise { animation: none; }
   /* Static marquees stay reachable: allow manual horizontal scroll instead */
   .marquee-mask { overflow-x: auto; mask-image: none; }
 }

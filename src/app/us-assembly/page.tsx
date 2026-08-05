@@ -12,14 +12,13 @@ export default function UsAssemblyPage() {
   return (
     <main>
       <PhotoHero
-        image="/images/assembly.jpg"
+        image="assembly"
         imageAlt="Blue robotic arm positioned at an automated manufacturing station on a bright factory production line"
-        eyebrow="US Assembly"
         title="Assembled in the USA."
         lede="Onshore assembly and U.S. manufacturing, with secure systems and supply-chain assurance behind every robot we deploy."
       />
 
-      <section className="mx-auto max-w-6xl px-6 py-24">
+      <section className="mx-auto max-w-6xl px-6 section">
         <Stagger className="grid gap-4 md:grid-cols-2">
           {assemblyPillars.map((p) => (
             <StaggerItem key={p.title}>

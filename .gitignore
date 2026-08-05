@@ -6,3 +6,9 @@ next-env.d.ts
 *.tsbuildinfo
 .superpowers/
 .gstack/
+
+# Generated responsive image variants (npm run images). The manifest at
+# src/lib/image-manifest.json IS committed; only the binaries are ignored.
+public/images/opt/*.avif
+public/images/opt/*.webp
+public/images/opt/manifest.json

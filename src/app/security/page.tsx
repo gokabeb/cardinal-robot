@@ -12,11 +12,11 @@ export const metadata: Metadata = { title: "Cyber Security" };
 export default function SecurityPage() {
   return (
     <main>
-      <section className="border-b border-line py-24">
+      <section className="surface-dark section">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal>
             <SectionHeading
-              eyebrow="Cyber Security"
+              tone="dark"
               title="Connected robots, locked down."
               lede="The Cardinal SDK encrypts device status, charge levels, and usage data — with dashboarding, remote diagnostics with permission, firmware updates, asset immobilization, and device logging."
             />
@@ -25,7 +25,7 @@ export default function SecurityPage() {
       </section>
 
       <section className="border-b border-line bg-cardinal-50 py-16">
-        <div className="mx-auto max-w-6xl px-6 text-center">
+        <div className="section mx-auto max-w-6xl px-6 text-center">
           <Reveal>
             <p className="font-display text-2xl font-semibold tracking-tight text-navy sm:text-3xl">{dataResidency.headline}</p>
             <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed">{dataResidency.body}</p>
@@ -33,23 +33,23 @@ export default function SecurityPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-6 py-24">
+      <section className="mx-auto max-w-5xl px-6 section">
         <Reveal>
           <p className="text-center text-xs uppercase tracking-[0.2em] text-muted">Data path</p>
           <div className="mt-10"><SecurityFlowDiagram /></div>
         </Reveal>
       </section>
 
-      <section className="border-y border-line bg-panel/40 py-24">
+      <section className="surface-panel section border-y border-line">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal>
-            <SectionHeading eyebrow="Controls" title="Defense at every layer." />
+            <SectionHeading title="Defense at every layer." />
           </Reveal>
           <Stagger className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {securityFeatures.map((f) => (
               <StaggerItem key={f.title}>
                 <Card className="h-full">
-                  <h3 className="font-display text-lg font-medium text-navy">{f.title}</h3>
+                  <h3 className="font-display text-lg font-semibold text-navy">{f.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed">{f.body}</p>
                 </Card>
               </StaggerItem>
@@ -58,7 +58,7 @@ export default function SecurityPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-24 text-center">
+      <section className="section mx-auto max-w-6xl px-6 text-center">
         <Reveal>
           <p className="text-xs uppercase tracking-[0.2em] text-muted">Compliance</p>
           <div className="mt-8 grid gap-4 sm:grid-cols-4">

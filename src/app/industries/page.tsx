@@ -15,11 +15,11 @@ export default function IndustriesPage() {
 
   return (
     <main>
-      <section className="border-b border-line py-24">
+      <section className="surface-dark section">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal>
             <SectionHeading
-              eyebrow="Industries"
+              tone="dark"
               title="Built for floors that never close."
               lede="Hospitals, hotels, casinos, senior living, schools — wherever labor is short and standards aren't."
             />
@@ -45,7 +45,7 @@ export default function IndustriesPage() {
             <section key={ind.slug} id={ind.slug} className="scroll-mt-24">
               <Reveal>
                 <p className="text-xs text-muted">{String(i + 1).padStart(2, "0")}</p>
-                <h2 className="mt-2 font-display text-3xl font-medium text-navy">{ind.name}</h2>
+                <h2 className="mt-2 font-display text-3xl font-semibold text-navy">{ind.name}</h2>
                 <p className="mt-4 max-w-2xl text-lg leading-relaxed">{ind.narrative}</p>
                 <div className="mt-6 rounded-lg border border-line bg-panel p-6">
                   <p className="font-display text-3xl font-medium text-cardinal-600">{ind.metric.value}</p>

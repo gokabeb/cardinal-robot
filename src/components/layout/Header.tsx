@@ -32,7 +32,7 @@ function NavDropdown({ label, children }: { label: string; children: { label: st
         <Chevron />
       </button>
       <div className={panelCn}>
-        <div className="glass w-56 rounded-2xl border border-line/70 p-2 shadow-xl shadow-navy/[0.07]">
+        <div className="glass w-56 rounded-xl border border-line/70 p-2 shadow-xl shadow-navy/[0.07]">
           {children.map((l) => (
             <Link key={l.href} href={l.href} className="block rounded-lg px-3.5 py-2.5 text-sm text-body transition-colors duration-100 hover:bg-cardinal-50 hover:text-cardinal-700">
               {l.label}
@@ -77,7 +77,7 @@ export function Header() {
                 "group-focus-within:visible group-focus-within:scale-100 group-focus-within:opacity-100",
               )}
             >
-              <div className="glass w-[460px] rounded-2xl border border-line/70 p-2 shadow-xl shadow-navy/[0.07]">
+              <div className="glass w-[460px] rounded-xl border border-line/70 p-2 shadow-xl shadow-navy/[0.07]">
                 <div className="grid grid-cols-2 gap-0.5">
                   {categories.map((c, i) => (
                     <Link

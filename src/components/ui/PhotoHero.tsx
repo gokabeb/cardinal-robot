@@ -1,31 +1,40 @@
-import { Reveal } from "@/components/motion/Reveal";
+import { Photo } from "./Photo";
+import manifest from "@/lib/image-manifest.json";
 
 export function PhotoHero({
-  image, imageAlt, eyebrow, title, lede, minHeight = "min-h-[420px] sm:min-h-[520px]",
+  image, imageAlt, title, lede, minHeight = "min-h-[420px] sm:min-h-[520px]",
 }: {
-  image: string; imageAlt: string; eyebrow: string; title: string; lede: string; minHeight?: string;
+  /** Base image name, e.g. "assembly" for public/images/assembly.jpg. */
+  image: keyof typeof manifest.images;
+  imageAlt: string; title: string; lede: string; minHeight?: string;
 }) {
   return (
     <section className="relative overflow-hidden">
       <div className={`relative flex ${minHeight} items-end`}>
-        <img src={image} alt={imageAlt} className="img-tone absolute inset-0 h-full w-full object-cover" />
+        <Photo
+          name={image}
+          alt={imageAlt}
+          priority
+          sizes="100vw"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
         <div
           className="absolute inset-0"
           style={{
+            // Scrim must guarantee 4.5:1 across the whole text block, not just
+            // its center (DESIGN.md §8). The linear pass does the guaranteeing;
+            // the radial only deepens the corner the copy is anchored to.
             backgroundImage:
-              "radial-gradient(780px 520px at 8% 100%, rgba(12,16,51,0.92) 0%, rgba(12,16,51,0.92) 42%, rgba(12,16,51,0.58) 66%, rgba(12,16,51,0) 88%), linear-gradient(115deg, rgba(12,16,51,0.4) 0%, rgba(12,16,51,0.14) 32%, rgba(12,16,51,0) 58%)",
+              "radial-gradient(820px 560px at 6% 100%, rgba(12,16,51,0.93) 0%, rgba(12,16,51,0.88) 45%, rgba(12,16,51,0.5) 70%, rgba(12,16,51,0) 90%), linear-gradient(to top, rgba(12,16,51,0.82) 0%, rgba(12,16,51,0.45) 34%, rgba(12,16,51,0.08) 62%, rgba(12,16,51,0) 100%)",
           }}
         />
-        <Reveal className="relative w-full px-6 py-16 sm:px-10 sm:py-20">
-          <p className="flex items-center gap-2.5 text-xs uppercase tracking-[0.2em] text-white/80">
-            <span aria-hidden className="h-1.5 w-1.5 bg-white" />
-            {eyebrow}
-          </p>
-          <h2 className="mt-5 max-w-2xl font-display text-4xl font-bold leading-[1.08] tracking-[-0.03em] text-white sm:text-6xl">
+        {/* CSS-only entrance (DESIGN.md §5): hero copy must not wait on JS. */}
+        <div className="relative w-full px-6 py-16 sm:px-10 sm:py-20">
+          <h2 className="text-display hero-rise hero-rise-1 max-w-2xl font-display font-semibold text-white">
             {title}
           </h2>
-          <p className="mt-6 max-w-lg text-lg leading-relaxed text-white/90">{lede}</p>
-        </Reveal>
+          <p className="text-lede hero-rise hero-rise-2 mt-6 max-w-lg text-white/90">{lede}</p>
+        </div>
       </div>
     </section>
   );

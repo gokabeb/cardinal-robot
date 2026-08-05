@@ -6,6 +6,15 @@ import { cn } from "@/lib/cn";
 
 const TOKEN = process.env.NEXT_PUBLIC_LOGO_DEV_TOKEN;
 
+if (!TOKEN && process.env.NODE_ENV !== "production") {
+  // Silent degradation here is expensive: the whole wall turns into text and
+  // nobody notices until it is live. Make it loud in dev and in CI builds.
+  console.warn(
+    "[LogoWall] NEXT_PUBLIC_LOGO_DEV_TOKEN is not set — every client cell will " +
+      "render the wordmark fallback instead of a brand mark. Set it in .env.local.",
+  );
+}
+
 function logoUrl(domain: string): string | null {
   if (!TOKEN) return null;
   return `https://img.logo.dev/${domain}?token=${TOKEN}&format=png&size=160`;
@@ -13,7 +22,12 @@ function logoUrl(domain: string): string | null {
 
 /** One brand cell: CDN logo (grayscale at rest, color pop on hover) with a
  *  wordmark fallback so the wall never shows a broken image. Fixed height
- *  prevents layout shift when a logo fails. */
+ *  prevents layout shift when a logo fails.
+ *
+ *  The fallback has to look like a decision, not like a failed image. Without
+ *  NEXT_PUBLIC_LOGO_DEV_TOKEN every cell renders it, so a wall of small grey
+ *  text reads as placeholder and undercuts the claim above it. Set at wordmark
+ *  scale in navy instead: still clearly typographic, but deliberate. */
 function LogoCell({ client }: { client: Client }) {
   const [failed, setFailed] = useState(false);
   const url = logoUrl(client.domain);
@@ -28,7 +42,7 @@ function LogoCell({ client }: { client: Client }) {
           className="max-h-8 w-auto max-w-[128px] object-contain opacity-55 grayscale transition-all duration-200 ease-out group-hover:scale-110 group-hover:opacity-100 group-hover:grayscale-0"
         />
       ) : (
-        <span className="whitespace-nowrap font-display text-sm font-semibold tracking-tight text-muted transition-all duration-200 ease-out group-hover:scale-105 group-hover:text-navy">
+        <span className="whitespace-nowrap font-display text-base font-semibold tracking-[-0.015em] text-navy/55 transition-colors duration-200 ease-out group-hover:text-navy">
           {client.name}
         </span>
       )}

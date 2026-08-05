@@ -12,14 +12,13 @@ export default function ResearchPage() {
   return (
     <main>
       <PhotoHero
-        image="/images/research.jpg"
+        image="research"
         imageAlt="White robotic arm reaching toward a wall of storage cubbies in a robotics lab"
-        eyebrow="Research & Development"
         title="Research that ships."
         lede={researchNote.text}
       />
 
-      <section className="mx-auto max-w-6xl px-6 py-24">
+      <section className="mx-auto max-w-6xl px-6 section">
         <Stagger className="grid gap-4 md:grid-cols-3">
           {researchStats.map((s) => (
             <StaggerItem key={s.label}>

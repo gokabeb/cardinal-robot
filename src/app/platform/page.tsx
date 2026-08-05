@@ -20,54 +20,62 @@ const PHASES = [
 export default function PlatformPage() {
   return (
     <main>
-      <section className="border-b border-line py-24">
+      {/* Platform takes its dark rung at the top rather than the midpoint: the
+          six phase sections own the middle of this page, and dropping navy into
+          the middle of a zebra would read as an error rather than a rhythm. */}
+      <section className="surface-dark section">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal>
             <SectionHeading
-              eyebrow="Platform"
+              tone="dark"
               title="Six phases. One accountable partner."
               lede="Most robot deployments fail between purchase and adoption. Cardinal owns the entire lifecycle so yours doesn't."
             />
           </Reveal>
-          <Reveal delay={0.15} className="mt-16"><LifecycleDiagram /></Reveal>
+          <Reveal delay={0.15} className="mt-16"><LifecycleDiagram tone="dark" /></Reveal>
         </div>
       </section>
 
       {PHASES.map((phase, i) => (
-        <section key={phase.title} className={i % 2 === 1 ? "border-y border-line bg-panel/40" : ""}>
-          <div className="mx-auto grid max-w-6xl gap-8 px-6 py-24 md:grid-cols-[220px_1fr]">
+        <section key={phase.title} className={i % 2 === 1 ? "surface-panel border-y border-line" : ""}>
+          <div className="section mx-auto grid max-w-6xl gap-8 px-6 md:grid-cols-[220px_1fr]">
             <Reveal>
               <Eyebrow>{phase.title}</Eyebrow>
             </Reveal>
             <Reveal delay={0.1}>
-              <h2 className="font-display text-3xl font-medium text-navy">{phase.title}</h2>
+              <h2 className="font-display text-3xl font-semibold text-navy">{phase.title}</h2>
               <p className="mt-4 max-w-2xl text-lg leading-relaxed">{phase.body}</p>
             </Reveal>
           </div>
         </section>
       ))}
 
-      <section className="mx-auto max-w-4xl px-6 py-24">
-        <Reveal>
-          <SectionHeading
-            eyebrow="Visibility"
-            title="Every robot, one view."
-            lede="Operational KPIs, scheduling, ROI reports, and remote diagnostics — across every site and every model."
-            className="mx-auto text-center"
-          />
-        </Reveal>
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            { n: "24", l: "Robots active" },
-            { n: "148k", l: "Sq ft covered" },
-            { n: "99.2%", l: "Uptime" },
-            { n: "0", l: "Open tickets" },
-          ].map((s) => (
-            <div key={s.l} className="rounded-2xl border border-line bg-paper p-7 text-center">
-              <p className="tabular text-4xl font-bold tracking-tight text-navy">{s.n}</p>
-              <p className="mt-2 text-xs text-muted">{s.l}</p>
-            </div>
-          ))}
+      {/* Same hairline-baseline treatment as the home page's platform band, and
+          the same four figures — this is the page home was pointing at, so the
+          two should read as one artefact rather than two designs of one table.
+          The numerals were font-bold here and font-medium on home; DESIGN.md
+          §2.1 puts stat values at 500. */}
+      <section className="surface-panel section">
+        <div className="mx-auto max-w-6xl px-6">
+          <Reveal>
+            <SectionHeading
+              title="Every robot, one view."
+              lede="Operational KPIs, scheduling, ROI reports, and remote diagnostics — across every site and every model."
+            />
+          </Reveal>
+          <dl className="mt-14 grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4">
+            {[
+              { n: "24", l: "Robots active" },
+              { n: "148k", l: "Sq ft covered" },
+              { n: "99.2%", l: "Uptime" },
+              { n: "0", l: "Open tickets" },
+            ].map((s) => (
+              <div key={s.l} className="border-t border-line pt-5">
+                <dt className="text-label text-muted">{s.l}</dt>
+                <dd className="tabular mt-3 text-4xl font-medium tracking-tight text-navy">{s.n}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 

@@ -9,11 +9,11 @@ export const metadata: Metadata = { title: "The Fleet" };
 export default function RobotsPage() {
   return (
     <main>
-      <section className="border-b border-line py-24">
+      <section className="surface-dark section">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal>
             <SectionHeading
-              eyebrow="The fleet"
+              tone="dark"
               title="24 robots, ready to deploy."
               lede="Every unit is rented, installed, serviced, and reported on by Cardinal — from $2.99/hr with no upfront costs."
             />
