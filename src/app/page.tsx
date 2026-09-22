@@ -141,7 +141,7 @@ export default function Home() {
         />
         <Stagger className="mt-14 grid gap-4 md:grid-cols-6">
           <StaggerItem className="md:col-span-4">
-            <BentoCell href="/financing" className="h-full min-h-[240px] bg-cardinal-50">
+            <BentoCell href="/financing" className="h-full bg-cardinal-50 md:min-h-[240px]">
               <p className="text-label text-muted">Dedicated financing facility</p>
               <div>
                 <p className="tabular text-7xl font-medium tracking-tight text-cardinal-700 sm:text-8xl">
@@ -154,9 +154,9 @@ export default function Home() {
             </BentoCell>
           </StaggerItem>
           <StaggerItem className="md:col-span-2">
-            <BentoCell href="/robots" className="h-full min-h-[240px]">
+            <BentoCell href="/robots" className="h-full md:min-h-[240px]">
               <p className="text-label text-muted">Robots deployed</p>
-              <p className="tabular text-6xl font-medium tracking-tight text-navy">
+              <p className="tabular mt-6 text-6xl font-medium tracking-tight text-navy">
                 <CountUp to={35000} suffix="+" />
               </p>
             </BentoCell>
@@ -172,7 +172,7 @@ export default function Home() {
               <div className="mt-6 opacity-90">
                 <USCoverageMap />
               </div>
-              <p className="mt-4 text-sm">Nationwide service coverage, on call for every deployment.</p>
+              <p className="text-fine mt-4">Nationwide service coverage, on call for every deployment.</p>
             </BentoCell>
           </StaggerItem>
           <StaggerItem className="md:col-span-3">
@@ -190,17 +190,19 @@ export default function Home() {
                   <p className="text-label text-muted">Rentals from</p>
                   <p className="tabular text-3xl font-medium tracking-tight text-navy">$2.99/hr</p>
                 </div>
-                <p className="mt-3 text-sm">No upfront costs. Unlimited servicing included.</p>
+                <p className="text-fine mt-3">No upfront costs. Unlimited servicing included.</p>
               </BentoCell>
             </div>
           </StaggerItem>
           <StaggerItem className="md:col-span-6">
             <BentoCell href="/robots" className="flex-row items-center justify-between gap-6">
-              <div className="flex items-baseline gap-4">
+              {/* gap-2 on phones: at gap-4 the phrase broke into four
+                  fragments ("24 · robots across · 8 · categories"). */}
+              <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1 sm:gap-x-4">
                 <p className="tabular text-3xl font-medium tracking-tight text-navy">24</p>
-                <p className="text-sm">robots across</p>
+                <p className="text-fine">robots across</p>
                 <p className="tabular text-3xl font-medium tracking-tight text-navy">8</p>
-                <p className="text-sm">categories</p>
+                <p className="text-fine">categories</p>
               </div>
               <p className="hidden text-xs uppercase tracking-[0.2em] text-cardinal-600 transition-transform duration-150 group-hover:translate-x-1 sm:block">
                 View the fleet →
