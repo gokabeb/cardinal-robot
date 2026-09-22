@@ -106,8 +106,8 @@ export default function ServicingPage() {
                   <p className="text-fine mt-3">{s.summary}</p>
                   <ul className="mt-5 space-y-3 border-t border-line/70 pt-5">
                     {s.points.map((pt) => (
-                      <li key={pt} className="flex gap-3 text-sm leading-relaxed">
-                        <IconCheck className="mt-0.5 h-4 w-4 shrink-0 text-cardinal-600" />
+                      <li key={pt} className="text-fine flex gap-3">
+                        <IconCheck className="mt-1 h-4 w-4 shrink-0 text-cardinal-600" />
                         {pt}
                       </li>
                     ))}
@@ -191,8 +191,8 @@ export default function ServicingPage() {
           <div className="mt-12 grid gap-10 lg:grid-cols-[1.2fr_1fr]">
             <ul className="space-y-4">
               {workforceCommitments.map((c) => (
-                <li key={c} className="flex gap-3 text-sm leading-relaxed">
-                  <IconCheck className="mt-0.5 h-4 w-4 shrink-0 text-cardinal-600" />
+                <li key={c} className="text-fine flex gap-3">
+                  <IconCheck className="mt-1 h-4 w-4 shrink-0 text-cardinal-600" />
                   {c}
                 </li>
               ))}
