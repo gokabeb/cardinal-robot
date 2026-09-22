@@ -77,9 +77,21 @@ export default function Home() {
             <p className="text-lede hero-rise hero-rise-2 mt-6 max-w-lg text-white/90">
               Cardinal sources, deploys, trains, services, and finances commercial robots — so your team doesn&apos;t have to.
             </p>
-            <div className="hero-rise hero-rise-3 mt-9 flex flex-wrap items-center gap-6">
+            {/* Two doors in the fold, not one. The platform section sits eight
+                sections down, so a visitor who bounced above the fold never
+                learned it existed. Outline variant is overridden to white-on-
+                dark per DESIGN.md §3.1 — the default navy-on-line border is
+                invisible against the scrim. */}
+            <div className="hero-rise hero-rise-3 mt-9 flex flex-wrap items-center gap-4">
               <Button href="/robots">Explore the fleet →</Button>
-              <Link href="/contact" className="text-sm font-semibold text-white underline underline-offset-4">
+              <Button
+                href="/platform"
+                variant="outline"
+                className="border-white/40 text-white hover:border-white hover:bg-white hover:text-navy"
+              >
+                Explore the platform →
+              </Button>
+              <Link href="/contact" className="ml-2 text-sm font-semibold text-white underline underline-offset-4">
                 Talk to us
               </Link>
             </div>

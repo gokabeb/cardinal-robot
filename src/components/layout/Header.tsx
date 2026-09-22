@@ -54,7 +54,9 @@ export function Header() {
           <img src="/brand/logo-navy.png" alt="Cardinal Robotics" className="h-8 w-auto" />
         </Link>
 
-        <div className="hidden items-center gap-7 lg:flex">
+        {/* gap-5 at lg: promoting Platform and Industries to top level took the
+            bar from 6 items to 7, which overflowed at 1024px on gap-7. */}
+        <div className="hidden items-center gap-5 lg:flex xl:gap-7">
           <div className="group relative">
             <Link
               href="/robots"

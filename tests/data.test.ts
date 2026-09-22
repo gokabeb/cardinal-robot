@@ -6,9 +6,9 @@ import { categories } from "@/data/categories";
 import { heroStats, outcomes } from "@/data/stats";
 import { industries, casinoFteTable } from "@/data/industries";
 import { roadmap } from "@/data/roadmap";
-import { headerNav, footerColumns } from "@/data/navigation";
+import { headerNav, footerColumns, footerPrimaryLinks } from "@/data/navigation";
 import { securityFeatures, complianceBadges } from "@/data/security";
-import { servicePillars, technicianCerts } from "@/data/servicing";
+import { serviceProgram, serviceCallSteps, technicianCerts } from "@/data/servicing";
 import { financeTerms, financeProcess } from "@/data/financing";
 import { clients } from "@/data/clients";
 import { assemblyPillars } from "@/data/assembly";
@@ -65,7 +65,11 @@ describe("fact vault integrity", () => {
   it("navigation links point at real routes", () => {
     const links = [
       ...headerNav.flatMap((i) => (i.children ? i.children : [{ label: i.label, href: i.href! }])),
-      ...footerColumns.flatMap((c) => c.links),
+      // Nested one level: a footer link may own an indented child group
+      // (Services -> Platform -> its capabilities). Flattening only the top
+      // level would let a typo in a nested href ship a 404 with a green suite.
+      ...footerColumns.flatMap((c) => c.links.flatMap((l) => [l, ...(l.children ?? [])])),
+      ...footerPrimaryLinks,
     ];
     for (const l of links) {
       if (l.href.startsWith("/")) expect(ROUTES.includes(l.href.split("#")[0]), l.href).toBe(true);
@@ -85,7 +89,8 @@ describe("fact vault integrity", () => {
     expect(roadmap.length).toBe(2);
     expect(securityFeatures.length).toBeGreaterThanOrEqual(9);
     expect(complianceBadges).toEqual(["SOC 2", "ISO 27001", "HIPAA", "GDPR"]);
-    expect(servicePillars.length).toBe(3);
+    expect(serviceProgram.length).toBe(4);
+    expect(serviceCallSteps.length).toBe(4);
     expect(technicianCerts.length).toBe(6);
     expect(financeProcess.length).toBe(3);
   });
@@ -107,7 +112,9 @@ describe("fact vault integrity", () => {
       ...logisticsSections, ...financingHighlights, ...servicingHighlights,
       researchNote, aboutFacts, dataResidency, assemblyNote, researchClosing,
     ];
-    for (const f of sourced) expect(f.source).toContain("founder-provided 2026-07-18");
+    // Date-prefixed rather than pinned to one date: facts arrive over time and
+    // a hardcoded date makes this guard fail on every new founder document.
+    for (const f of sourced) expect(f.source).toMatch(/^founder-provided \d{4}-\d{2}-\d{2}/);
     expect(assemblyPillars).toHaveLength(4);
     expect(dataOpsStats).toHaveLength(3);
     expect(researchStats).toHaveLength(3);
