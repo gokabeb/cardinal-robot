@@ -23,10 +23,12 @@ export function Footer() {
           ))}
         </nav>
 
-        <div className="grid gap-12 md:grid-cols-[1.5fr_repeat(4,1fr)]">
-          <div className="space-y-4">
+        {/* Two link columns on phones. Single-column, the four groups stacked
+            to ~1,500px — two full screens of links before the copyright. */}
+        <div className="grid grid-cols-2 gap-x-8 gap-y-12 md:grid-cols-[1.5fr_repeat(4,1fr)]">
+          <div className="col-span-2 space-y-4 md:col-span-1">
             <img src="/brand/logo-navy.png" alt="Cardinal Robotics" className="h-9 w-auto" />
-            <p className="max-w-xs text-sm leading-relaxed">
+            <p className="text-fine max-w-xs">
               Robotic adoption made easy. Sourcing, deployment, training, servicing, and financing for commercial robots.
             </p>
             <div className="flex flex-wrap gap-2">
@@ -36,24 +38,24 @@ export function Footer() {
           {footerColumns.map((col) => (
             <div key={col.title}>
               <p className="mb-4 text-xs uppercase tracking-[0.2em] text-muted">{col.title}</p>
-              <ul className="space-y-3">
+              <ul className="space-y-1">
                 {col.links.map((l) => (
                   <li key={l.href}>
                     <Link
                       href={l.href}
                       className={
                         l.children
-                          ? "text-sm font-semibold text-navy transition-colors duration-150 hover:text-cardinal-700"
-                          : "text-sm text-body transition-colors duration-150 hover:text-navy"
+                          ? "inline-block py-1 text-sm font-semibold text-navy transition-colors duration-150 hover:text-cardinal-700"
+                          : "inline-block py-1 text-sm text-body transition-colors duration-150 hover:text-navy"
                       }
                     >
                       {l.label}
                     </Link>
                     {l.children && (
-                      <ul className="mt-3 space-y-3 border-l border-line pl-4">
+                      <ul className="mt-2 space-y-1 border-l border-line pl-4">
                         {l.children.map((c) => (
                           <li key={c.href}>
-                            <Link href={c.href} className="text-sm text-body transition-colors duration-150 hover:text-navy">
+                            <Link href={c.href} className="inline-block py-1 text-sm text-body transition-colors duration-150 hover:text-navy">
                               {c.label}
                             </Link>
                           </li>
