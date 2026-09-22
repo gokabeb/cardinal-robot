@@ -91,11 +91,11 @@ describe("fact vault integrity", () => {
   });
 
   it("client wall entries are complete, unique, and sourced", () => {
-    expect(clients).toHaveLength(19);
+    expect(clients).toHaveLength(26);
     for (const c of clients) {
       expect(c.name, c.name).toBeTruthy();
       expect(c.domain, c.name).toMatch(/^[a-z0-9-]+(\.[a-z0-9-]+)+$/);
-      expect(c.source, c.name).toContain("founder-provided 2026-07-18");
+      expect(c.source, c.name).toMatch(/^founder-provided \d{4}-\d{2}-\d{2}$/);
     }
     expect(new Set(clients.map((c) => c.domain)).size).toBe(clients.length);
     expect(clients.map((c) => c.name)).not.toContain("Cuarvo");
