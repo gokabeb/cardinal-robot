@@ -135,11 +135,15 @@ body {
   outline-offset: 2px;
 }
 
-/* Translucent surface for the nav bar, dropdown, and floating chips */
+/* Translucent surface for the nav bar, dropdown, and floating chips.
+   Prefixed declaration first, standard last: in the other order the CSS
+   minifier folds the pair into the -webkit- form alone, so Chrome and
+   Firefox (Android included) got a 72% white bar with no blur and body copy
+   legible straight through the nav. */
 .glass {
   background: rgb(255 255 255 / 0.72);
-  backdrop-filter: blur(16px) saturate(1.4);
   -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  backdrop-filter: blur(16px) saturate(1.4);
 }
 
 /* Framer-style infinite marquee */
