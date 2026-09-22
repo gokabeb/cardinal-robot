@@ -40,19 +40,19 @@ export default function ServicingPage() {
         </div>
       </section>
 
-      <section className="border-b border-line py-16">
-        <div className="mx-auto max-w-6xl px-6">
-          <Stagger className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {servicingHighlights.map((h) => (
-              <StaggerItem key={h.label}>
-                <Card className="h-full text-center">
-                  <p className="tabular text-5xl font-medium tracking-tight text-cardinal-700">{h.value}</p>
-                  <p className="mt-4 text-xs uppercase tracking-[0.2em] text-muted">{h.label}</p>
-                </Card>
-              </StaggerItem>
-            ))}
-          </Stagger>
-        </div>
+      {/* Hairline baselines, 2-up on phones — the same stat treatment as
+          /platform and home (DESIGN.md §10, 2026-07-30). Four bordered,
+          centred cards stacked to ~700px of scroll at 375px for four numbers.
+          Value sits above its label here because this is the lead band. */}
+      <section className="section-tight border-b border-line">
+        <dl className="mx-auto grid max-w-6xl grid-cols-2 gap-x-8 gap-y-10 px-6 lg:grid-cols-4">
+          {servicingHighlights.map((h) => (
+            <div key={h.label} className="flex flex-col border-t border-line pt-5">
+              <dt className="text-fine mt-2 text-muted">{h.label}</dt>
+              <dd className="tabular order-first text-4xl font-medium tracking-tight text-cardinal-700 sm:text-5xl">{h.value}</dd>
+            </div>
+          ))}
+        </dl>
       </section>
 
       {/* Who we are */}
