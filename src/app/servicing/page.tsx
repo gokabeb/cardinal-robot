@@ -92,30 +92,26 @@ export default function ServicingPage() {
       {/* One program, four services */}
       <section className="surface-panel section border-b border-line">
         <div className="mx-auto max-w-6xl px-6">
-          <Reveal>
-            <SectionHeading
-              title="One program, four services."
-              lede="Flat-rate programs and total-cost-of-ownership pricing, with expenses passed through at cost against the work order."
-            />
-          </Reveal>
-          <Stagger className="mt-12 grid gap-6 md:grid-cols-2">
+          <SectionHeading
+            title="One program, four services."
+            lede="Flat-rate programs and total-cost-of-ownership pricing, with expenses passed through at cost against the work order."
+          />
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
             {serviceProgram.map((s) => (
-              <StaggerItem key={s.title}>
-                <Card className="h-full">
-                  <h3 className="text-subtitle font-display font-semibold text-navy">{s.title}</h3>
-                  <p className="text-fine mt-3">{s.summary}</p>
-                  <ul className="mt-5 space-y-3 border-t border-line/70 pt-5">
-                    {s.points.map((pt) => (
-                      <li key={pt} className="text-fine flex gap-3">
-                        <IconCheck className="mt-1 h-4 w-4 shrink-0 text-cardinal-600" />
-                        {pt}
-                      </li>
-                    ))}
-                  </ul>
-                </Card>
-              </StaggerItem>
+              <Card key={s.title} className="h-full">
+                <h3 className="text-subtitle font-display font-semibold text-navy">{s.title}</h3>
+                <p className="text-fine mt-3">{s.summary}</p>
+                <ul className="mt-5 space-y-3 border-t border-line/70 pt-5">
+                  {s.points.map((pt) => (
+                    <li key={pt} className="text-fine flex gap-3">
+                      <IconCheck className="mt-1 h-4 w-4 shrink-0 text-cardinal-600" />
+                      {pt}
+                    </li>
+                  ))}
+                </ul>
+              </Card>
             ))}
-          </Stagger>
+          </div>
         </div>
       </section>
 
@@ -164,30 +160,24 @@ export default function ServicingPage() {
 
       {/* What sets us apart */}
       <section className="section mx-auto max-w-6xl px-6">
-        <Reveal>
-          <SectionHeading title="What sets us apart." />
-        </Reveal>
-        <Stagger className="mt-12 grid gap-6 md:grid-cols-3">
+        <SectionHeading title="What sets us apart." />
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
           {crsDifferentiators.map((d) => (
-            <StaggerItem key={d.title}>
-              <Card className="h-full">
-                <h3 className="text-subtitle font-display font-semibold text-navy">{d.title}</h3>
-                <p className="text-fine mt-4">{d.body}</p>
-              </Card>
-            </StaggerItem>
+            <Card key={d.title} className="h-full">
+              <h3 className="text-subtitle font-display font-semibold text-navy">{d.title}</h3>
+              <p className="text-fine mt-4">{d.body}</p>
+            </Card>
           ))}
-        </Stagger>
+        </div>
       </section>
 
       {/* Workforce */}
       <section className="surface-panel section border-y border-line">
         <div className="mx-auto max-w-6xl px-6">
-          <Reveal>
-            <SectionHeading
-              title="Workforce excellence — upskilling America's veterans."
-              lede="The best robotics technicians are built, not just hired. Our workforce development program retrains and upskills U.S. military veterans, channeling their discipline, technical aptitude, and mission-driven mindset into high-demand robotics careers."
-            />
-          </Reveal>
+          <SectionHeading
+            title="Workforce excellence — upskilling America's veterans."
+            lede="The best robotics technicians are built, not just hired. Our workforce development program retrains and upskills U.S. military veterans, channeling their discipline, technical aptitude, and mission-driven mindset into high-demand robotics careers."
+          />
           <div className="mt-12 grid gap-10 lg:grid-cols-[1.2fr_1fr]">
             <ul className="space-y-4">
               {workforceCommitments.map((c) => (
