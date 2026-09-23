@@ -25,7 +25,9 @@ export const clients: Client[] = [
   { name: "Adventist Health", domain: "adventisthealth.org", source: SRC_AUG },
   { name: "Princeton University", domain: "princeton.edu", source: SRC_AUG },
   { name: "University of Florida", domain: "ufl.edu", source: SRC_AUG },
-  { name: "IRS", domain: "irs.gov", source: SRC_AUG },
+  // "IRS" held back pending confirmation that a federal agency is cleared for
+  // public reference — agencies generally do not permit their name or seal to
+  // be used as a commercial endorsement. Re-add with the wall count guard.
   { name: "CBRE", domain: "cbre.com", source: SRC },
   { name: "Cushman & Wakefield", domain: "cushmanwakefield.com", source: SRC },
   { name: "Compass Group", domain: "compass-group.com", source: SRC },
