@@ -195,7 +195,7 @@ export default function ServicingPage() {
                   {technicianCerts.map((c) => <Badge key={c}>{c}</Badge>)}
                 </div>
               </div>
-              <p className="text-xs text-muted">ISO 27001 information security, globally certified.</p>
+              <p className="text-fine text-muted">ISO 27001 information security, globally certified.</p>
             </div>
           </div>
         </div>
