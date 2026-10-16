@@ -67,7 +67,7 @@ export default function PressPage() {
                   <a
                     href={a.href}
                     download
-                    className="text-fine text-cardinal-600 underline underline-offset-4 transition-colors duration-150 hover:text-cardinal-700"
+                    className="inline-flex min-h-11 items-center text-fine text-cardinal-600 underline underline-offset-4 transition-colors duration-150 hover:text-cardinal-700"
                   >
                     {a.label}
                   </a>

@@ -221,8 +221,8 @@ describe("fact vault integrity", () => {
   it("opens every page on a dark anchor", () => {
     // Either a PhotoHero or a .surface-dark hero. /contact is the documented
     // exception (DESIGN.md §3.1): a dark ground behind form inputs costs more
-    // legibility than the rhythm is worth.
-    const EXEMPT = ["contact"];
+    // legibility than the rhythm is worth. /about only forwards to /why-cardinal.
+    const EXEMPT = ["contact", "app/about/"];
     for (const f of sourceFiles("src/app")) {
       if (!f.endsWith("page.tsx")) continue;
       if (EXEMPT.some((e) => f.includes(e))) continue;

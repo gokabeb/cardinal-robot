@@ -121,7 +121,6 @@ export default function ServicingPage() {
           <SectionHeading
             title="National coverage."
             lede="CRS deploys field technicians across the continental United States, with active operations in key metro markets and fulfillment corridors."
-            className="mx-auto text-center"
           />
           <div className="mt-12"><USCoverageMap /></div>
           <dl className="mt-14 grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4">

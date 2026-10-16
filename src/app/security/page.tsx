@@ -36,7 +36,7 @@ export default function SecurityPage() {
       <section className="border-b border-line bg-cardinal-50 py-16">
         <div className="section mx-auto max-w-6xl px-6 text-center">
           <p className="font-display text-2xl font-semibold tracking-tight text-navy sm:text-3xl">{dataResidency.headline}</p>
-          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed">{dataResidency.body}</p>
+          <p className="mx-auto mt-4 max-w-2xl text-fine">{dataResidency.body}</p>
         </div>
       </section>
 

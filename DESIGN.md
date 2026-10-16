@@ -171,7 +171,7 @@ Text and line-work on `.surface-dark` do not simply invert:
   same 1.8:1 problem.
 
 > **Guarded:** no `bg-panel/<n>` fractional opacity anywhere in `src/`; at most
-> one `.surface-dark` per page; every page but `/contact` carries a dark anchor.
+> one `.surface-dark` per page; every page but `/contact` (and the `/about` forwarding stub) carries a dark anchor.
 
 ---
 
@@ -369,7 +369,7 @@ radial. It now measures 11.86:1 across the loop.
 - Superseded technician counts (1,000 / 2,000).
 - `bg-panel/<n>` fractional opacity (§3.1).
 - More than one `.surface-dark` per page (§3.1).
-- Any page but `/contact` without a dark anchor — `PhotoHero` or `.surface-dark` (§3.1).
+- Any page but `/contact` or the `/about` stub without a dark anchor — `PhotoHero` or `.surface-dark` (§3.1).
 
 All factual claims live in `src/data/` and must trace to the Fact Source Table
 in `docs/superpowers/specs/2026-07-11-cardinal-robot-website-design.md` §9.

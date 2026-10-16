@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useId, useRef, useState } from "react";
 import { headerNav } from "@/data/navigation";
 import { categories } from "@/data/categories";
 import { cn } from "@/lib/cn";
@@ -21,20 +21,41 @@ const panelCn = cn(
   "invisible absolute left-1/2 top-full -translate-x-1/2 pt-3 opacity-0",
   "origin-top scale-[0.97] transition-all duration-150 ease-[cubic-bezier(0.16,1,0.3,1)]",
   "group-hover:visible group-hover:scale-100 group-hover:opacity-100",
-  "group-focus-within:visible group-focus-within:scale-100 group-focus-within:opacity-100",
 );
 
 function NavDropdown({ label, children }: { label: string; children: { label: string; href: string }[] }) {
+  const [open, setOpen] = useState(false);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const panelId = useId();
+
   return (
-    <div className="group relative">
-      <button type="button" className="inline-flex items-center gap-1.5 py-3 text-sm text-body transition-colors duration-150 hover:text-navy">
+    <div
+      className="group relative"
+      onKeyDown={(e) => {
+        if (e.key === "Escape" && open) {
+          setOpen(false);
+          buttonRef.current?.focus();
+        }
+      }}
+      onBlur={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setOpen(false);
+      }}
+    >
+      <button
+        ref={buttonRef}
+        type="button"
+        aria-expanded={open}
+        aria-controls={panelId}
+        onClick={() => setOpen((o) => !o)}
+        className="inline-flex items-center gap-1.5 py-3 text-sm text-body transition-colors duration-150 hover:text-navy"
+      >
         {label}
         <Chevron />
       </button>
-      <div className={panelCn}>
+      <div id={panelId} className={cn(panelCn, open && "visible scale-100 opacity-100")}>
         <div className="glass w-56 rounded-xl border border-line/70 p-2 shadow-xl shadow-navy/[0.07]">
           {children.map((l) => (
-            <Link key={l.href} href={l.href} className="block rounded-lg px-3.5 py-2.5 text-sm text-body transition-colors duration-100 hover:bg-cardinal-50 hover:text-cardinal-700">
+            <Link key={l.href} href={l.href} onClick={() => setOpen(false)} className="block rounded-lg px-3.5 py-2.5 text-sm text-body transition-colors duration-100 hover:bg-cardinal-50 hover:text-cardinal-700">
               {l.label}
             </Link>
           ))}
@@ -115,7 +136,7 @@ export function Header() {
           )}
           <Link
             href="/contact"
-            className="rounded-full bg-cardinal-600 px-5 py-2 font-display text-sm font-semibold text-white transition-colors duration-150 hover:bg-cardinal-700"
+            className="inline-flex min-h-11 items-center rounded-full bg-cardinal-600 px-5 font-display text-sm font-semibold text-white transition-colors duration-150 hover:bg-cardinal-700"
           >
             Get in Touch
           </Link>
@@ -126,7 +147,7 @@ export function Header() {
           aria-label="Toggle menu"
           aria-expanded={mobileOpen}
           onClick={() => setMobileOpen((o) => !o)}
-          className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 lg:hidden"
+          className="flex h-11 w-11 flex-col items-center justify-center gap-1.5 lg:hidden"
         >
           <span className={cn("h-px w-5 bg-navy transition-transform duration-150", mobileOpen && "translate-y-[3.5px] rotate-45")} />
           <span className={cn("h-px w-5 bg-navy transition-transform duration-150", mobileOpen && "-translate-y-[3.5px] -rotate-45")} />
@@ -136,19 +157,19 @@ export function Header() {
       {mobileOpen && (
         <div className="border-t border-line/60 bg-paper px-6 py-6 lg:hidden">
           <div className="flex flex-col gap-1">
-            <Link href="/robots" onClick={() => setMobileOpen(false)} className="py-2.5 text-navy">Robots</Link>
+            <Link href="/robots" onClick={() => setMobileOpen(false)} className="py-3 text-navy">Robots</Link>
             {headerNav.map((item) =>
               item.children ? (
                 <div key={item.label} className="py-1">
                   <p className="text-[10px] uppercase tracking-[0.2em] text-muted">{item.label}</p>
                   <div className="mt-2 flex flex-col border-l border-line pl-4">
                     {item.children.map((l) => (
-                      <Link key={l.href} href={l.href} onClick={() => setMobileOpen(false)} className="py-2 text-body">{l.label}</Link>
+                      <Link key={l.href} href={l.href} onClick={() => setMobileOpen(false)} className="py-2.5 text-body">{l.label}</Link>
                     ))}
                   </div>
                 </div>
               ) : (
-                <Link key={item.href} href={item.href!} onClick={() => setMobileOpen(false)} className="py-2.5 text-body">{item.label}</Link>
+                <Link key={item.href} href={item.href!} onClick={() => setMobileOpen(false)} className="py-3 text-body">{item.label}</Link>
               ),
             )}
             <Link

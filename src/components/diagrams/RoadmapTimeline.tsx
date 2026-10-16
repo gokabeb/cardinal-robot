@@ -11,7 +11,7 @@ export function RoadmapTimeline() {
             <p className="text-sm uppercase tracking-[0.2em] text-cardinal-600">{era.year}</p>
             <ul className="mt-4 grid gap-3 sm:grid-cols-2">
               {era.items.map((item) => (
-                <li key={item} className="rounded border border-line bg-panel px-4 py-3 text-sm text-body">
+                <li key={item} className="rounded border border-line bg-panel px-4 py-3 text-fine text-body">
                   {item}
                 </li>
               ))}

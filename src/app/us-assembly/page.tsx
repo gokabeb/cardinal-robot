@@ -28,7 +28,7 @@ export default function UsAssemblyPage() {
             <StaggerItem key={p.title}>
               <Card className="h-full">
                 <h3 className="font-display text-xl font-semibold tracking-tight text-navy">{p.title}</h3>
-                <p className="mt-4 text-sm leading-relaxed">{p.body}</p>
+                <p className="mt-4 text-fine">{p.body}</p>
               </Card>
             </StaggerItem>
           ))}
