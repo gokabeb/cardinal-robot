@@ -19,13 +19,13 @@ export default function ContactPage() {
           <div className="mt-12 space-y-6">
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-muted">Financing inquiries</p>
-              <a href={`mailto:${financeEmail}`} className="mt-1 block text-sm text-cardinal-600 hover:text-cardinal-700">
+              <a href={`mailto:${financeEmail}`} className="inline-flex min-h-11 items-center text-fine text-cardinal-600 hover:text-cardinal-700">
                 {financeEmail}
               </a>
             </div>
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-muted">Watch the fleet</p>
-              <a href={youtubeUrl} target="_blank" rel="noopener noreferrer" className="mt-1 block text-sm text-body hover:text-navy">
+              <a href={youtubeUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center text-fine text-body hover:text-navy">
                 YouTube ↗
               </a>
             </div>

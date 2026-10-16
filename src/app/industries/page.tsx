@@ -32,7 +32,7 @@ export default function IndustriesPage() {
           <ul className="space-y-1 border-l border-line">
             {industries.map((ind) => (
               <li key={ind.slug}>
-                <a href={`#${ind.slug}`} className="block border-l-2 border-transparent px-4 py-2 text-sm text-muted transition-colors duration-150 hover:border-cardinal-500 hover:text-navy">
+                <a href={`#${ind.slug}`} className="block border-l-2 border-transparent px-4 py-2.5 text-fine text-muted transition-colors duration-150 hover:border-cardinal-500 hover:text-navy">
                   {ind.name}
                 </a>
               </li>
@@ -53,7 +53,7 @@ export default function IndustriesPage() {
                 </div>
                 <div className="mt-6 flex flex-wrap gap-2">
                   {ind.robotSlugs.map((slug) => (
-                    <Link key={slug} href={`/robots/${robotCategory(slug)}#${slug}`}>
+                    <Link key={slug} href={`/robots/${robotCategory(slug)}#${slug}`} className="inline-flex min-h-11 items-center">
                       <Badge>{robotName(slug)}</Badge>
                     </Link>
                   ))}

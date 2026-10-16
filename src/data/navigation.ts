@@ -1,67 +1,105 @@
 export interface NavLink { label: string; href: string }
 export interface NavItem { label: string; href?: string; children?: NavLink[] }
 
-// Approved IA: Robots keeps its category mega-menu (special-cased in Header).
+/** A footer link that may own a nested, indented group beneath it. */
+export interface FooterColumn { title: string; links: FooterLink[] }
+export interface FooterLink extends NavLink { children?: NavLink[] }
+
+/**
+ * IA per the founder website spec, 2026-10-12:
+ *   Robots · Financing · Servicing · Security · US Assembly · Solutions · Why Cardinal
+ *
+ * Robots is not listed below because the Header hardcodes it as a category
+ * mega-menu ahead of these items.
+ *
+ * This supersedes the previous IA, and two of its decisions are deliberately
+ * reversed, so the reasoning is worth recording rather than silently dropping:
+ *
+ *   - Platform leaves the nav. It is not buried — the spec replaces it with a
+ *     six-pillar section on the homepage, and the hero's primary CTA is an
+ *     in-page anchor to it. The page survives at /platform for deep links.
+ *   - Industries leaves the nav, reachable from the footer. The previous IA
+ *     promoted it specifically because it had been footer-only; the spec puts
+ *     it back. Flagged to the founder rather than quietly overridden.
+ *
+ * Solutions groups the two operational pages under the spec's own labels.
+ * The routes are unchanged so existing links keep working: "Logistics &
+ * Insurance" is /insurance-shipping, "Data & Intelligence" is
+ * /data-collection.
+ */
 export const headerNav: NavItem[] = [
   { label: "Financing", href: "/financing" },
+  { label: "Servicing", href: "/servicing" },
+  { label: "Security", href: "/security" },
   {
-    label: "Services",
+    label: "US Assembly",
     children: [
-      { label: "Servicing", href: "/servicing" },
-      { label: "Insurance & Shipping", href: "/insurance-shipping" },
-    ],
-  },
-  {
-    label: "Trust",
-    children: [
-      { label: "Cyber Security", href: "/security" },
       { label: "US Assembly", href: "/us-assembly" },
+      { label: "Research & Development", href: "/research" },
     ],
   },
   {
-    label: "Technology",
+    label: "Solutions",
     children: [
-      { label: "Data Collection", href: "/data-collection" },
-      { label: "Research & Development", href: "/research" },
-      { label: "Platform", href: "/platform" },
+      { label: "Logistics & Insurance", href: "/insurance-shipping" },
+      { label: "Data & Intelligence", href: "/data-collection" },
+      { label: "Industries", href: "/industries" },
     ],
   },
-  { label: "About", href: "/about" },
+  { label: "Why Cardinal", href: "/why-cardinal" },
 ];
 
-export const footerColumns = [
+/**
+ * Standalone destinations, rendered as a row above the footer column grid.
+ * These are the three "where do I start" doors.
+ */
+export const footerPrimaryLinks: NavLink[] = [
+  { label: "Explore the Platform", href: "/platform" },
+  { label: "Explore the Fleet", href: "/robots" },
+  { label: "Explore Industries", href: "/industries" },
+];
+
+export const footerColumns: FooterColumn[] = [
+  {
+    // Platform leads, and the individual services indent beneath it: no single
+    // service is the product. The platform is what you get when all of them
+    // run against the same fleet, and the hierarchy should say so.
+    title: "Services",
+    links: [
+      {
+        label: "Platform",
+        href: "/platform",
+        children: [
+          { label: "Servicing", href: "/servicing" },
+          { label: "Logistics & Insurance", href: "/insurance-shipping" },
+          { label: "Financing", href: "/financing" },
+          { label: "Data & Intelligence", href: "/data-collection" },
+        ],
+      },
+    ],
+  },
   {
     title: "Fleet",
     links: [
       { label: "All robots", href: "/robots" },
       { label: "Industries", href: "/industries" },
       { label: "Vacuuming", href: "/robots/vacuuming" },
-      { label: "Delivery", href: "/robots/delivery" },
       { label: "UV-C Disinfection", href: "/robots/disinfection" },
-    ],
-  },
-  {
-    title: "Services",
-    links: [
-      { label: "Servicing", href: "/servicing" },
-      { label: "Insurance & Shipping", href: "/insurance-shipping" },
-      { label: "Financing", href: "/financing" },
-      { label: "Platform", href: "/platform" },
     ],
   },
   {
     title: "Trust",
     links: [
-      { label: "Cyber Security", href: "/security" },
+      { label: "Security", href: "/security" },
       { label: "US Assembly", href: "/us-assembly" },
-      { label: "Data Collection", href: "/data-collection" },
       { label: "Research & Development", href: "/research" },
     ],
   },
   {
     title: "Company",
     links: [
-      { label: "About", href: "/about" },
+      { label: "Why Cardinal", href: "/why-cardinal" },
+      { label: "Press", href: "/press" },
       { label: "Contact", href: "/contact" },
     ],
   },

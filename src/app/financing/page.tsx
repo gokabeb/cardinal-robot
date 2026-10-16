@@ -17,8 +17,8 @@ export default function FinancingPage() {
           <Reveal>
             <SectionHeading
               tone="dark"
-              title="$800M. Non-dilutive. Built by roboticists."
-              lede="Deployment capital specifically designed for RaaS and HaaS business models — for US-based, growth-stage robotics and IoT companies."
+              title="$500K to $50M. Zero equity. Two-day decisions."
+              lede="Cardinal provides non-dilutive, non-debt growth capital for US-based robotics and IoT companies, with no liens or personal guarantees."
             />
           </Reveal>
           <Stagger className="mt-14 grid gap-4 md:grid-cols-3">
@@ -61,7 +61,7 @@ export default function FinancingPage() {
                 <Card className="h-full">
                   <p className="text-xs text-cardinal-600">{p.step}</p>
                   <h3 className="mt-3 font-display text-xl font-semibold text-navy">{p.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed">{p.body}</p>
+                  <p className="mt-3 text-fine">{p.body}</p>
                 </Card>
               </StaggerItem>
             ))}
@@ -80,7 +80,7 @@ export default function FinancingPage() {
               </li>
             ))}
           </ul>
-          <p className="mt-10 text-sm text-muted">
+          <p className="mt-10 text-fine text-muted">
             Direct line: <a href={`mailto:${financeEmail}`} className="text-cardinal-600 hover:text-cardinal-700">{financeEmail}</a>
           </p>
         </Reveal>

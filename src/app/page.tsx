@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { outcomes } from "@/data/stats";
+import { platformPillars, pillarsIntro, principles, proofStatement } from "@/data/pillars";
 import { categories } from "@/data/categories";
 import { complianceBadges } from "@/data/security";
 import { LifecycleDiagram } from "@/components/diagrams/LifecycleDiagram";
@@ -72,16 +73,26 @@ export default function Home() {
           {/* CSS-only entrance: the LCP headline must not wait on hydration. */}
           <div className="relative w-full px-6 pb-16 pt-24 sm:px-10 sm:pb-20">
             <h1 className="text-display hero-rise hero-rise-1 max-w-2xl font-display font-semibold text-white">
-              The robotic workforce, fully operational.
+              One platform for running the entire robotic workforce.
             </h1>
-            <p className="text-lede hero-rise hero-rise-2 mt-6 max-w-lg text-white/90">
-              Cardinal sources, deploys, trains, services, and finances commercial robots — so your team doesn&apos;t have to.
+            <p className="text-lede hero-rise hero-rise-2 mt-6 max-w-xl text-white/90">
+              Cardinal brings together the people, technology, robots, and infrastructure it takes to put commercial robotics to work.
             </p>
-            <div className="hero-rise hero-rise-3 mt-9 flex flex-wrap items-center gap-6">
-              <Button href="/robots">Explore the fleet →</Button>
-              <Link href="/contact" className="text-sm font-semibold text-white underline underline-offset-4">
+            {/* Primary CTA is an in-page anchor, not a navigation (spec §I):
+                it scrolls to the six-pillar overview rather than sending a
+                first-time visitor to a sub-page before they know what Cardinal
+                is. Outline variant is overridden to white-on-dark per
+                DESIGN.md §3.1 — the default navy-on-line border is invisible
+                against the scrim. */}
+            <div className="hero-rise hero-rise-3 mt-9 flex flex-wrap items-center gap-4">
+              <Button href="#platform">Explore the platform →</Button>
+              <Button
+                href="/contact"
+                variant="outline"
+                className="border-white/40 text-white hover:border-white hover:bg-white hover:text-navy"
+              >
                 Talk to us
-              </Link>
+              </Button>
             </div>
           </div>
           {/* Shared grid so the two chips share an edge instead of sitting ragged. */}
@@ -99,12 +110,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2 — Trusted by. Connective tissue, so it stays tight. */}
+      {/* 2 — Proof (spec §III). The logo wall carries the claim rather than
+          sitting under a generic "trusted by" label. Operators and OEMs are
+          deliberately NOT split into two walls yet: only two of the current
+          names are confirmed OEMs, and a 2-versus-22 split reads as an error
+          rather than a statement. clients.ts carries the `kind` field, so the
+          split is one render change away once the classification is confirmed. */}
       <section className="section-tight mx-auto max-w-7xl px-6">
-        <p className="text-label text-center text-muted">
-          Trusted by the world&apos;s leading operators
-        </p>
-        <LogoWall className="mt-10" />
+        <h2 className="text-title mx-auto max-w-3xl text-center font-display font-semibold text-navy">
+          {proofStatement.title}
+        </h2>
+        <p className="text-lede mt-4 text-center text-muted">{proofStatement.lede}</p>
+        <LogoWall className="mt-12" />
       </section>
 
       {/* 3 — Category ticker */}
@@ -119,151 +136,121 @@ export default function Home() {
         </Marquee>
       </section>
 
-      {/* 4 — Bento: the numbers are the artwork. This is the section that
-          carries the argument, so it gets the page's one loose rhythm slot
-          and one of the three scroll-motion slots. */}
-      <section className="section-loose mx-auto max-w-7xl px-6">
-        <SectionHeading
-          title="Adoption, measured."
-          lede="Cardinal operates the largest commercial robot deployment platform in the country."
-        />
-        <Stagger className="mt-14 grid gap-4 md:grid-cols-6">
-          <StaggerItem className="md:col-span-4">
-            <BentoCell href="/financing" className="h-full min-h-[240px] bg-cardinal-50">
-              <p className="text-label text-muted">Dedicated financing facility</p>
-              <div>
-                <p className="tabular text-7xl font-medium tracking-tight text-cardinal-700 sm:text-8xl">
-                  $<CountUp to={800} />M
-                </p>
-                <p className="text-fine mt-3 max-w-sm">
-                  Non-dilutive deployment capital for robotics companies, from $500K to $50M.
-                </p>
-              </div>
-            </BentoCell>
-          </StaggerItem>
-          <StaggerItem className="md:col-span-2">
-            <BentoCell href="/robots" className="h-full min-h-[240px]">
-              <p className="text-label text-muted">Robots deployed</p>
-              <p className="tabular text-6xl font-medium tracking-tight text-navy">
-                <CountUp to={35000} suffix="+" />
-              </p>
-            </BentoCell>
-          </StaggerItem>
-          <StaggerItem className="md:col-span-3">
-            <BentoCell href="/servicing" className="h-full">
-              <div className="flex items-baseline justify-between gap-4">
-                <p className="text-label text-muted">Certified technicians</p>
-                <p className="tabular text-3xl font-medium tracking-tight text-navy">
-                  <CountUp to={3000} suffix="+" />
-                </p>
-              </div>
-              <div className="mt-6 opacity-90">
-                <USCoverageMap />
-              </div>
-              <p className="mt-4 text-sm">Nationwide service coverage, on call for every deployment.</p>
-            </BentoCell>
-          </StaggerItem>
-          <StaggerItem className="md:col-span-3">
-            <div className="grid h-full gap-4">
-              <BentoCell href="/robots/disinfection">
-                <div className="flex items-baseline justify-between gap-4">
-                  <p className="text-label text-muted">Hospitals using Cardinal UV-C</p>
-                  <p className="tabular text-3xl font-medium tracking-tight text-navy">
-                    <CountUp to={500} suffix="+" />
-                  </p>
-                </div>
-              </BentoCell>
-              <BentoCell href="/robots">
-                <div className="flex items-baseline justify-between gap-4">
-                  <p className="text-label text-muted">Rentals from</p>
-                  <p className="tabular text-3xl font-medium tracking-tight text-navy">$2.99/hr</p>
-                </div>
-                <p className="mt-3 text-sm">No upfront costs. Unlimited servicing included.</p>
-              </BentoCell>
-            </div>
-          </StaggerItem>
-          <StaggerItem className="md:col-span-6">
-            <BentoCell href="/robots" className="flex-row items-center justify-between gap-6">
-              <div className="flex items-baseline gap-4">
-                <p className="tabular text-3xl font-medium tracking-tight text-navy">24</p>
-                <p className="text-sm">robots across</p>
-                <p className="tabular text-3xl font-medium tracking-tight text-navy">8</p>
-                <p className="text-sm">categories</p>
-              </div>
-              <p className="hidden text-xs uppercase tracking-[0.2em] text-cardinal-600 transition-transform duration-150 group-hover:translate-x-1 sm:block">
-                View the fleet →
-              </p>
-            </BentoCell>
-          </StaggerItem>
-        </Stagger>
-      </section>
+      {/* 4 — Platform pillars (spec §II). The hero's primary CTA anchors
+          here, so this has to answer "what is Cardinal" on its own. It takes
+          the page's one loose-rhythm slot and one of the three motion slots;
+          the bento below gives both up, because the pillars now carry the
+          argument that the numbers used to open with.
 
-      {/* 5 — Two doors */}
-      <section className="surface-panel border-t border-line/70">
-        <div className="section mx-auto max-w-7xl px-6">
-          <SectionHeading title="One platform. Two ways to use it." />
-          <Stagger className="mt-14 grid gap-4 md:grid-cols-2">
-            <StaggerItem>
-              <Link href="/robots" className="group block h-full">
-                <Card className="flex h-full flex-col overflow-hidden p-0">
-                  <div className="h-60 overflow-hidden">
-                    <Photo
-                      name="warehouse"
-                      alt="Tall warehouse aisle with stocked racking"
-                      sizes="(min-width: 768px) 50vw, 100vw"
-                      className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
-                    />
+          scroll-mt clears the 4rem sticky header so the anchor does not land
+          with the heading tucked underneath it. */}
+      <section id="platform" className="section-loose mx-auto max-w-7xl scroll-mt-20 px-6">
+        <SectionHeading title={pillarsIntro.title} lede={pillarsIntro.lede} />
+        <Stagger className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {platformPillars.map((pillar) => (
+            <StaggerItem key={pillar.title}>
+              <Link href={pillar.href} className="group block h-full">
+                <Card className="flex h-full flex-col justify-between gap-8 p-8">
+                  <div>
+                    <h3 className="text-subtitle font-display font-semibold text-navy">{pillar.title}</h3>
+                    <p className="text-fine mt-3">{pillar.body}</p>
                   </div>
-                  <div className="flex flex-1 flex-col justify-between p-8">
-                    <div>
-                      <p className="text-label text-muted">For operators</p>
-                      <h3 className="text-subtitle mt-3 font-display font-semibold text-navy">
-                        Deploy robots in your facility
-                      </h3>
-                      <p className="text-fine mt-3">
-                        Rent application-specific robots from $2.99/hr with no upfront costs and unlimited servicing included.
-                      </p>
-                    </div>
-                    <p className="mt-6 text-sm text-cardinal-600 transition-transform duration-150 group-hover:translate-x-1">
-                      Explore the fleet →
-                    </p>
-                  </div>
+                  <p className="text-xs uppercase tracking-[0.2em] text-cardinal-600 transition-transform duration-150 group-hover:translate-x-1">
+                    Explore →
+                  </p>
                 </Card>
               </Link>
             </StaggerItem>
-            <StaggerItem>
-              <Link href="/financing" className="group block h-full">
-                <Card className="flex h-full flex-col overflow-hidden p-0">
-                  <div className="h-60 overflow-hidden">
-                    <Photo
-                      name="engineer"
-                      alt="Engineer working on robotics hardware in a lab"
-                      sizes="(min-width: 768px) 50vw, 100vw"
-                      className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
-                    />
-                  </div>
-                  <div className="flex flex-1 flex-col justify-between p-8">
-                    <div>
-                      <p className="text-label text-muted">For robotics companies</p>
-                      <h3 className="text-subtitle mt-3 font-display font-semibold text-navy">
-                        Scale your robotics company
-                      </h3>
-                      <p className="text-fine mt-3">
-                        Non-dilutive deployment capital from $500K to $50M, backed by 3,000+ technicians nationwide.
-                      </p>
-                    </div>
-                    <p className="mt-6 text-sm text-cardinal-600 transition-transform duration-150 group-hover:translate-x-1">
-                      See financing →
+          ))}
+        </Stagger>
+      </section>
+
+      {/* 5 — Bento: the numbers are the artwork. This is the section that
+          carries the argument, so it gets the page's one loose rhythm slot
+          and one of the three scroll-motion slots. */}
+      <section className="surface-panel">
+        <div className="section mx-auto max-w-7xl px-6">
+          <SectionHeading
+            title="Adoption, measured."
+            lede="Cardinal operates the largest commercial robot deployment platform in the country."
+          />
+          <Stagger className="mt-14 grid gap-4 md:grid-cols-6">
+            <StaggerItem className="md:col-span-4">
+              <BentoCell href="/financing" className="h-full bg-cardinal-50 md:min-h-[240px]">
+                <p className="text-label text-muted">Dedicated financing facility</p>
+                <div>
+                  <p className="tabular text-7xl font-medium tracking-tight text-cardinal-700 sm:text-8xl">
+                    $<CountUp to={800} />M
+                  </p>
+                  <p className="text-fine mt-3 max-w-sm">
+                    Non-dilutive deployment capital for robotics companies, from $500K to $50M.
+                  </p>
+                </div>
+              </BentoCell>
+            </StaggerItem>
+            <StaggerItem className="md:col-span-2">
+              <BentoCell href="/robots" className="h-full md:min-h-[240px]">
+                <p className="text-label text-muted">Robots deployed</p>
+                <p className="tabular mt-6 text-6xl font-medium tracking-tight text-navy">
+                  <CountUp to={35000} suffix="+" />
+                </p>
+              </BentoCell>
+            </StaggerItem>
+            <StaggerItem className="md:col-span-3">
+              <BentoCell href="/servicing" className="h-full">
+                <div className="flex items-baseline justify-between gap-4">
+                  <p className="text-label text-muted">Certified technicians</p>
+                  <p className="tabular text-3xl font-medium tracking-tight text-navy">
+                    <CountUp to={3000} suffix="+" />
+                  </p>
+                </div>
+                <div className="mt-6 opacity-90">
+                  <USCoverageMap />
+                </div>
+                <p className="text-fine mt-4">Nationwide service coverage, on call for every deployment.</p>
+              </BentoCell>
+            </StaggerItem>
+            <StaggerItem className="md:col-span-3">
+              <div className="grid h-full gap-4">
+                <BentoCell href="/robots/disinfection">
+                  <div className="flex items-baseline justify-between gap-4">
+                    <p className="text-label text-muted">Hospitals using Cardinal UV-C</p>
+                    <p className="tabular text-3xl font-medium tracking-tight text-navy">
+                      <CountUp to={500} suffix="+" />
                     </p>
                   </div>
-                </Card>
-              </Link>
+                </BentoCell>
+                <BentoCell href="/robots">
+                  <div className="flex items-baseline justify-between gap-4">
+                    <p className="text-label text-muted">Rentals from</p>
+                    <p className="tabular text-3xl font-medium tracking-tight text-navy">$2.99/hr</p>
+                  </div>
+                  <p className="text-fine mt-3">No upfront costs. Unlimited servicing included.</p>
+                </BentoCell>
+              </div>
+            </StaggerItem>
+            <StaggerItem className="md:col-span-6">
+              <BentoCell href="/robots" className="flex-row items-center justify-between gap-6">
+                {/* gap-2 on phones: at gap-4 the phrase broke into four
+                    fragments ("24 · robots across · 8 · categories"). */}
+                <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1 sm:gap-x-4">
+                  <p className="tabular text-3xl font-medium tracking-tight text-navy">24</p>
+                  <p className="text-fine">robots across</p>
+                  <p className="tabular text-3xl font-medium tracking-tight text-navy">8</p>
+                  <p className="text-fine">categories</p>
+                </div>
+                <p className="hidden text-xs uppercase tracking-[0.2em] text-cardinal-600 transition-transform duration-150 group-hover:translate-x-1 sm:block">
+                  View the fleet →
+                </p>
+              </BentoCell>
             </StaggerItem>
           </Stagger>
         </div>
       </section>
 
-      {/* 6 — Why Cardinal: white, split, snappy */}
+      {/* 6 — The deployment-gap argument. Kept from the previous homepage:
+          the pillars above say what Cardinal does, this says why it matters,
+          and it is the page's only editorial photo split. */}
       <section className="border-y border-line/70">
         <div className="section mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-2">
           <div>
@@ -313,34 +300,32 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 8 — Platform: real numbers, no fake screenshot.
+      {/* 8 — The three principles (spec §IV). On panel rather than navy:
+          the lifecycle above already spends the page's one dark rung, and
+          DESIGN.md §3.1 allows exactly one per page. No scroll motion here
+          either — the three-reveal budget goes to the pillars, the bento, and
+          the lifecycle.
 
-          These were four identical bordered boxes, centre-aligned, sitting
-          under a left-aligned heading — the page's clearest template tell. They
-          read as hairline baselines now: rule, label, figure. Deliberately not
-          a second bank of giant numerals, because $800M in §4 is the page's one
-          big number and a rival would flatten it. */}
+          This replaces a four-figure platform stats band that was duplicated
+          verbatim on /platform. The numbers still live there; repeating them
+          here bought nothing. */}
       <section className="surface-panel section">
         <div className="mx-auto max-w-7xl px-6">
           <SectionHeading
-            title="The whole fleet, one view."
-            lede="Every deployment reports into a single system — KPIs, scheduling, ROI, and operational visibility."
+            title="Why Cardinal."
+            lede="The future of robotics isn&apos;t only about what machines can do. It&apos;s about how we deploy them, who benefits from them, and who you trust to build the infrastructure around them."
           />
-          <dl className="mt-14 grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4">
-            {[
-              { n: "24", l: "Robots active" },
-              { n: "148k", l: "Sq ft covered" },
-              { n: "99.2%", l: "Uptime" },
-              { n: "0", l: "Open tickets" },
-            ].map((s) => (
-              <div key={s.l} className="border-t border-line pt-5">
-                <dt className="text-label text-muted">{s.l}</dt>
-                <dd className="tabular mt-3 text-4xl font-medium tracking-tight text-navy">{s.n}</dd>
+          <div className="mt-14 grid gap-10 md:grid-cols-3">
+            {principles.map((pr) => (
+              <div key={pr.title} className="border-t border-line pt-6">
+                <p className="text-label text-muted">{pr.title}</p>
+                <h3 className="text-subtitle mt-4 font-display font-semibold text-navy">{pr.headline}</h3>
+                <p className="text-fine mt-3">{pr.body}</p>
               </div>
             ))}
-          </dl>
+          </div>
           <div className="mt-12">
-            <Button href="/platform" variant="outline" className="bg-paper">See the platform</Button>
+            <Button href="/why-cardinal" variant="outline" className="bg-paper">Why Cardinal →</Button>
           </div>
         </div>
       </section>
@@ -402,10 +387,10 @@ export default function Home() {
 
       {/* 12 — Final CTA */}
       <CTAPanel
-        title="Put robots to work."
+        title="Ready to put robotics to work?"
         body="Tell us about your facility, your fleet, or your robotics company."
-        cta={{ label: "Get in touch", href: "/contact" }}
-        secondary={{ label: "Explore the fleet", href: "/robots" }}
+        cta={{ label: "Talk to us", href: "/contact" }}
+        secondary={{ label: "Explore the platform", href: "/platform" }}
       />
     </main>
   );

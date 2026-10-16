@@ -24,7 +24,7 @@ export default function InsuranceShippingPage() {
             <div className={cn("grid items-center gap-10 lg:grid-cols-2", i % 2 === 1 && "lg:[direction:rtl]")}>
               <div className="lg:[direction:ltr]">
                 <h2 className="font-display text-2xl font-semibold tracking-tight text-navy sm:text-3xl">{s.title}</h2>
-                <p className="mt-4 max-w-md text-sm leading-relaxed">{s.body}</p>
+                <p className="mt-4 max-w-md text-fine">{s.body}</p>
               </div>
               <div className="overflow-hidden rounded-xl border border-line shadow-xl shadow-navy/[0.06] lg:[direction:ltr]">
                 <Photo
