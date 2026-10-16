@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { assemblyPillars, assemblyNote } from "@/data/assembly";
+import { assemblyPillars, assemblyNote, assemblyIntro, assemblyDetail } from "@/data/assembly";
 import { Reveal } from "@/components/motion/Reveal";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { PhotoHero } from "@/components/ui/PhotoHero";
@@ -14,11 +14,15 @@ export default function UsAssemblyPage() {
       <PhotoHero
         image="assembly"
         imageAlt="Blue robotic arm positioned at an automated manufacturing station on a bright factory production line"
-        title="Assembled in the USA."
-        lede="Onshore assembly and U.S. manufacturing, with secure systems and supply-chain assurance behind every robot we deploy."
+        title={assemblyIntro.title}
+        lede={assemblyIntro.lede}
       />
 
       <section className="mx-auto max-w-6xl px-6 section">
+        <div className="mb-16 max-w-3xl">
+          <h2 className="text-title font-display font-semibold text-navy">{assemblyDetail.headline}</h2>
+          <p className="text-copy mt-5">{assemblyDetail.body}</p>
+        </div>
         <Stagger className="grid gap-4 md:grid-cols-2">
           {assemblyPillars.map((p) => (
             <StaggerItem key={p.title}>
@@ -29,11 +33,9 @@ export default function UsAssemblyPage() {
             </StaggerItem>
           ))}
         </Stagger>
-        <Reveal className="mt-16 border-t border-line/70 pt-10 text-center">
-          <p className="text-xs uppercase tracking-[0.2em] text-muted">Engineering pedigree</p>
-          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed">
-            {assemblyNote.text}
-          </p>
+        <Reveal className="mt-16 border-t border-line pt-10">
+          <p className="text-label text-muted">Engineering pedigree</p>
+          <p className="text-copy mt-4 max-w-2xl">{assemblyNote.text}</p>
         </Reveal>
       </section>
 

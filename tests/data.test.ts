@@ -27,8 +27,9 @@ import { dataResidency } from "@/data/security";
 
 const ROUTES = [
   "/", "/platform", "/robots", "/industries", "/servicing",
-  "/security", "/financing", "/about", "/contact",
+  "/security", "/financing", "/why-cardinal", "/contact",
   "/us-assembly", "/data-collection", "/research", "/insurance-shipping",
+  "/solutions", "/press",
   ...categories.map((c) => `/robots/${c.slug}`),
 ];
 
@@ -99,7 +100,7 @@ describe("fact vault integrity", () => {
   });
 
   it("client wall entries are complete, unique, and sourced", () => {
-    expect(clients).toHaveLength(25);
+    expect(clients).toHaveLength(24); // SoftBank removed per the 2026-10-12 spec
     for (const c of clients) {
       expect(c.name, c.name).toBeTruthy();
       expect(c.domain, c.name).toMatch(/^[a-z0-9-]+(\.[a-z0-9-]+)+$/);
@@ -302,14 +303,12 @@ describe("fact vault integrity", () => {
   it("holds every page to the 3-reveal motion budget, or to its recorded debt", () => {
     // DESIGN.md §5 caps scroll-triggered entrances at 3 per page: when every
     // section animates, entrance animation is wallpaper and nothing is
-    // emphasised. Four pages predate the rule and still exceed it. They are
+    // emphasised. Two pages predate the rule and still exceed it (/about and /security paid theirs off in the 2026-10-12 content pass). They are
     // pinned at their current count rather than exempted, so the debt can only
     // shrink; everything else gets the real budget.
     const BUDGET = 3;
     const DEBT: Record<string, number> = {
       "src/app/financing/page.tsx": 7,
-      "src/app/about/page.tsx": 6,
-      "src/app/security/page.tsx": 6,
       "src/app/platform/page.tsx": 5,
     };
     const seen = new Set<string>();

@@ -27,7 +27,7 @@ export default function ServicingPage() {
       <PhotoHero
         image="engineer"
         imageAlt="Engineer working on robotics hardware in a lab"
-        title="Cardinal Robot Services."
+        title="A robot that is down is productivity lost."
         lede="We maintain, deploy, and teleoperate robots in the field so you don't have to — national coverage, 24/7 remote support, and parts and robot depots across the country."
       />
 

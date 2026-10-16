@@ -17,8 +17,8 @@ export default function FinancingPage() {
           <Reveal>
             <SectionHeading
               tone="dark"
-              title="$800M. Non-dilutive. Built by roboticists."
-              lede="Deployment capital specifically designed for RaaS and HaaS business models — for US-based, growth-stage robotics and IoT companies."
+              title="$500K to $50M. Zero equity. Two-day decisions."
+              lede="Cardinal provides non-dilutive, non-debt growth capital for US-based robotics and IoT companies, with no liens or personal guarantees."
             />
           </Reveal>
           <Stagger className="mt-14 grid gap-4 md:grid-cols-3">

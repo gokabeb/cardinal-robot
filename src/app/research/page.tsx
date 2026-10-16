@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { researchStats, researchNote, researchClosing } from "@/data/research";
+import { researchStats, researchHero, researchCapabilities, researchClosing } from "@/data/research";
 import { Reveal } from "@/components/motion/Reveal";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { PhotoHero } from "@/components/ui/PhotoHero";
 import { Card } from "@/components/ui/Card";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CTAPanel } from "@/components/ui/CTAPanel";
 
 export const metadata: Metadata = { title: "Research & Development" };
@@ -14,8 +15,8 @@ export default function ResearchPage() {
       <PhotoHero
         image="research"
         imageAlt="White robotic arm reaching toward a wall of storage cubbies in a robotics lab"
-        title="Research that ships."
-        lede={researchNote.text}
+        title={researchHero.title}
+        lede={researchHero.lede}
       />
 
       <section className="mx-auto max-w-6xl px-6 section">
@@ -29,12 +30,26 @@ export default function ResearchPage() {
             </StaggerItem>
           ))}
         </Stagger>
-        <Reveal className="mt-16 border-t border-line/70 pt-10 text-center">
-          <p className="text-xs uppercase tracking-[0.2em] text-muted">In-house, end to end</p>
-          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed">
-            {researchClosing.text}
-          </p>
-        </Reveal>
+      </section>
+
+      {/* The three capability areas the spec breaks R&D into. On panel so the
+          page alternates rather than running one continuous white field. */}
+      <section className="surface-panel section border-y border-line">
+        <div className="mx-auto max-w-6xl px-6">
+          <SectionHeading title="What the team builds." />
+          <div className="mt-12 grid gap-10 md:grid-cols-3">
+            {researchCapabilities.map((c) => (
+              <div key={c.title} className="border-t border-line pt-5">
+                <h3 className="text-subtitle font-display font-semibold text-navy">{c.title}</h3>
+                <p className="text-fine mt-3">{c.body}</p>
+              </div>
+            ))}
+          </div>
+          <Reveal className="mt-16 border-t border-line pt-10">
+            <p className="text-label text-muted">In-house, end to end</p>
+            <p className="text-copy mt-4 max-w-2xl">{researchClosing.text}</p>
+          </Reveal>
+        </div>
       </section>
 
       <CTAPanel
